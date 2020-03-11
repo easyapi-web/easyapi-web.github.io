@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "ydoc-build": "ydoc build"
+    },
+    "dependencies": {
+        "ydoc": "^4.1.1",
+        "ydoc-plugin-copy": "0.0.3"
+    }
+}
