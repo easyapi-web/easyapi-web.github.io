@@ -1,32 +1,31 @@
-**支持以下使用方法**
+**The following usage are supported**
 
-1. 打开项目中的包含rpc的文件或者在IDEA的左边项目文件区域选择文件或者文件夹
-    使用快捷键`alt shift E(windows)/ctrl E(mac)`
-    然后选择要导出的API,选择导出渠道`Yapi/Markdown`
-    点击[✔]按钮或者按回车键完成导出
+1. Open the file containing the RPCs in the project or select the file or folder in the project file area on the left of IDEA
+    Use shortcut `alt shift E(windows)/ctrl E(mac)`
+    Then select the RPCs, and select the export channel `Markdown`
+    Click [✔] button or press enter to confirm the export.
     
-2. 打开项目中的包含rpc的文件
-    右键文件内容选择`Generate...`或者用`[Alt + Insert]/[Ctrl+Enter]`(快捷键可能不一样)"
-    然后选择`ExportYapi/ExportMarkdown`
+2. Open the file containing the RPCs in the project
+    Right-click file editor then select `Generate...` or use shortcut`[Alt + Insert]/[Ctrl+Enter]`
+    Next,select `ExportMarkdown`
 
-3. 在IDEA的左边项目文件区域选择文件或者文件夹
-    鼠标点击最上方<kbd>Code</kbd> > <kbd>ExportYapi/ExportMarkdown</kbd>
+3. Select the file or folder in the project file area on the left of IDEA
+    Click <kbd>Code</kbd> > <kbd>ExportMarkdown</kbd> on the top of IDEA.
+
 
 ---
 
-**rpc相关规则**
+**rpc rules**
 
-| &nbsp;&nbsp;&nbsp;&nbsp;规则的key | 规则目标(上下文) | 版本 | 规则描述 |
+| &nbsp;&nbsp;&nbsp;&nbsp;key | target(context) | version | desc |
 | ------------ | ------------ | ------------ |------------ |
-| ☆[mdoc.class.filter](/setting/rules/mdoc_class_filter.html) | class | v0.9.5+ | 选择哪些类可以导出方法文档(rpc) |
-| &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.filter | method | v0.9.5+ | 选择哪些方法可以导出方法文档(rpc) |
-| ☆[mdoc.method.path](/setting/rules/mdoc_method_path.html) | method | v0.9.5+ | 设置方法文档(rpc)的路径 |
-| &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.http.method | method | v0.9.5+ | 设置方法文档(rpc)HTTP请求方式 |
+| ☆[mdoc.class.filter](/setting/rules/mdoc_class_filter.html) | class | v0.9.5+ | Filter classes which can export method documents(rpc) |
+| &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.filter | method | v0.9.5+ | Filter methods which can export method documents(rpc) |
 
-点击[规则配置](/setting/config-rule.html)查看更多.
+click[config rule](/setting/config-rule.html)to view more.
 
 ----
 
-- 导出rpc方法的功能默认是关闭的 , 开启需要勾选:<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd> , 参见:[IDEA配置](/setting/ide-setting.html)
+- The feature to export RPC methods is turned off by default , To open, need check:<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd> , see:[IDEA config](/setting/ide-setting.html)
 
-- rpc文档支持导出到`yapi`/`markdown`
+- rpc document exported support `markdown` only

@@ -1,10 +1,10 @@
 # Introduction
 
 - Elegant documents come from elegant comments
-- Parsing based on [javadoc](#Javadoc)&[KDoc](#KDoc)&[ScalaDoc](#ScalaDoc)
+- Parsing based on [javadoc](./docs.md#Javadoc)&[KDoc](./docs.md#KDoc)&[ScalaDoc](./docs.md#ScalaDoc)
 
+## Feature
 
-## 功能特性
 - [Export API Doc To`Postman`](export2postman.md)
 - [Export API Doc To`Markdown`](export2markdown.md)
 - [Export RPC Doc To`Markdown`](export_rpc.md)

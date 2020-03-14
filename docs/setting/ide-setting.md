@@ -20,11 +20,6 @@
 
  - token: 用于设置或更新`postman privateToken`, 可以从[Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)获得 
 
-### Yapi:
-
- - server 即部署的yapi地址，如:`http://127.0.0.1:3000/`
- - tokens 即yapi项目中用于请求项目openapi的私有token，获取方式为`项目->设置->token 配置 -> 工具标识`
-
 **Markdown** :
 
  - outputDemo: 导出`markdown`文档时, 为每个API生成一个响应demo

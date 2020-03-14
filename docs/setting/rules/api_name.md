@@ -1,18 +1,18 @@
 # api.name
 
-- 用于设置API名称
-- 缺省情况下，默认使用api注释的第一行作为API的名称
+- Set the API name
+- By default, the first line of the API comment will be used as the name of the API
 
 ## demo
 
-***配置如下:***
+***Configuration like this:***
 
 ```properties
 # read api name from tag `api.name`
 api.name=#api.name
 ```
 
-***使用如下:*** 
+***Usage:*** 
 
 ```java
 /**

@@ -2,4 +2,4 @@
 
 ### demo
 
-* [demo 项目](index.md)
+* [demo project](index.md)

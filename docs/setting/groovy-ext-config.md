@@ -18,7 +18,6 @@
   - `FieldsToJsonAction`
   - `MarkdownExportAction`
   - `PostmanExportAction`
-  - `YapiExportAction`
 
 - 在扩展文件中声明扩展类:
 ```groovy

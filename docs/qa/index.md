@@ -1,10 +1,10 @@
 
-***此插件配置过于灵活, 以下均为示例, 需根据实际情况做合适的处理。***
+***This plug-in configuration is too flexible, and the following are just examples that need to be adjusted according to the actual situation。***
 
 ---
 
 
-## 如何添加配置文件
+## How to add a configuration file
 
    * see [local-file-config](/setting/local-file-config.html)
    
@@ -15,7 +15,6 @@
 
    * `module`用于分类api
         * 导出`postman`时,每个`module`将作为一个单独的文件夹
-        * 导出`yapi`,每个`module`需要配置相应的`token`,即对应一个`yapi`中的项目
 
    * 增加配置:
 

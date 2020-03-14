@@ -1,14 +1,13 @@
-# 通用配置
+# General configuration
 
-### 零配置,开箱即用
+### Zero configuration, out of the box
 
-- 插件安装后，无需任何配置即可使用. 一般来说, 当导出API的过程中需要提供某些参数, 插件将以弹框的方式提供输入.<br>
-按要求填入即可
+- Once the plug-in is installed, it can be used without any configuration. In general, when some info need to be provided during the export of the API, the plug-in will pop a window, Fill in as required.
 
-### 额外的配置方法
+### Additional configuration ways
 
-- [在IDEA中设置](ide-setting.md)
-    - 方便快捷, 可以对插件的默认行为做出调整
+- [Setting in IDEA](ide-setting.md)
+    - Convenient and quick, you can adjust some default behavior of the plug-in
 
-- [使用项目内配置文件](local-file-config.md)
-    - 可定制化程度高，可以高度适配个性化业务
+- [Configuration file in project ](local-file-config.md)
+    - High customizability, can be highly adapted to personalized business
