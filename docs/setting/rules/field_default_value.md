@@ -1,6 +1,6 @@
 # field.default.value(v1.7.1+)
 
-- 用于设置`字段`的default 
+- use to set default value of field
 
 ## 原生编码支持
 

@@ -1,6 +1,6 @@
 # doc.param
 
-- 参数的额外注释
+- Additional comments of param
 
 ## 在注释中给出参数type
 
@@ -38,9 +38,9 @@ doc.param=groovy:"type:"+tool.uncapitalize(it.type().name().replace("java.lang."
 
 ***请求参数:***
 
-| 参数name | required |	示例 | desc |
+| 参数name | required |	demo | desc |
 | --- | --- | --- | --- |
 | id | 是 |   | 用户id<br>type:long |
-| newName | 是|   |新的用户名<br> type:string |
+| newName | 是 |   |新的用户名<br> type:string |
 | slogon | 否 |   |个人签名<br> type:string |
 | times | 否 |   | type:long |

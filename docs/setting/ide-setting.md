@@ -14,7 +14,7 @@
 **Support** :
 
  - methodDoc: When checked, method documents can be exported, It can be also used to export RPC documents
-Support export to ` markdown` only.
+Support export to `markdown` only.
 
 ### Postman:
 
@@ -22,8 +22,8 @@ Support export to ` markdown` only.
 
 **Markdown** :
 
- - outputDemo: Generate a response demo for each API when exporting 'markdown' documents
- - outputCharset: Select the character set to used for the 'markdown' document
+ - outputDemo: Generate a response demo for each API when exporting `markdown` documents
+ - outputCharset: Select the character set to used for the `markdown` document
 
 **Cache** :
 
