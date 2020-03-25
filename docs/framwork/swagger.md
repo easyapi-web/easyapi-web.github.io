@@ -1,6 +1,6 @@
-**默认推荐配置中不包含`swagger`的支持**
+**Support for 'swagger' is not included in the built-in recommended configuration**
 
-- 如果需要支持[swagger](https://swagger.io),可自行[增加如下配置](/setting/index.html)
+- If you need to support [swagger](https://swagger.io), you can [add the following configuration](/setting/index.html)
 
 ```properties
 #swagger

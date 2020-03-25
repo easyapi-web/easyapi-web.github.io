@@ -11,19 +11,19 @@
 ---
 
 
-## 如何组织API到指定文件夹
+## How to organize API to specified folder
 
-   * `module`用于分类api
-        * 导出`postman`时,每个`module`将作为一个单独的文件夹
+   * `module` is use for classification API
+        * When exporting `postman`, each `module` will be used as a separate folder
 
-   * 增加配置:
+   * The built-in configuration:
 
    ```properties
    #find module from comment tag 
    module=#module
    ```
    
-   * 在类上这样注释:
+   * Comment like this on the class:
 
    ```java
    /**
@@ -40,16 +40,16 @@
 ---
 
 
-## 如何忽略API
+## How to ignore API
 
-   * 增加配置:
+   * The built-in configuration:
 
    ```properties
    #ignore class or method which has comment tag 'ignore' 
    ignore=#ignore
    ```
    
-   * 在类上注释@ignore忽略当前类
+   * Comment like this on the class to ignore all apis in the class:
 
    ```java
    /**
@@ -63,7 +63,7 @@
    }
    ```
    
-   * 在方法上注释@ignore忽略当前API
+   * Comment like this on the method to ignore the api:
 
    ```java
    /**
@@ -88,22 +88,22 @@
 ---
 
 
-## 如何设置API/文件夹的名称/描述
+## How to set the name / description of API / folder
 
- * 一般来说:
+ * In general:
 
     ```java
     /**
-     * 第一行注释作为文件夹的标题
-     * 剩余行注释作为文件夹的描述
+     * The head line of comments will be used as the title of the folder
+     * The remaining line comments are used as the description
      */
     @RestController
     @RequestMapping(value = "mock")
     public class MockCtrl {
     
         /**
-         * 第一行行注释作为API的标题
-         * 剩余行注释作为API的描述
+         * The head line of comments will be used as the title of the api
+         * The remaining line comments are used as the description
          */
         @GetMapping("/string")
         public String mockString() {
@@ -115,9 +115,9 @@
 
 
 
-## 如何在API/文件夹的描述中说明API/文件夹被废弃了
+## How to explain in the description of API / folder that API / folder is deprecated
 
-*   添加配置:
+   * The built-in configuration:
 
     ```properties
     doc.method[#deprecated]=groovy:"\n「deprecated」" + it.doc("deprecated")
@@ -134,9 +134,9 @@
 
 
     
-## 如何在API描述中声明API需要的权限(javax annotation security)
+## How to declare the permissions required by API in API description(javax annotation security)
 
-   * add config for spring security:
+   * add config for javax annotation security:
 
    ```properties
    ## security description
@@ -147,16 +147,16 @@
 
    ```java
    /**
-    * 第一行注释作为文件夹的标题
-    * 剩余行注释作为文件夹的描述
+    * The head line of comments will be used as the title of the folder
+    * The remaining line comments are used as the description
     */
    @RestController
    @RequestMapping(value = "mock")
    public class MockCtrl {
    
        /**
-        * 第一行行注释作为API的标题
-        * 剩余行注释作为API的描述
+        * The head line of comments will be used as the title of the api
+        * The remaining line comments are used as the description
         */
        @GetMapping("/string")
        @RolesAllowed("admin")
@@ -171,9 +171,9 @@
 
 
 
-## 如何在API描述中声明API需要的权限(spring security)
+## How to declare the permissions required by API in API description(spring security)
 
-   * 可配置如下:
+   * add config for spring security:
 
    ```properties
    ## security description
@@ -185,16 +185,16 @@
 
    ```java
    /**
-    * 第一行注释作为文件夹的标题
-    * 剩余行注释作为文件夹的描述
+    * The head line of comments will be used as the title of the folder
+    * The remaining line comments are used as the description
     */
    @RestController
    @RequestMapping(value = "mock")
    public class MockCtrl {
    
        /**
-        * 第一行行注释作为API的标题
-        * 剩余行注释作为API的描述
+        * The head line of comments will be used as the title of the api
+        * The remaining line comments are used as the description
         */
        @GetMapping("/string")
        @PreAuthorize("hasRole('admin')")
@@ -209,23 +209,23 @@
 
 
  
-## 如何忽略某些字段
+## How to ignore special fields
 
-   * 忽略特定名称的字段:
+   * Ignore fields with specific names:
 
    ```properties
    ## ignore field 'log'
    json.rule.field.ignore=log
    ```
    
-   * 忽略特定类型的字段:
+   * Ignore fields of specific types:
 
    ```properties
    ## ignore field 'log' typed xxx.xxx.Log
    json.rule.field.ignore=groovy:it.type().name()=="xxx.xxx.Log"
    ```
    
-   * 忽略特定限定符的字段:
+   * Ignore fields with specific modifiers:
 
    ```properties
    #ignore transient field
@@ -235,11 +235,9 @@
 ---
 
 
+## How to convert the specified type to another type
 
-
-## 如何将指定类型转换为另一种类型处理
-
-   * 将`java.time.LocalDateTime`作为`yyyy-mm-dd`形式字符串处理
+   * Parse `java.time.LocalDateTime` as a string of `yyyy-mm-dd`
 
    ```properties
    #Resolve 'java.time.LocalDateTime' as 'java.lang.String'
@@ -247,7 +245,7 @@
    json.rule.convert[java.time.LocalDate]=java.lang.String
    ```
    
-   * 将`java.time.LocalDateTime`作为`timestamp`处理
+   * Parse `java.time.LocalDateTime` as a long of `timestamp`
    
    ```properties
    #Resolve 'java.time.LocalDateTime' as 'java.lang.Long'
@@ -256,17 +254,17 @@
    ```
    
 
-## 部分接口可能有不同的返回
+## Some apis may have different returns
 
-   * 可以使用[doc.method](/setting/rules/doc_method.html)将可能的返回放在方法备注中
+   * Use [doc.method](/setting/rules/doc_method.html) to show possible returns in method comments
 
-   ***配置如下:***
+   ***Configurations:***
 
    ```properties
-   doc.method[#result]=groovy: it.docs("result").collect{helper.resolveLink(it)}.grep{it!=null}.collect{"可能的返回:\n\n```json\n"+it.toJson(true)+"\n```\n\n"}.join("\n")
+   doc.method[#result]=groovy: it.docs("result").collect{helper.resolveLink(it)}.grep{it!=null}.collect{"may return:\n\n```json\n"+it.toJson(true)+"\n```\n\n"}.join("\n")
    ```
 
-   ***使用如下:***
+   ***Usages:***
 
    ```java
     /**

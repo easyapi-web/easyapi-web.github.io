@@ -1,4 +1,4 @@
-**在推荐配置中有部分javax.validation相关的配置**
+**There are some configurations for `javax.validation` in the built-in recommended configuration**
 
 ```properties
 #Support for javax.validation annotations

@@ -1,6 +1,6 @@
-**在推荐配置中有很多spring-boot相关的配置**
+### The built-in recommended configuration
 
-- 处理`HttpEntity`/`RequestEntity`/`ResponseEntity`
+- Resolve `HttpEntity`/`RequestEntity`/`ResponseEntity`
 
 ```properties
 #resolve HttpEntity/RequestEntity/ResponseEntity
@@ -14,7 +14,7 @@ json.rule.convert[#regex:org.springframework.http.ResponseEntity]=java.lang.Obje
 ###set resolveProperty = true
 ```
 
-- 加载spring-boot相关配置:
+- Load spring boot configuration properties
 
 ```properties
 #Import spring properties
@@ -23,7 +23,7 @@ properties.additional=${module_path}/src/main/resources/application.yml
 properties.additional=${module_path}/src/main/resources/application.yaml
 ```
 
-- 默认使用spring-boot配置中的`server.servlet.context-path`
+- Use 'server.servlet.context-path' as prefix path by default
 
 ```properties
 #Resolve spring properties

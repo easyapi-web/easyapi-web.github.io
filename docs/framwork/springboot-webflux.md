@@ -1,4 +1,4 @@
-**在推荐配置中有部分[springboot-webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux)相关的配置**
+**There are some configurations for [springboot-webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux) in the built-in recommended configuration**
 
 ```properties
 #resolve Mono/Flux

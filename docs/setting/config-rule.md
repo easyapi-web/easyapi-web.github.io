@@ -38,12 +38,14 @@
 
 
 # Simple rules
+
 - \# Read tag on comment
    ```java
    /**
     * @fake
     */
    ```
+
 - @ Read annotation
    - @xxx Read annotations on methods or fields
    ```java
