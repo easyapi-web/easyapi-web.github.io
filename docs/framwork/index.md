@@ -1,4 +1,4 @@
-# 使用配置支持不同的框架
+# Support different frameworks with configuration
 
-- 基于性能考虑, 内置推荐配置并不会覆盖所有框架的所有功能
-- 如需增加对指定框架的支持, 参考[配置](/setting/index.html)
+- Based on performance considerations, the built-in recommended configuration does not cover all the features of all frameworks
+- To add support for the specified framework or feature, see [setting](/setting/index.html)
