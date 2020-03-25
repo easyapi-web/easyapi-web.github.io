@@ -1,46 +1,46 @@
 
-# 在IDE中设置(全局)
+# Setting in IDE (global)
 
 - <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd>
 
-## 通用配置
+## General
 
 ![avatar](/asset/idea-general.png)
 
 **Common** :
 
- - log: 一般来说使用一段时间后,log可以设置为`HIGH`,减少不必要的输出<br>当出现异常情况时,可以设置为`LOW`,获的更多信息
+ - log: In general, the log can be set to "high" to ignore unnecessary output ,when an exception occurs, it can be set to "low" to get more information
 
 **Support** :
 
- - methodDoc: 勾选后，允许导出方法文档, 亦可用于导出rpc相关文档<br>
- 支持导出到`markdown/yapi`
+ - methodDoc: When checked, method documents can be exported, It can be also used to export RPC documents
+Support export to ` markdown` only.
 
 ### Postman:
 
- - token: 用于设置或更新`postman privateToken`, 可以从[Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)获得 
+ - token: It is used to set or update `postman privateToken`. It can be obtained from [Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)
 
 **Markdown** :
 
- - outputDemo: 导出`markdown`文档时, 为每个API生成一个响应demo
- - outputCharset: 选择导出`markdown`文档时使用的字符集
+ - outputDemo: Generate a response demo for each API when exporting 'markdown' documents
+ - outputCharset: Select the character set to used for the 'markdown' document
 
 **Cache** :
 
- - global: 全局缓存
- - project: 当前项目缓存
+ - global: Global cache
+ - project: Current project cache
 
 **intelligent** :
 
- - inferEnable: 允许插件在遇到不确定的方法返回类型为(Object，Some\<Object>)时尝试通过代码流进行推断,并根据项目需求设置maxDeep(最大推断深度)
- - maxDeep: 允许推断的最大深度
- - getter as field: 尝试读取getter方法作为json字段
- - use recommend config: 使用内置的推荐配置
+ - inferEnable: Allows plug-ins to try to infer through code flow when encountering uncertain method return type (like: Object，Some\<Object>)
+ - maxDeep: Max depth allowed to infer
+ - getter as field: Try to read getter method as JSON field
+ - use recommend config: Whether to use the built-in recommended configuration
 
 
-## 内置可选推荐配置
+## Built-in optional recommended configuration
 
 ![avatar](/asset/idea-recommend.png)
 
-- 可以通过勾选来选择需要的配置
-- 内置推荐配置源代码: [portal](https://github.com/tangcent/easy-yapi/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)
+- Select the needed configuration by checking
+- Source code of built-in recommended configuration : [portal](https://github.com/tangcent/easy-yapi/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)

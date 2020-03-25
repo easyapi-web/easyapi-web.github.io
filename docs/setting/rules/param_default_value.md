@@ -1,8 +1,8 @@
 # param.default.value
 
-- 用于设置API参数的默认值 
+- 用于设置API参数的default 
 
-### 添加对swagger @ApiParam支持
+### Add support for swagger @ApiParam
 
 ```properties
 param.default.value=@io.swagger.annotations.ApiParam#defaultValue

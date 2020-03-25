@@ -1,8 +1,8 @@
 # field.required
 
-- 用于标记字段是否为必须(即不可为空)
+- Used to mark whether the field is required (it cannot be empty)
 
-## 默认推荐配置
+## Built-in recommended configuration
 
 ```properties
 #Support for javax.validation annotations
@@ -11,7 +11,7 @@ field.required=@javax.validation.constraints.NotNull
 field.required=@javax.validation.constraints.NotEmpty
 ```
 
-## 添加对swagger @ApiModelProperty支持
+## Add support for swagger @ApiModelProperty
 
 ```properties
 field.required=@io.swagger.annotations.ApiModelProperty#required
@@ -40,6 +40,6 @@ public class SwaggerModel {
 
 ### 作为API返回值导出:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | a |	integer | 必须 |  |  | mock: @natural(0,10000) |

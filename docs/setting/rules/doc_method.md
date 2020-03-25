@@ -1,26 +1,26 @@
 # doc.method
 
-- 方法(API)的额外注释
+- Additional comments on method(api)
 
 
-### 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 #deprecated info(java)
-doc.method[#deprecated]=groovy:"\n「已废弃」" + it.doc("deprecated")
-doc.method[@java.lang.Deprecated]=「已废弃」
+doc.method[#deprecated]=groovy:"\n「deprecated」" + it.doc("deprecated")
+doc.method[@java.lang.Deprecated]=「deprecated」
 
-doc.method[groovy:it.containingClass().hasDoc("deprecated")]=groovy:"\n「已废弃」" + it.containingClass().doc("deprecated")
-doc.method[groovy:it.containingClass().hasAnn("java.lang.Deprecated")]=「已废弃」
+doc.method[groovy:it.containingClass().hasDoc("deprecated")]=groovy:"\n「deprecated」" + it.containingClass().doc("deprecated")
+doc.method[groovy:it.containingClass().hasAnn("java.lang.Deprecated")]=「deprecated」
 
 
 #deprecated info(kotlin)
-doc.method[@kotlin.Deprecated]=groovy:"\n「已废弃」" + it.ann("kotlin.Deprecated","message")
-doc.method[groovy:it.containingClass().hasAnn("kotlin.Deprecated")]=groovy:"\n「已废弃」 " + it.containingClass().ann("kotlin.Deprecated","message")
+doc.method[@kotlin.Deprecated]=groovy:"\n「deprecated」" + it.ann("kotlin.Deprecated","message")
+doc.method[groovy:it.containingClass().hasAnn("kotlin.Deprecated")]=groovy:"\n「deprecated」 " + it.containingClass().ann("kotlin.Deprecated","message")
 
 ```
 
-### 添加对swagger @ApiOperation支持
+### Add support for swagger @ApiOperation
 
 ```properties
 doc.method=@io.swagger.annotations.ApiOperation#value

@@ -7,7 +7,7 @@
 
 | 方法  |  返回值  |  描述  |  示例  |
 | ------------ | ------------ | ------------ |------------ |
-| name() | string | 名称 | it.name() |
+| name() | string | name | it.name() |
 | hasAnn("annotation_name") | boolean | 是否有指定注解 | it.hasAnn("org.springframework.web.bind.annotation.RequestBody")| 
 | ann("annotation_name") | string | 获取指定注解值(默认value) | it.ann("org.springframework.web.bind.annotation.RequestBody")| 
 | ann("annotation_name","attr") | string | 获取指定注解中的指定参数值 | it.ann("org.springframework.web.bind.annotation.RequestMapping","path")| 
@@ -20,7 +20,7 @@
 | modifiers() | string | 获取所有修饰 | it.modifiers() | 
 | sourceCode() | string | 获取当前对象源码 | it.sourceCode() | 
 | defineCode() | string | 获取当前对象纯定义代码 | it.defineCode() | 
-| contextType() | string | 当前上下文类型 class/field/method/param | it.contextType()| 
+| contextType() | string | 当前上下文type class/field/method/param | it.contextType()| 
 
 ### 不同的应用对象提供额外的方法
 
@@ -36,16 +36,16 @@
 | isMap() | boolean | 是否为Map | it.isMap() |
 | isCollection() | boolean | 是否为集合 | it.isCollection() |
 | isArray() | boolean | 是否为数组 | it.isArray() |
-| toJson(readGetter) | boolean | 获取当前类型的json字符串 | it.toJson(true) |
+| toJson(readGetter) | boolean | 获取当前type的json字符串 | it.toJson(true) |
 
 - method(方法/API)
 
 | 方法  |  返回值  |  描述  |  示例  |
 | ------------ | ------------ | ------------ |------------ |
-| returnType() | class | 方法返回类型 | it.returnType() |
+| returnType() | class | 方法返回type | it.returnType() |
 | isVarArgs() | boolean | 是否有不定参 | it.isVarArgs() |
 | args() | arg[] | 方法的所有参数 | it.args() |
-| argTypes() | class[] | 方法的所有参数类型 | it.argTypes() |
+| argTypes() | class[] | 方法的所有参数type | it.argTypes() |
 | argCnt() | int | 方法参数个数 | it.argCnt() |
 | containingClass() | class | 方法所属类 | it.containingClass() |
 | returnJson(needInfer, readGetter) | class | 当前方法返回对象的json字符串 | it.returnJson(true,true) |
@@ -54,14 +54,14 @@
 
 | 方法  |  返回值  |  描述  |  示例  |
 | ------------ | ------------ | ------------ |------------ |
-| type() | class | 字段类型 | it.type()| 
+| type() | class | 字段type | it.type()| 
 | containingClass() | class | 字段所属类 | it.containingClass() | 
 | jsonName() | string | 字段json名 | it.jsonName() | 
-| jsonType() | class | 字段json类型(被转换过的) | it.jsonType() | 
+| jsonType() | class | 字段jsontype(被转换过的) | it.jsonType() | 
 
 - arg(参数)
 
 | 方法  |  返回值  |  描述  |  示例  |
 | ------------ | ------------ | ------------ |------------ |
-| type() | class | 参数类型 | it.type() |
+| type() | class | 参数type | it.type() |
 | isVarArgs() | boolean | 是否为不定参 | it.isVarArgs() |

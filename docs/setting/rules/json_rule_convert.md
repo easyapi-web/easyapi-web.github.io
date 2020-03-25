@@ -1,9 +1,9 @@
 # json.rule.convert
 
-- 用于设置某些类型转换为其他类型处理，通常用于使用了Spring的自定义类型转换器的情况
+- 用于设置某些type转换为其他type处理，通常用于使用了Spring的自定义type转换器的情况
 
 
-### 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 #The ObjectId and Date are parsed as strings

@@ -3,7 +3,7 @@
 - 用于设置输出/输入的字段名(用于json中字段名与类中字段名不一致)
 
 
-## 默认推荐配置
+## Built-in recommended configuration
 
 ```properties
 #Support for Jackson annotations
@@ -33,7 +33,7 @@ public class TestJsonFieldBean {
 
 ### 作为API返回值导出:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | a |	integer | 非必须 |  |  | mock: @natural(0,10000) |
 | b | integer | 非必须 |  |  | mock: @natural(0,10000) |

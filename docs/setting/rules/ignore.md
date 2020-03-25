@@ -1,11 +1,11 @@
 # ignore
 
-- 用于忽略`class`/`method`，不进行解析
-- 注释在`class`上时,整个类将被忽略
-- 注释在`method`上时,当前方法将被忽略
+- Used to ignore class/method
+- Comment `@ignore` on the class to ignore all apis in the class.
+- Comment `@ignore` on the method to ignore the api for the method.
 
 
-### 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 ignore=#ignore
@@ -13,7 +13,7 @@ ignore=#ignore
 
 ### demo
 
-* 在类上注释`@ignore`忽略当前类
+* Comment like this on the class to ignore all apis in the class
 
 ```java
 /**
@@ -27,7 +27,7 @@ public class MockCtrl {
 }
 ```
 
-* 在方法上注释`@ignore`忽略当前API
+* Comment like this on the method to ignore the api:
 
 ```java
 /**

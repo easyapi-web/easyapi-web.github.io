@@ -1,6 +1,6 @@
 # json.rule.enum.convert
 
-- 用于设置枚举类型的转换
+- 用于设置枚举type的转换
 - 优先级低于[json.rule.convert](json_rule_convert.md)
 
 
@@ -39,29 +39,29 @@ public enum UserType {
 
 ```java
 /**
-* 用户类型
+* 用户type
 */
 private UserType type;
 ```
 
 ### 默认情况
 
-- 默认将枚举类型转换为`String`处理,给出可用值为枚举中的实例名
+- 默认将枚举type转换为`String`处理,给出可用值为枚举中的实例名
 
 - 上述字段将被处理为
 
 ```java
 /**
-* 用户类型
+* 用户type
 * @see UserType
 */
 private String type;
 ```
 - 导出API结果为:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | string | 非必须 | | 用户类型 | 枚举: ADMIN,MEMBER,GUEST<br>枚举备注: ADMIN :管理员 MEMBER :成员 GUEST :游客<br>mock: @pick(["ADMIN","MEMBER","GUEST"]))
+| type | string | 非必须 | | 用户type | 枚举: ADMIN,MEMBER,GUEST<br>枚举desc: ADMIN :管理员 MEMBER :成员 GUEST :游客<br>mock: @pick(["ADMIN","MEMBER","GUEST"]))
 
 ### 增加配置
 
@@ -75,7 +75,7 @@ json.rule.enum.convert[com.itangcent.common.constant.UserType]=~#type
 
 ```java
 /**
-* 用户类型
+* 用户type
 * @see UserType#type
 */
 private int type;
@@ -83,9 +83,9 @@ private int type;
 
 - 导出API结果为:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | 用户类型 | 枚举: 1,2,3<br>枚举备注: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3])
+| type | integer | 非必须 | | 用户type | 枚举: 1,2,3<br>枚举desc: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3])
 
 
 

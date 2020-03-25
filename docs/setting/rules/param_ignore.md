@@ -2,7 +2,7 @@
 
 - 忽略API参数
 
-### 添加对swagger @ApiParam支持
+### Add support for swagger @ApiParam
 
 ```properties
 param.ignore=@io.swagger.annotations.ApiParam#hidden

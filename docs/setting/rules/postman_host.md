@@ -1,9 +1,9 @@
 # postman.host
 
-- 设置`postman`API的host
-- 默认使用当前模块名作为API的host,例如`{{user}}`
+- Set host of `postman` API
+- Use the current module name as the host of the API by default,for example:`{{user}}`
 
-## 固定host配置如下
+## The immutable host configuration is as follows
 
 ```properties
 postman.host=http://localhost:8080

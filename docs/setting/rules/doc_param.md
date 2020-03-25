@@ -2,16 +2,16 @@
 
 - 参数的额外注释
 
-## 在注释中给出参数类型
+## 在注释中给出参数type
 
 ```properties
-doc.param=js:"类型:"+it.type().name()
+doc.param=js:"type:"+it.type().name()
 ```
 
-## 在注释中给出参数类型并去掉java包名
+## 在注释中给出参数type并去掉java包名
 
 ```properties
-doc.param=groovy:"类型:"+tool.uncapitalize(it.type().name().replace("java.lang.",""))
+doc.param=groovy:"type:"+tool.uncapitalize(it.type().name().replace("java.lang.",""))
 ```
 
 ### 示例API
@@ -38,9 +38,9 @@ doc.param=groovy:"类型:"+tool.uncapitalize(it.type().name().replace("java.lang
 
 ***请求参数:***
 
-| 参数名称 | 是否必须 |	示例 | 备注 |
+| 参数name | required |	示例 | desc |
 | --- | --- | --- | --- |
-| id | 是 |   | 用户id<br>类型:long |
-| newName | 是|   |新的用户名<br> 类型:string |
-| slogon | 否 |   |个人签名<br> 类型:string |
-| times | 否 |   | 类型:long |
+| id | 是 |   | 用户id<br>type:long |
+| newName | 是|   |新的用户名<br> type:string |
+| slogon | 否 |   |个人签名<br> type:string |
+| times | 否 |   | type:long |

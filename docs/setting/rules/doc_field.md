@@ -1,20 +1,20 @@
 # doc.field
 
-- 字段的额外注释
+- Additional comments on field
 
-## 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 #deprecated info(java)
-doc.field[#deprecated]=groovy:"\n「已废弃」" + it.doc("deprecated")
-doc.field[@java.lang.Deprecated]=「已废弃」
+doc.field[#deprecated]=groovy:"\n「deprecated」" + it.doc("deprecated")
+doc.field[@java.lang.Deprecated]=「deprecated」
 
 #deprecated info(kotlin)
-doc.field[@kotlin.Deprecated]=groovy:"\n「已废弃」" + it.ann("kotlin.Deprecated","message")
+doc.field[@kotlin.Deprecated]=groovy:"\n「deprecated」" + it.ann("kotlin.Deprecated","message")
 
 ```
 
-## 添加对swagger @ApiModelProperty支持
+## Add support for swagger @ApiModelProperty
 
 ```properties
 doc.field=@io.swagger.annotations.ApiModelProperty#value
@@ -28,9 +28,9 @@ doc.field=@io.swagger.annotations.ApiModelProperty#value
 public class SwaggerModel {
 
     /**
-     * @deprecated 不再使用
+     * @deprecated No longer used
      */
-    @ApiModelProperty(value = "字段A", required = true)
+    @ApiModelProperty(value = "fieldA", required = true)
     private String a;
 
     //constructors...
@@ -39,8 +39,8 @@ public class SwaggerModel {
 }
 ```
 
-## 作为API返回值导出:
+## Export as API response:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| a | string | 非必须 |  | 字段A<br/>「已废弃」不再使用 |  |
+| a | string | 非必须 |  | fieldA<br/>「deprecated」No longer used |  |

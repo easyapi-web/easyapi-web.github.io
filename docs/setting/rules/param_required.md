@@ -2,7 +2,7 @@
 
 - 用于标记API参数是否为必须(即不可为空)
 
-## 默认推荐配置
+## Built-in recommended configuration
 
 ```properties
 #Support for javax.validation annotations
@@ -42,6 +42,6 @@ public class MockCtrl {
 
 ***请求参数:***
 
-| 参数名称 | 是否必须 |	示例 | 备注 |
+| 参数name | required |	示例 | desc |
 | --- | --- | --- | --- |
 | seed | 是 | 666666 | seed for mock |

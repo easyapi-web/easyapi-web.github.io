@@ -3,7 +3,7 @@
 - 忽略常量字段
 
 
-### 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 #ignore serialVersionUID
@@ -15,7 +15,7 @@ constant.field.ignore=serialVersionUID
 ```java
 
 /**
- * 用户类型
+ * 用户type
  */
 public class UserTypeConstant implements Serializable {
 
@@ -43,7 +43,7 @@ public class UserTypeConstant implements Serializable {
 ```
 枚举: 1,2,3
 
-枚举备注: 1 :管理员 2 :成员 3 :游客
+枚举desc: 1 :管理员 2 :成员 3 :游客
 
 mock: @pick(["1","2","3"])
 ```

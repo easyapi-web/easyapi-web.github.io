@@ -1,6 +1,6 @@
 # method.return.main
 
-- 此配置仅设置返回值的核心主体，使得`@return`的注释落在主体属性上,不影响返回类型及字段.
+- 此配置仅设置返回值的核心主体，使得`@return`的注释落在主体属性上,不影响返回type及字段.
 
 ## demo
 
@@ -35,9 +35,9 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
 
 ```java
     /**
-     * 获取当前用户类型
+     * 获取当前用户type
      *
-     * @return 当前用户类型,{@link com.itangcent.common.constant.UserTypeConstant}
+     * @return 当前用户type,{@link com.itangcent.common.constant.UserTypeConstant}
      */
     @GetMapping("/type")
     public Result<Integer> currUserType() {
@@ -47,11 +47,11 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
 
 - 导出API的响应:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | msg |	string | 非必须 |  | 响应消息 | mock: |
 | code | integer | 非必须 |  | 响应码 | mock: 0 |
-| data | integer | 非必须 |  | 响应数据<br>当前用户类型,[用户类型] | 枚举: 1,2,3<br>枚举备注: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3]) |
+| data | integer | 非必须 |  | 响应数据<br>当前用户type,[用户type] | 枚举: 1,2,3<br>枚举desc: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3]) |
 
 
 ### 接口示例2:
@@ -60,7 +60,7 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
 
 ```java
     /**
-     * 获取所有用户类型
+     * 获取所有用户type
      *
      * @return {@link com.itangcent.common.constant.UserType#getType()}
      */
@@ -73,12 +73,12 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
 
 - 导出API的响应:
 
-| &nbsp;&nbsp;&nbsp;&nbsp;名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| &nbsp;&nbsp;&nbsp;&nbsp;name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | &nbsp;&nbsp;&nbsp;&nbsp;msg |	string | 非必须 |  | 响应消息 | mock: |
 | &nbsp;&nbsp;&nbsp;&nbsp;code | integer | 非必须 |  | 响应码 | mock: 0 |
-| ＋data | integer[] | 非必须 |  | 响应数据<br>[用户类型] | item 类型: integer |
-|   | integer  |   |  |   | 枚举: 1,2,3<br>枚举备注: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3]) |
+| ＋data | integer[] | 非必须 |  | 响应数据<br>[用户type] | item type: integer |
+|   | integer  |   |  |   | 枚举: 1,2,3<br>枚举desc: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3]) |
 
 ### 附:
 
@@ -86,7 +86,7 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
 
 ```java
 /**
- * 用户类型
+ * 用户type
  */
 public class UserTypeConstant implements Serializable {
 
@@ -105,7 +105,7 @@ public class UserTypeConstant implements Serializable {
 package com.itangcent.common.constant;
 
 /**
- * 用户类型
+ * 用户type
  */
 public enum UserType {
     //管理员
@@ -117,7 +117,7 @@ public enum UserType {
     //游客
     GUEST(3, "游客");
 
-    private int type;//用户类型
+    private int type;//用户type
 
     private String desc;
 

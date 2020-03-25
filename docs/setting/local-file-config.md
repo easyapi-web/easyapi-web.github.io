@@ -1,9 +1,9 @@
 
-# 使用配置文件(当前项目)
+# Use config file (current project)
 
- - 将配置文件添加到项目或模块根目录中
+ - Add configuration files to the root of project or module
 
-| 文件  |  类型  |  适用的操作  |
+| file  |  type  |  effect operations  |
 | ------------ | ------------ | ------------ |
 | .easy.api.config | property | markdown/postman/yapi |
 | .easy.api.yml/.easy.api.yaml | yml | markdown/postman/yapi |
@@ -12,12 +12,12 @@
 | .yapi.config | property | yapi |
 | .yapi.yml/.yapi.yaml | yml | yapi |
 
-- 在配置文件中可以使用`properties.additional`来加载额外的配置文件:
+- You can use `properties.additional` in the configuration file to load additional configuration files:
 ```properties
 properties.additional=$additional_properties_file_path$
 ```
 
-### 配置后的目录结构如下:
+### The directory structure after configuration is as follows:
 
 ```
 project-root
@@ -91,10 +91,10 @@ project-root
 └────.easy.api.config⑥
 ```
 
-### 上述结构中:
+### In the structure:
 
-- ①: 只对`java(module1)`生效
-- ②: 如果开启了默认推荐配置的话,默认会加载,所以其中的参数可以在③中通过`{property}`来使用
-- ③: 只对`kotlin(module2)`生效
-- ④/⑤: 与②一样`application.properties/application.yml/application.yaml`都可以被加载
-- ⑥: 对`java(module1)`/`kotlin(module2)`/`springboot-demo(module3)`/`springboot-webflux-demo(module4)`都生效
+- ①: Only affect `java(module1)`
+- ②: If the default recommended configuration is enabled, it will be loaded by default, so the property in it can be used through `{property}` in ③
+- ③: Only affect `kotlin(module2)`
+- ④/⑤: `application.properties/application.yml/application.yaml` can be loaded as ② too.
+- ⑥: affect `java(module1)`/`kotlin(module2)`/`springboot-demo(module3)`/`springboot-webflux-demo(module4)`

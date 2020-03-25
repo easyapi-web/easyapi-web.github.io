@@ -1,6 +1,6 @@
 # field.default.value(v1.7.1+)
 
-- 用于设置`字段`的默认值 
+- 用于设置`字段`的default 
 
 ## 原生编码支持
 
@@ -37,6 +37,6 @@ public class DemoDto{
 ***导出结果如下:***
 
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | price	| number | 必须 | 666 | 价格	| |

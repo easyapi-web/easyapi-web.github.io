@@ -3,7 +3,7 @@
 - 忽略字段(设置某些字段不出现在json中,或不需要请求时给出)
 
 
-## 默认推荐配置
+## Built-in recommended configuration
 
 ```properties
 #Support for Jackson annotations
@@ -40,14 +40,14 @@ public class TestJsonIgnoreBean {
 
 ### 作为API返回值导出:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | shouldNotIgnoreForGson |	integer | 非必须 |  |  | mock: @natural(0,10000) |
 | shouldNotIgnoreForJackson | integer | 非必须 |  |  | mock: @natural(0,10000) |
 
 ## 定制化配置示例
 
-- 忽略指定名称的字段:
+- 忽略指定name的字段:
 
   - 配置如下
 
@@ -62,7 +62,7 @@ public class TestJsonIgnoreBean {
     private String log;
     ```
 
-- 忽略指定类型的字段:
+- 忽略指定type的字段:
 
   - 配置如下
 

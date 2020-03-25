@@ -1,8 +1,8 @@
 # class.prefix.path
 
-- 设置API请求前缀
+- Set API prefix path
 
-### 默认推荐配置
+### Built-in recommended configuration
 
 ```properties
 #Resolve spring properties
@@ -11,7 +11,7 @@ class.prefix.path=${server.servlet.context-path}
 ###set ignoreUnresolved = false
 ```
 
-### 使用推荐配置后，可识别如下spring配置
+### By the recommended configuration, The following spring configuration `server.servlet.context-path` will be used as API prefix path.
 
 - spring application.properties 
 
@@ -26,7 +26,7 @@ server:
       context-path: /demo
 ```
 
-### 自定义demo
+### demo
 
 ```properties
 class.prefix.path=/demo
