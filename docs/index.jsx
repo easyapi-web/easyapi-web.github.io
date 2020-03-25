@@ -5,7 +5,7 @@ banner:
   btns:
     - { name: 'Start', href: './documents/index.html', primary: true }
     - { name: 'Github >', href: 'https://github.com/tangcent/easy-api' }
-  caption: 'version: v1.8.0'
+  caption: 'version: v1.9.0'
 features:
   - { name: 'several language', desc: 'Java/Kotlin/Scala' }
   - { name: 'several framwork', desc: 'Spring MVC/Spring boot/Spring WebFlux' }
