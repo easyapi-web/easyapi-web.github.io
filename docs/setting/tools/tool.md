@@ -2,11 +2,11 @@
 
 ---
 
-# 主要方法
+# 主要method
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
-| debug(obj) | void | debug对象,获取对象所有可用方法 | tool.debug(tool)| 
+| debug(obj) | void | debug对象,获取对象所有可用method | tool.debug(tool)| 
 | newSet(items...) | Set | 创建Set对象 | tool.newSet("ele1","ele2")| 
 | newList(items...) | List | 创建List对象 | tool.newList("ele1","ele2")| 
 | newMap() | Map | 创建Map对象 | tool.newMap()| 
@@ -30,7 +30,7 @@
 
 ---
 
-# 其他一些方法
+# 其他一些method
 
 ---
 

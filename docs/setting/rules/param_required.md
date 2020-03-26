@@ -38,10 +38,10 @@ public class MockCtrl {
 }
 ```
 
-### 导出结果如下:
+### Export as API response:
 
 ***请求参数:***
 
-| 参数name | required |	示例 | desc |
+| 参数name | required |	Demo | desc |
 | --- | --- | --- | --- |
 | seed | 是 | 666666 | seed for mock |

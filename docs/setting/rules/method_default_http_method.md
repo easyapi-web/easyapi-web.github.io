@@ -5,7 +5,7 @@
 
 ### 如希望默认使用`POST`
 
-***配置如下:***
+***Configuration:***
 
 ```properties
 method.default.http.method=POST

@@ -14,7 +14,7 @@ doc.param=js:"type:"+it.type().name()
 doc.param=groovy:"type:"+tool.uncapitalize(it.type().name().replace("java.lang.",""))
 ```
 
-### 示例API
+### DemoAPI
 
 ```java
     /**
@@ -34,7 +34,7 @@ doc.param=groovy:"type:"+tool.uncapitalize(it.type().name().replace("java.lang."
     }
 ```
 
-### 导出结果如下:
+### Export as API response:
 
 ***请求参数:***
 

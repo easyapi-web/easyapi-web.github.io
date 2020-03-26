@@ -1,10 +1,10 @@
 # method.return
 
-- 设置方法的返回值
+- 设置method的return
 - 常用于以下情况:
-    - 方法返回Object
-    - 方法返回type中的泛型type未明确`<Object>`/`<?>`/`<*>`
-    - 方法返回type与实际响应无关，例如通过操作HttpServletResponse来返回响应
+    - method返回Object
+    - method返回type中的泛型type未明确`<Object>`/`<?>`/`<*>`
+    - method返回type与实际响应无关，例如通过操作HttpServletResponse来返回响应
 
 ## 如以下API
 
@@ -24,7 +24,7 @@
     }
 ```
 
-- 这个方法返回的是`void`,但实际响应的是`Result<UserInfo>`, 所以需要通过额外的途径来表明此`API`的实际响应.
+- 这个method返回的是`void`,但实际响应的是`Result<UserInfo>`, 所以需要通过额外的途径来表明此`API`的实际响应.
 
 
 ---
@@ -35,7 +35,7 @@
 method.return=#real_return
 ```
 
-***使用方法:***
+***使用method:***
 
 ```java
 /**
@@ -54,7 +54,7 @@ method.return=#real_return
 method.return[#real_return]=groovy: helper.resolveLink(it.doc("real_return"))
 ```
 
-***使用方法:***
+***使用method:***
 
 ```java
 /**
@@ -74,7 +74,7 @@ method.return[#real_return]=groovy: helper.resolveLink(it.doc("real_return"))
 method.return[#real_return]=groovy: "com.itangcent.common.dto.Result<" +  helper.resolveLink(it.doc("real_return")) +">"
 ```
 
-***使用方法:***
+***使用method:***
 
 ```java
 /**

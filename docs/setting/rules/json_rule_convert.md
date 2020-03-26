@@ -1,7 +1,6 @@
 # json.rule.convert
 
-- 用于设置某些type转换为其他type处理，通常用于使用了Spring的自定义type转换器的情况
-
+- Used to convert type to other type for parse, usually used with spring's custom type converter is used
 
 ### Built-in recommended configuration
 

@@ -4,7 +4,7 @@
 
 ---
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
 | log(str) | void | 打印日志 | logger.log("some log")| 
 | trace(str) | void | 打印日志(日志级别trace) | logger.trace("some log")| 

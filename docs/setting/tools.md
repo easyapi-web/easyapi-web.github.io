@@ -1,6 +1,6 @@
 # 提供的工具/对象
 
-| &nbsp;&nbsp;&nbsp;&nbsp;工具/对象 | 规则描述 |
+| &nbsp;&nbsp;&nbsp;&nbsp;工具/对象 | 规则desc |
 | ------------ | ------------ |
 | ☆[it](tools/it.md) | 当前规则的应用对象 |
 | ☆[tool](tools/tool.md) | 主工具类 |

@@ -1,11 +1,11 @@
 # `it`表示当前规则的应用对象
 
-- 应用对象只提供方法即`it.method()✅`，不提供属性`it.property❎`
+- 应用对象只提供method即`it.method()✅`，不提供属性`it.property❎`
 
-### 对于class(类)、method(方法/API)、field(字段/属性),arg(参数)都支持如下方法
+### 对于class(类)、method(method/API)、field(字段/属性),arg(参数)都支持如下method
 
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
 | name() | string | name | it.name() |
 | hasAnn("annotation_name") | boolean | 是否有指定注解 | it.hasAnn("org.springframework.web.bind.annotation.RequestBody")| 
@@ -22,14 +22,14 @@
 | defineCode() | string | 获取当前对象纯定义代码 | it.defineCode() | 
 | contextType() | string | 当前上下文type class/field/method/param | it.contextType()| 
 
-### 不同的应用对象提供额外的方法
+### 不同的应用对象提供额外的method
 
 - class(类)
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
-| methods() | method[] | 类中的所有方法 | it.methods() |
-| methodCnt() | int | 类中的方法数 | it.methodCnt() |
+| methods() | method[] | 类中的所有method | it.methods() |
+| methodCnt() | int | 类中的method数 | it.methodCnt() |
 | field() | field[] | 类中的所有字段 | it.field() |
 | fieldCnt() | int | 类中的字段数 | it.fieldCnt() |
 | isExtend(superClass) | boolean | 是否继承某个类 | it.isExtend("some.class.qualifiedName") |
@@ -38,21 +38,21 @@
 | isArray() | boolean | 是否为数组 | it.isArray() |
 | toJson(readGetter) | boolean | 获取当前type的json字符串 | it.toJson(true) |
 
-- method(方法/API)
+- method(method/API)
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
-| returnType() | class | 方法返回type | it.returnType() |
+| returnType() | class | method返回type | it.returnType() |
 | isVarArgs() | boolean | 是否有不定参 | it.isVarArgs() |
-| args() | arg[] | 方法的所有参数 | it.args() |
-| argTypes() | class[] | 方法的所有参数type | it.argTypes() |
-| argCnt() | int | 方法参数个数 | it.argCnt() |
-| containingClass() | class | 方法所属类 | it.containingClass() |
-| returnJson(needInfer, readGetter) | class | 当前方法返回对象的json字符串 | it.returnJson(true,true) |
+| args() | arg[] | method的所有参数 | it.args() |
+| argTypes() | class[] | method的所有参数type | it.argTypes() |
+| argCnt() | int | method参数个数 | it.argCnt() |
+| containingClass() | class | method所属类 | it.containingClass() |
+| returnJson(needInfer, readGetter) | class | 当前method返回对象的json字符串 | it.returnJson(true,true) |
 
 - field(字段/属性)
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
 | type() | class | 字段type | it.type()| 
 | containingClass() | class | 字段所属类 | it.containingClass() | 
@@ -61,7 +61,7 @@
 
 - arg(参数)
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
 | type() | class | 参数type | it.type() |
 | isVarArgs() | boolean | 是否为不定参 | it.isVarArgs() |

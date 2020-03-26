@@ -31,7 +31,7 @@ public class TestJsonFieldBean {
 }
 ```
 
-### 作为API返回值导出:
+### Export as API response:
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |

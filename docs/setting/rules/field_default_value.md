@@ -2,17 +2,17 @@
 
 - use to set default value of field
 
-## 原生编码支持
+## By default
 
-默认的所有含有默认初始值的字段，取其默认初始值.
-如:
+The default initial value of field
+e.g.:
 ```java
-private Integer code = 200;//响应码
+private Integer code = 200;//default 200
 ```
 
-## 额外的配置
+## Additional configuration
 
-***配置如下:***
+***Configuration:***
 
 ```properties
 field.default.value=#default
@@ -24,7 +24,7 @@ field.default.value=#default
 public class DemoDto{
 
     /**
-     * 价格
+     * price of demo
      * @default 666
      */
     @NotNull
@@ -34,7 +34,7 @@ public class DemoDto{
 }
 ```
 
-***导出结果如下:***
+***Export as API response:***
 
 
 | name | type | required | default | desc | other |

@@ -8,14 +8,14 @@
 
 ```java
 public enum UserType {
-    //管理员
-    ADMIN(1, "管理员"),
+    //Admin
+    ADMIN(1, "Admin"),
 
-    //成员
-    MEMBER(2, "成员"),
+    //Member
+    MEMBER(2, "Member"),
 
-    //游客
-    GUEST(3, "游客");
+    //Guest
+    GUEST(3, "Guest");
 
     private int type;
     private String desc;
@@ -61,7 +61,7 @@ private String type;
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | string | 非必须 | | 用户type | 枚举: ADMIN,MEMBER,GUEST<br>枚举desc: ADMIN :管理员 MEMBER :成员 GUEST :游客<br>mock: @pick(["ADMIN","MEMBER","GUEST"]))
+| type | string | 非必须 | | 用户type | 枚举: ADMIN,MEMBER,GUEST<br>枚举desc: ADMIN :Admin MEMBER :Member GUEST :Guest<br>mock: @pick(["ADMIN","MEMBER","GUEST"]))
 
 ### 增加配置
 
@@ -85,7 +85,7 @@ private int type;
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | 用户type | 枚举: 1,2,3<br>枚举desc: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3])
+| type | integer | 非必须 | | 用户type | 枚举: 1,2,3<br>枚举desc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3])
 
 
 

@@ -38,18 +38,18 @@ public class TestJsonIgnoreBean {
 }
 ```
 
-### 作为API返回值导出:
+### Export as API response:
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
 | shouldNotIgnoreForGson |	integer | 非必须 |  |  | mock: @natural(0,10000) |
 | shouldNotIgnoreForJackson | integer | 非必须 |  |  | mock: @natural(0,10000) |
 
-## 定制化配置示例
+## 定制化配置Demo
 
 - 忽略指定name的字段:
 
-  - 配置如下
+  - Configuration
 
     ```properties
     # ignore field 'log'
@@ -64,7 +64,7 @@ public class TestJsonIgnoreBean {
 
 - 忽略指定type的字段:
 
-  - 配置如下
+  - Configuration
 
     ```properties
     # ignore field 'log' typed xxx.xxx.Log
@@ -79,7 +79,7 @@ public class TestJsonIgnoreBean {
 
 - 忽略指定`modifier`的字段:
 
-  - 配置如下
+  - Configuration
     ```properties
     #ignore transient field
     json.rule.field.ignore=groovy:it.hasModifier("transient")||it.hasModifier("protected")

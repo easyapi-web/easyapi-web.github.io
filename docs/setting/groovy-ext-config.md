@@ -87,7 +87,7 @@ class YapiExportActionExt implements ActionExt {
 
 ### 由于插件源码语言是kotlin,在groovy中无法使用一些语法糖
 
-- kotlin中声明的扩展方法如
+- kotlin中声明的扩展method如
 
 ```kotlin
 fun Doc.setTags(tags: List<String>?) {

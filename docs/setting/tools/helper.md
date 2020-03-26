@@ -2,9 +2,9 @@
 
 ---
 
-# 主要方法
+# 主要method
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
 | findClass(str) | class | 获取类,类似Class.forName() | helper.findClass("java.lang.String")| 
 | resolveLink(str) | class | 解析字符串中的`link` | helper.resolveLink("{@link java.lang.String}")| 

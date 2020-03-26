@@ -1,6 +1,6 @@
 # constant.field.ignore
 
-- 忽略常量字段
+- Ignore constant fields
 
 
 ### Built-in recommended configuration
@@ -15,15 +15,15 @@ constant.field.ignore=serialVersionUID
 ```java
 
 /**
- * 用户type
+ * User type
  */
 public class UserTypeConstant implements Serializable {
 
     private static final long serialVersionUID = -4607862808303533196L;
 
-    public static final int ADMIN = 1;//管理员
-    public static final int MEMBER = 2;//成员
-    public static final int GUEST = 3;//游客
+    public static final int ADMIN = 1;//Admin
+    public static final int MEMBER = 2;//Member
+    public static final int GUEST = 3;//Guest
 
 }
 ```
@@ -33,7 +33,7 @@ public class UserTypeConstant implements Serializable {
 ```java
 @see com.itangcent.common.constant.UserTypeConstant
 ```
-或者
+or
 ```java
 {@link com.itangcent.common.constant.UserTypeConstant}
 ```
@@ -41,9 +41,5 @@ public class UserTypeConstant implements Serializable {
 ### 将被解析为:
 
 ```
-枚举: 1,2,3
-
-枚举desc: 1 :管理员 2 :成员 3 :游客
-
-mock: @pick(["1","2","3"])
+1 :Admin 2 :Member 3 :Guest
 ```
