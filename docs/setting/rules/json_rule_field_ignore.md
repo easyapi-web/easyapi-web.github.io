@@ -1,6 +1,6 @@
 # json.rule.field.ignore
 
-- 忽略字段(设置某些字段不出现在json中,或不需要请求时给出)
+- Ignore fields (indicates that the property should be ignored in request body/form and response body)
 
 
 ## Built-in recommended configuration
@@ -45,9 +45,9 @@ public class TestJsonIgnoreBean {
 | shouldNotIgnoreForGson |	integer | 非必须 |  |  | mock: @natural(0,10000) |
 | shouldNotIgnoreForJackson | integer | 非必须 |  |  | mock: @natural(0,10000) |
 
-## 定制化配置Demo
+## Special custom configuration Demo
 
-- 忽略指定name的字段:
+- Ignores the field with special name:
 
   - Configuration
 
@@ -56,13 +56,13 @@ public class TestJsonIgnoreBean {
     json.rule.field.ignore=log
     ```
 
-  - 将忽略如下字段
+  - The following fields will be ignored
 
     ```java
     private String log;
     ```
 
-- 忽略指定type的字段:
+- Ignores the field of the special type:
 
   - Configuration
 
@@ -71,13 +71,13 @@ public class TestJsonIgnoreBean {
     json.rule.field.ignore=groovy:it.type().name()=="xxx.xxx.Log"
     ```
 
-  - 将忽略如下字段
+  - The following fields will be ignored
   
     ```java
     private Log xxx;
     ```
 
-- 忽略指定`modifier`的字段:
+- Ignore the field with special `modifier`:
 
   - Configuration
     ```properties
@@ -85,7 +85,7 @@ public class TestJsonIgnoreBean {
     json.rule.field.ignore=groovy:it.hasModifier("transient")||it.hasModifier("protected")
     ```
 
-  - 将忽略如下字段
+  - The following fields will be ignored
   
     ```java
     private transient Int xxx;
