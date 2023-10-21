@@ -6,3 +6,4 @@
 * [springboot-webflux](springboot-webflux.md)
 * [swagger](swagger.md)
 * [javax.validation](javax_validation.md)
+* [jackson](jackson.md)

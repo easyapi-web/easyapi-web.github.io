@@ -1,4 +1,4 @@
-# Support different frameworks with configuration
+# Supporting Different Frameworks Using Configuration
 
-- Based on performance considerations, the built-in recommended configuration does not cover all the features of all frameworks
-- To add support for the specified framework or feature, see [setting](/setting/index.html)
+- Due to performance considerations, the built-in recommended configurations do not cover all features of every framework.
+- If you need to add support for a specific framework, please refer to [setting](/setting/index.html)

@@ -1,17 +1,18 @@
-# groovy本地扩展
+# Groovy Local Extensions
 
-## 介绍
+> This feature has been deprecated. Please refrain from using it.
 
-- 针对极其特殊的情况, 无法使用简单配置实现需求时, 可以使用groovy扩展以获得极高的定制化功能
-- 相对普通配置来说, 对于开发者有一定的技术要求,包括groovy以及当前插件的结构等都要有一定的了解
+## Introduction:
+- In extremely exceptional cases where fulfilling requirements through simple configuration is not possible, Groovy extensions can be utilized to achieve highly customized functionality.
+- Compared to regular configurations, this approach requires developers to have a certain level of technical expertise, including knowledge of Groovy and the structure of the current plugin.
 - [wiki](https://en.wikipedia.org/wiki/Apache_Groovy)
 - [offical](http://groovy-lang.org/)
 - [demo](https://github.com/Earth-1610/spring-demo/tree/feature/ext/.easyapi/ext)
 
-## 使用步骤
+## Usage Steps
 
-- 在项目目录下创建 `/.easyapi/ext`
-- 创建扩展文件 `${ActionName}Ext.groovy`<br>当前可支持的操作有:
+- Create a directory named `/.easyapi/ext` in your project directory.
+- Create an extension file named `${ActionName}Ext.groovy``. The currently supported actions are:
   - `ApiCallAction`
   - `ApiDashBoardAction`
   - `YApiDashBoardAction`
@@ -19,12 +20,12 @@
   - `MarkdownExportAction`
   - `PostmanExportAction`
 
-- 在扩展文件中声明扩展类:
+- Declare the extension class in the extension file:
 ```groovy
 class ActionNameExt implements ActionExt {
 
     void init(ActionContext.ActionContextBuilder builder) {
-        //在这里通过`bind`注入定制化组件,实现需要的功能
+        //Here, you can use the bind method to inject customized components and implement the desired functionality.
         builder.bind(Xxx.class, KtHelper.INSTANCE.ktFunction({
             it.to(Yyy.class).in(com.google.inject.Singleton.class)
             return null
@@ -83,18 +84,18 @@ class YapiExportActionExt implements ActionExt {
 }
 ```
 
-## 特别注意
+## Note
 
-### 由于插件源码语言是kotlin,在groovy中无法使用一些语法糖
+### Due to the plugin source code being written in Kotlin, some syntactic sugar cannot be used in Groovy.
 
-- kotlin中声明的扩展method如
+- The extension methods declared in Kotlin are as follows:
 
 ```kotlin
 fun Doc.setTags(tags: List<String>?) {
     ...
 }
 ```
-在groovy中使用如下:
+- In Groovy, you can utilize these extension methods as shown below:
 
 ```groovy
 YapiRequestKitKt.setTags(request,tags)

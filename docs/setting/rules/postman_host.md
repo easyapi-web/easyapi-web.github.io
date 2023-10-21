@@ -1,7 +1,7 @@
 # postman.host
 
-- Set host of `postman` API
-- Use the current module name as the host of the API by default,for example:`{{user}}`
+- Configure the host of the `postman` API.
+- By default, the current module name is used as the host of the API, for example: `{{user}}`.
 
 ## The immutable host configuration is as follows
 

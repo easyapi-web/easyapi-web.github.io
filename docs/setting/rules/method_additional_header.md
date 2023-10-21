@@ -2,7 +2,7 @@
 
 - API requires additional ` header`
 
-### For example, JWT, all interfaces need to carry tokens in the header
+### For example, JWT, all apis need to carry tokens in the header
 
 ```properties
 method.additional.header={name: "Authorization",value: "",desc: "authenticationToken",required:true, example:""}

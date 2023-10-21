@@ -1,6 +1,6 @@
 # method.return.main
 
-- 此配置仅设置return的核心主体，使得`@return`的注释落在主体属性上,不影响返回type及字段.
+- This configuration is used to specify the main body for the return statement, so that the `@return` annotation applies to the main body property and does not affect the return type and fields.
 
 ## demo
 
@@ -11,11 +11,11 @@ package com.itangcent.common.dto;
 
 public class Result<T> implements IResult {
 
-    private Integer code;//响应码
+    private Integer code; // Response code
 
-    private String msg;//响应消息
+    private String msg; // Response message
 
-    private T data;//响应数据
+    private T data; // Response data
 
     //constructors...
 
@@ -23,21 +23,21 @@ public class Result<T> implements IResult {
 }
 ```
 
-### 可做如下配置
+### Configuration
 
 ```properties
 method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Result")]=data
 ```
 
-### 接口Demo1:
+### API Demo1:
 
-- 接口代码:
+- API code:
 
 ```java
-    /**
-     * 获取当前用户type
+/**
+     * Get the current user's type
      *
-     * @return 当前用户type,{@link com.itangcent.common.constant.UserTypeConstant}
+     * @return The current user's type, {@link com.itangcent.common.constant.UserTypeConstant}
      */
     @GetMapping("/type")
     public Result<Integer> currUserType() {
@@ -45,22 +45,22 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
     }
 ```
 
-- 导出API的响应:
+- Exported API response:
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| msg |	string | 非必须 |  | 响应消息 | mock: |
-| code | integer | 非必须 |  | 响应码 | mock: 0 |
-| data | integer | 非必须 |  | 响应数据<br>当前用户type,[用户type] | 枚举: 1,2,3<br>枚举desc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3]) |
+| msg |	string | optional |  | Response message | mock: |
+| code | integer | optional |  | Response code | mock: 0 |
+| data | integer | optional |  | Response data<br>The current user's type, [User type] | Enum: 1,2,3<br>Enum desc: 1: Admin 2: Member 3: Guest<br>mock: @pick([1,2,3]) |
 
 
-### 接口Demo2:
+### API Demo2:
 
-- 接口代码:
+- API code:
 
 ```java
-    /**
-     * 获取所有用户type
+/**
+     * Get all user types
      *
      * @return {@link com.itangcent.common.constant.UserType#getType()}
      */
@@ -71,22 +71,22 @@ method.return.main[groovy:it.returnType().isExtend("com.itangcent.common.dto.Res
     }
 ```
 
-- 导出API的响应:
+- Exported API response:
 
 | &nbsp;&nbsp;&nbsp;&nbsp;name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| &nbsp;&nbsp;&nbsp;&nbsp;msg |	string | 非必须 |  | 响应消息 | mock: |
-| &nbsp;&nbsp;&nbsp;&nbsp;code | integer | 非必须 |  | 响应码 | mock: 0 |
-| ＋data | integer[] | 非必须 |  | 响应数据<br>[用户type] | item type: integer |
-|   | integer  |   |  |   | 枚举: 1,2,3<br>枚举desc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3]) |
+| &nbsp;&nbsp;&nbsp;&nbsp;msg |	string | optional |  | Response message | mock: |
+| &nbsp;&nbsp;&nbsp;&nbsp;code | integer | optional |  | Response code | mock: 0 |
+| ＋data | integer[] | optional |  | Response data<br>[User type] | item type: integer |
+|   | integer  |   |  |   | Enum: 1,2,3<br>Enum desc: 1: Admin 2: Member 3: Guest<br>mock: @pick([1,2,3]) |
 
-### 附:
+### Additional Information:
 
 ***UserTypeConstant.java***
 
 ```java
 /**
- * 用户type
+ * User type
  */
 public class UserTypeConstant implements Serializable {
 
@@ -105,24 +105,24 @@ public class UserTypeConstant implements Serializable {
 package com.itangcent.common.constant;
 
 /**
- * 用户type
+ * User type
  */
 public enum UserType {
-    //Admin
+    // Admin
     ADMIN(1, "Admin"),
 
-    //Member
+    // Member
     MEMBER(2, "Member"),
 
-    //Guest
+    // Guest
     GUEST(3, "Guest");
 
-    private int type;//用户type
+    private int type; // User type
 
     private String desc;
 
-    //constructors...
+    // constructors...
 
-    //getters...
+    // getters...
 }
 ```

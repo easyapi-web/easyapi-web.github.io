@@ -1,18 +1,18 @@
 # method.return
 
-- 设置method的return
-- 常用于以下情况:
-    - method返回Object
-    - method返回type中的泛型type未明确`<Object>`/`<?>`/`<*>`
-    - method返回type与实际响应无关，例如通过操作HttpServletResponse来返回响应
+- Set the return type of the method.
+- Commonly used in the following scenarios:
+    - When the method returns an Object.
+    - When the generic type of the method's return type is not explicitly defined as `<Object>`/`<?>`/`<*>`.
+    - When the method's return type is unrelated to the actual response, such as returning a response through manipulating HttpServletResponse.
 
-## 如以下API
+## For example, consider the following API:
 
 ***API:***
 
 ```java
     /**
-     * 通过`HttpServletResponse`写入响应
+     * Write response using `HttpServletResponse`
      */
     @RequestMapping(value = "/writeByResponse", method = RequestMethod.GET)
     public void writeByResponse(HttpServletResponse response) throws IOException {
@@ -24,18 +24,17 @@
     }
 ```
 
-- 这个method返回的是`void`,但实际响应的是`Result<UserInfo>`, 所以需要通过额外的途径来表明此`API`的实际响应.
-
+- This method returns `void`, but the actual response is of type `Result<UserInfo>`. Therefore, an additional approach is needed to indicate the actual response of this `API`.
 
 ---
 
-***简单的,可做如下配置:***
+***Simple configuration:***
 
 ```properties
 method.return=#real_return
 ```
 
-***使用method:***
+***Usage in method:***
 
 ```java
 /**
@@ -45,16 +44,15 @@ method.return=#real_return
 
 ---
 
+For convenience, we can try using `{@link}` to set the actual response type and use `helper.resolveLink` to resolve it.
 
-为了方便书写，我们可以尝试使用`{@link}`来设置实际响应type，利用`helper.resolveLink`来解析
-
-***例如做如下配置:***
+***For example, configure the following:***
 
 ```properties
 method.return[#real_return]=groovy: helper.resolveLink(it.doc("real_return"))
 ```
 
-***使用method:***
+***Usage in method:***
 
 ```java
 /**
@@ -65,16 +63,15 @@ method.return[#real_return]=groovy: helper.resolveLink(it.doc("real_return"))
 
 ---
 
+Furthermore, if all responses are wrapped by `com.itangcent.common.dto.Result`
 
-更进一步的，如果所有的响应都由`com.itangcent.common.dto.Result`包装
-
-***做如下配置:***
+***Configure the following:***
 
 ```properties
 method.return[#real_return]=groovy: "com.itangcent.common.dto.Result<" +  helper.resolveLink(it.doc("real_return")) +">"
 ```
 
-***使用method:***
+***Usage in method:***
 
 ```java
 /**

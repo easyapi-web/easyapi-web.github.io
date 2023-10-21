@@ -1,6 +1,6 @@
 # param.ignore
 
-- 忽略API参数
+- Setting the ignoring of API parameters.
 
 ### Add support for swagger @ApiParam
 

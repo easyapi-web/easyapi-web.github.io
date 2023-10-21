@@ -1,10 +1,9 @@
 # json.rule.enum.convert
 
-- 用于设置枚举type的转换
-- 优先级低于[json.rule.convert](json_rule_convert.md)
+- This rule is used to define conversion rules for enum types.
+- It has lower priority than [json.rule.convert](json_rule_convert.md).
 
-
-**假定有如下枚举类** 
+**Assuming the following enum class exists** 
 
 ```java
 public enum UserType {
@@ -35,63 +34,62 @@ public enum UserType {
 }
 ```
 
-**对于如下字段**
+**For the following field:**
 
 ```java
 /**
-* 用户type
+* User type
 */
 private UserType type;
 ```
 
-### 默认情况
+### Default behavior
 
-- 默认将枚举type转换为`String`处理,给出可用值为枚举中的实例名
-
-- 上述字段将被处理为
+- By default, the enum type is converted to a String and the available values are the instance names of the enum.
+- The field will be processed as:
 
 ```java
 /**
-* 用户type
+* User type
 * @see UserType
 */
 private String type;
 ```
-- 导出API结果为:
+- The exported API result will be::
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | string | 非必须 | | 用户type | 枚举: ADMIN,MEMBER,GUEST<br>枚举desc: ADMIN :Admin MEMBER :Member GUEST :Guest<br>mock: @pick(["ADMIN","MEMBER","GUEST"]))
+| type | string | NO | | USER type | ENUM: ADMIN,MEMBER,GUEST<br>ENUMdesc: ADMIN :Admin MEMBER :Member GUEST :Guest<br>mock: @pick(["ADMIN","MEMBER","GUEST"])
 
-### 增加配置
+### Adding configuration
 
-- 做如下配置,将其转换为`int`处理,给出可用值为枚举中的`type`字段
+- To configure the conversion to `int` and use the `type` field of the enum as the available values, add the following configuration:
 
 ```properties
 json.rule.enum.convert[com.itangcent.common.constant.UserType]=~#type
 ```
 
-- 则上述字段将被处理为
+- The field will be processed as:
 
 ```java
 /**
-* 用户type
+* USER type
 * @see UserType#type
 */
 private int type;
 ```
 
-- 导出API结果为:
+- The exported API result will be:
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | 用户type | 枚举: 1,2,3<br>枚举desc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3])
+| type | integer | 非必须 | | USER type | ENUM: 1,2,3<br>ENUMdesc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3])
 
 
 
-### 统一处理
+### Handling in a Unified Way
 
-- 特殊的，声明如下接口:
+- In a special case, declare the following interface::
 
 ```java
 package com.itangcent.common.constant;
@@ -101,7 +99,7 @@ public interface TypeAble {
 }
 ```
 
-- 改造`UserType`,使其继承`TypeAble`
+- Modify the `UserType` enum to implement `TypeAble`:
 
 ```java
 public enum UserType implements TypeAble {
@@ -109,7 +107,7 @@ public enum UserType implements TypeAble {
 }
 ```
 
-- 则可做如下配置,将所有继承`TypeAble`的类转换为`int`处理,给出可用值为枚举中的`type`字段
+- Then, you can configure the conversion of all classes implementing `TypeAble` to `int` and use the `type` field of the enum as the available values:
 
 ```properties
 json.rule.enum.convert[groovy:it.extend("com.itangcent.common.constant.TypeAble")]=~#type

@@ -1,17 +1,16 @@
-# ~~json.rule.field.name~~
+# ~~field.name~~
 
-- The `json.rule.field.name` property is used to set the field name for output/input purposes when the field name in JSON differs from the field name in the class.
-> **Deprcated:** Replace with [field.name](field_name.md)
+- The `field.name` property is used to set the field name for output/input purposes when the field name in JSON differs from the field name in the class.
 
 
 ## Built-in Recommended Configuration
 
 ```properties
 #Support for Jackson annotations
-json.rule.field.name=@com.fasterxml.jackson.annotation.JsonProperty#value
+field.name=@com.fasterxml.jackson.annotation.JsonProperty#value
 
 #Support for Gson annotations
-json.rule.field.name=@com.google.gson.annotations.SerializedName#value
+field.name=@com.google.gson.annotations.SerializedName#value
 ```
 
 ## demo

@@ -1,9 +1,9 @@
 # method.default.http.method
 
-- 设置默认的api的HttpMethod
-- 缺省情况下，当API上未指定HttpMethod，且无特殊参数时默认使用`GET`
+- Set the default HTTP method for the API.
+- By default, when no HttpMethod is specified on the API and there are no special parameters, it will use `GET`.
 
-### 如希望默认使用`POST`
+### To set the default method as POST
 
 ***Configuration:***
 

@@ -1,6 +1,6 @@
 # param.required
 
-- 用于标记API参数是否为必须(即不可为空)
+- Used to indicate whether an API parameter is required (means cannot be empty).
 
 ## Built-in recommended configuration
 
@@ -11,7 +11,7 @@ param.required=@"javax.validation.constraints.NotNull
 param.required=@javax.validation.constraints.NotEmpty
 ```
 
-## 添加对swagger @ApiParam支持
+## Add support for swagger @ApiParam
 
 ```properties
 param.required=@io.swagger.annotations.ApiParam#required
@@ -40,8 +40,8 @@ public class MockCtrl {
 
 ### Export as API response:
 
-***请求参数:***
+***Request Parameters:***
 
-| 参数name | required |	Demo | desc |
+| Parameter name | required |	Demo | desc |
 | --- | --- | --- | --- |
-| seed | 是 | 666666 | seed for mock |
+| seed | Yes | 666666 | seed for mock |

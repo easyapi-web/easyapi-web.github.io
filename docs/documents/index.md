@@ -1,6 +1,6 @@
 # Introduction
 
-- Elegant documents come from elegant comments
+- Easily export APIs from IDEA to Postman or Markdown.
 - Parsing based on [javadoc](./docs.md#Javadoc)&[KDoc](./docs.md#KDoc)&[ScalaDoc](./docs.md#ScalaDoc)
 
 ## Feature

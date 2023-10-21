@@ -60,8 +60,10 @@
 
 # Advanced script rules
 
-- `groovy` is recommended to be use as the first choice, cause that the `JS` engine may be missing after `jdk11`
 - `groovy` rule: `groovy:groovyScript`
-- `js` rule: `js:jsScript`
+- ~~`js` rule: `js:jsScript`~~
+
+   > It is recommended to use `groovy` as the first choice because the JS engine may be missing after `jdk11`.
+
 - Tools / objects are available in scripts: [tools](tools.md)
 - `Debug` Script : [Deubg](../documents/debug.html)

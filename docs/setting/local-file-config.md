@@ -1,7 +1,7 @@
 
 # Use config file (current project)
 
- - Add configuration files to the root of project or module
+ - Add the configuration files to the root of the project or module
 
 | file  |  type  |  effect operations  |
 | ------------ | ------------ | ------------ |
@@ -12,7 +12,7 @@
 | .yapi.config | property | yapi |
 | .yapi.yml/.yapi.yaml | yml | yapi |
 
-- You can use `properties.additional` in the configuration file to load additional configuration files:
+- You can use the `properties.additional` field in the configuration file to load additional configuration files:
 ```properties
 properties.additional=$additional_properties_file_path$
 ```
@@ -91,10 +91,9 @@ project-root
 └────.easy.api.config⑥
 ```
 
-### In the structure:
-
-- ①: Only affect `java(module1)`
-- ②: If the default recommended configuration is enabled, it will be loaded by default, so the property in it can be used through `{property}` in ③
-- ③: Only affect `kotlin(module2)`
-- ④/⑤: `application.properties/application.yml/application.yaml` can be loaded as ② too.
-- ⑥: affect `java(module1)`/`kotlin(module2)`/`springboot-demo(module3)`/`springboot-webflux-demo(module4)`
+### In the directory structure:
+- ①: Only affects `java(module1)`.
+- ②: If the default recommended configuration is enabled, it will be loaded by default, so the property in it can be used through `{property}` in ③.
+- ③: Only affects kotlin(module2).
+- ④/⑤: `application.properties/application.yml/application.yaml` can also be loaded as ②.
+- ⑥: Affects `java(module1)/kotlin(module2)/springboot-demo(module3)/springboot-webflux-demo(module4)`.

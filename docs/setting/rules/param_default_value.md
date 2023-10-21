@@ -1,6 +1,6 @@
 # param.default.value
 
-- 用于设置API参数的default 
+- Setting the default value for parameters.
 
 ### Add support for swagger @ApiParam
 

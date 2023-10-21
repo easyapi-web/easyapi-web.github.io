@@ -26,6 +26,6 @@ click[config rule](/setting/config-rule.html)to view more.
 
 ----
 
-- The feature to export RPC methods is turned off by default , To open, need check:<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd> , see:[IDEA config](/setting/ide-setting.html)
+- The feature to export RPC methods is disabled by default. To enable it, you need to check the following path: <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd>. For more information, please refer to the [IDEA config](/setting/ide-setting.html)
 
-- rpc document exported support `markdown` only
+- The exported RPC document supports only the markdown format.

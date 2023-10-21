@@ -9,16 +9,15 @@
 
 **Common** :
 
- - log: In general, the log can be set to "high" to ignore unnecessary output ,when an exception occurs, it can be set to "low" to get more information
+ - log: In general, the log can be set to "high" to ignore unnecessary output. When an exception occurs, it can be set to "low" to obtain more information.
 
 **Support** :
 
- - methodDoc: When checked, method documents can be exported, It can be also used to export RPC documents
-Support export to `markdown` only.
+ - methodDoc: When enabled, method documents can be exported. It can also be used to export RPC documents. Only export to `markdown` format is supported.
 
 ### Postman:
 
- - token: It is used to set or update `postman privateToken`. It can be obtained from [Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)
+ - token: Token refers to the `postman privateToken` which is used to make calls to the Postman API. It can be obtained from [Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)
 
 **Markdown** :
 
@@ -27,20 +26,21 @@ Support export to `markdown` only.
 
 **Cache** :
 
- - global: Global cache
- - project: Current project cache
+ - global: Global cache.
+ - project: Cache specific to the current project.
 
 **intelligent** :
 
- - inferEnable: Allows plug-ins to try to infer through code flow when encountering uncertain method return type (like: Object，Some\<Object>)
- - maxDeep: Max depth allowed to infer
- - getter as field: Try to read getter method as JSON field
- - use recommend config: Whether to use the built-in recommended configuration
+ - inferEnable: Allows plugins to attempt inference through code flow when encountering uncertain method return types (e.g., Object, Some\<Object>).
+ - maxDeep: Maximum depth allowed for inference.
+ - getter as field: Tries to interpret getter methods as JSON fields.
+ - setter as field: Tries to interpret setter methods as JSON fields.
+ - use recommend config: Determines whether to use the built-in recommended configuration.
 
 
 ## Built-in optional recommended configuration
 
 ![avatar](/asset/idea-recommend.png)
 
-- Select the needed configuration by checking
+- Select the desired configuration by checking the corresponding options.
 - Source code of built-in recommended configuration : [portal](https://github.com/tangcent/easy-yapi/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)

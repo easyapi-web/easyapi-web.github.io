@@ -1,22 +1,21 @@
 **Debug**
 
-- Click <kbd>Code</kbd> > <kbd>Debug</kbd>, The script debug dialog will be open.
+- Click on <kbd>Code</kbd> > <kbd>Debug</kbd> from the menu. This will open the script debug dialog.
     
 ![debug](../asset/idea-debug.png)
 
 ---
 
-- Click`choose` to select debug target
-- Select the debug script type on the left.The script types available depend on 'JDK' support:In general`Groovy`/`JavaScript`/`General`
-- The script will execute automatically while stops typing '3s', and displays the results below.
-- Tools/Context provided by the plug-in: [tools](/setting/tools.html)
+- Click on `choose` to select the debug target
+- On the left-hand side, select the debug script type. The available script types depend on the support for the 'JDK'. Generally, they include `Groovy`/`JavaScript`/`General`.
+- The script will automatically execute after a 3-second pause while typing and the results will be displayed below.
+- The plug-in provides tools and context, which can be accessed through [tools](/setting/tools.html).
 
 ---
 
-By default, The selected context for the debug is 'class'.
-If you need to debug other context, try reassign 'it' in the script header.
-
-For example, to debugg 'method' as follows:
+By default, the selected context for debugging is 'class'.
+If you need to debug a different context, you can reassign 'it' in the script header.
+For example, to debug a 'method', use the following script
 
 ```groovy
 //Switch Context, now 'it' is the first method in the class
