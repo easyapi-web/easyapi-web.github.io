@@ -43,4 +43,4 @@
 ![avatar](/asset/idea-recommend.png)
 
 - Select the desired configuration by checking the corresponding options.
-- Source code of built-in recommended configuration : [portal](https://github.com/tangcent/easy-yapi/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)
+- Source code of built-in recommended configuration : [portal](https://github.com/tangcent/easy-api/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)

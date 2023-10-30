@@ -5,12 +5,10 @@
 
 | file  |  type  |  effect operations  |
 | ------------ | ------------ | ------------ |
-| .easy.api.config | property | markdown/postman/yapi |
-| .easy.api.yml/.easy.api.yaml | yml | markdown/postman/yapi |
+| .easy.api.config | property | markdown/postman |
+| .easy.api.yml/.easy.api.yaml | yml | markdown/postman |
 | .postman.config | property | postman |
 | .postman.yml/.postman.yaml | yml | postman |
-| .yapi.config | property | yapi |
-| .yapi.yml/.yapi.yaml | yml | yapi |
 
 - You can use the `properties.additional` field in the configuration file to load additional configuration files:
 ```properties
