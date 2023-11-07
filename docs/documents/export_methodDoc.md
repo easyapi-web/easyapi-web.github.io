@@ -1,17 +1,17 @@
-## 导出普通java method文档
+## Exporting Regular Java Method Documentation
 
-- 导出普通method的功能默认是关闭的 , 开启需要勾选:<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd> & <kbd>generic</kbd>, 参照:[IDEA配置](/setting/ide-setting.html)
+- Exporting regular method documentation is disabled by default. To enable it, you need to check the following options: <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd> & <kbd>generic</kbd>. Refer to: [IDEA Configuration](/setting/ide-setting.html)
 
-- 普通method支持导出到`markdown`
-- 如果希望导出`rpc`到`postman`, 参照: [Generic](/documents/generic.html)
+- Regular methods can be exported to markdown.
 
-**相关规则**
+- If you want to export rpc to postman, refer to: [Generic](/documents/generic.html)
 
-| &nbsp;&nbsp;&nbsp;&nbsp;规则的key | 规则目标(上下文) | 版本 | 规则描述 |
+**Related Rules**
+| &nbsp;&nbsp;&nbsp;&nbsp;key | target(context) | version | desc |
 | ------------ | ------------ | ------------ |------------ |
-| ☆[mdoc.class.filter](/setting/rules/mdoc_class_filter.html) | class | v0.9.5+ | 选择哪些类可以导出方法文档(rpc) |
-| &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.filter | method | v0.9.5+ | 选择哪些方法可以导出方法文档(rpc) |
-| ☆[~~mdoc.method.path~~](/setting/rules/mdoc_method_path.html) | method | v0.9.5+ | 设置方法文档(rpc)的路径<br>仅用于兼容旧的导出方式, 不建议使用 |
-| &nbsp;&nbsp;&nbsp;&nbsp;~~mdoc.method.http.method~~ | method | v0.9.5+ | 设置方法文档(rpc)HTTP请求方式<br>仅用于兼容旧的导出方式, 不建议使用 |
+| ☆[mdoc.class.filter](/setting/rules/mdoc_class_filter.html) | class | v0.9.5+ | Select which classes can export method documentation (rpc) |
+| &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.filter | method | v0.9.5+ | Select which methods can export method documentation (rpc) |
+| ☆[~~mdoc.method.path~~](/setting/rules/mdoc_method_path.html) | method | v0.9.5+ | Set the path for method documentation (rpc)<br>Only used for compatibility with the old export method, not recommended |
+| &nbsp;&nbsp;&nbsp;&nbsp;~~mdoc.method.http.method~~ | method | v0.9.5+ | Set the HTTP request method for method documentation (rpc)<br>Only used for compatibility with the old export method, not recommended |
 
-点击[规则配置](/setting/config-rule.html)查看更多.
+Click [Rule Configuration](/setting/config-rule.html) to see more.

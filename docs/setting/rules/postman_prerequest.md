@@ -1,10 +1,10 @@
 # postman.prerequest
 
-> 设置`postman`API的[`prerequest`](https://learning.postman.com/docs/postman/scripts/pre-request-scripts)
+- Used to set the [`prerequest`](https://learning.postman.com/docs/postman/scripts/pre-request-scripts) for the postman API
 
-> 允许设置多条规则
+- You can configure multiple rules for the prerequest
 
-## 固定`prerequest`配置示例如下
+## Example of fixed `prerequest` configuration
 
 ``````
 postman.prerequest=```
@@ -21,7 +21,7 @@ pm.sendRequest("https://postman-echo.com/get", function (err, response) {
 ```
 ``````
 
-## 为有指定注解的`api`加上`prerequest`
+## Adding `prerequest` to APIs with specific annotations
 
 ``````
 postman.prerequest[@com.itangcent.common.annotation.RequiredLogin]=```
@@ -38,7 +38,7 @@ pm.sendRequest("https://postman-echo.com/get", function (err, response) {
 ```
 ``````
 
-## 为没有指定注解的`api`加上`prerequest`
+## Adding `prerequest` to APIs without specific annotations
 
 ``````
 postman.prerequest[!@com.itangcent.common.annotation.Public]=```
@@ -55,7 +55,7 @@ pm.sendRequest("https://postman-echo.com/get", function (err, response) {
 ```
 ``````
 
-## 在配置中提供多个`prerequest`,由代码注释来选择使用哪个
+## Providing multiple `prerequest` in the configuration, selecting which one to use with code comments
 
 ``````
 postman.prerequest.groupA=```
@@ -73,13 +73,13 @@ pm.globals.set("variable_key", "variable_value");
 postman.prerequest[#prerequest]=groovy:config.get("postman.prerequest."+it.doc("prerequest"))
 ``````
 
-***使用如下:***
+***Usage:***
 
 ```java
 /**
-  * 获取用户列表
+  * Get the user list
   *
-  * @param type 用户类型 {@link com.itangcent.common.constant.UserType}
+  * @param type User type {@link com.itangcent.common.constant.UserType}
   * @prerequest groupA
   */
 @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -93,18 +93,18 @@ public IResult list(Integer type) {
 
 # class.postman.prerequest
 
-- 设置`folder`上的[`prerequest`](https://learning.postman.com/docs/writing-scripts/pre-request-scripts/#re-using-pre-request-scripts)
+- Set [`prerequest`](https://learning.postman.com/docs/writing-scripts/pre-request-scripts/#re-using-pre-request-scripts) on the `folder` using pre-request scripts.
 
-- 允许设置多条规则
+- Multiple rules can be set.
 
-- 上下文为`class`
+- The context is `class`.
 
 ---
 
 # collection.postman.prerequest
 
-- 设置`collection`上的[`prerequest`](https://learning.postman.com/docs/writing-scripts/pre-request-scripts/#re-using-pre-request-scripts)
+- Set [`prerequest`](https://learning.postman.com/docs/writing-scripts/pre-request-scripts/#re-using-pre-request-scripts) on the `collection` using pre-request scripts.
 
-- 允许设置多条规则
+- Multiple rules can be set.
 
-- 注意`collection.postman.prerequest`无上下文,即`it`为`null`
+- Note that `collection.postman.prerequest` has no context, meaning `it` is `null`.

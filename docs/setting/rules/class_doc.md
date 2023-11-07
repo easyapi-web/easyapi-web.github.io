@@ -1,8 +1,8 @@
 # class.doc(doc.class)
 
-> 类上的额外注释
+> Additional comments on the class
 
-### 添加对swagger @Api支持
+### Adding support for Swagger @Api
 
 ```properties
 class.doc=@io.swagger.annotations.Api#value

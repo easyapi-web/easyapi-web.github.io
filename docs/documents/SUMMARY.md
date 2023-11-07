@@ -10,5 +10,6 @@
     * [export rpc doc](export_rpc.md)
 * [advanced](advanced_use.md)
     * [Debug](debug.md)
+    * [Generic](generic.md)
 * [comment doc](docs.md)
     * [java comment demo](java_doc_demo.md)

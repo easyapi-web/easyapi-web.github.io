@@ -1,20 +1,20 @@
 # enum.use.by.type
 
-> 默认使用类型一致的字段, 优先级低于[enum.use.custom](enum_use_custom.md)
+> By default, fields with the same type will be used for enums. This has lower priority than [enum.use.custom](enum_use_custom.md).
 
 
-**假定有如下枚举类** 
+**Assuming the following enum class:** 
 
 ```java
 public enum UserType {
-    //管理员
-    ADMIN(1, "管理员"),
+    // Administrator
+    ADMIN(1, "Administrator"),
 
-    //成员
-    MEMBER(2, "成员"),
+    // Member
+    MEMBER(2, "Member"),
 
-    //游客
-    GUEST(3, "游客");
+    // Guest
+    GUEST(3, "Guest");
 
     private int code;
     private String desc;
@@ -34,35 +34,35 @@ public enum UserType {
 }
 ```
 
-**对于如下字段**
+**For the following field:**
 
 ```java
 /**
-* 用户类型
+* User type
 *
 * @see UserType
 */
 private int type;
 ```
 
-**推荐配置中有**
+**Recommended configuration:**
 
 ```properties
 enum.use.by.type=true
 ```
 
-- 上述注释将被处理为
+- The above comment will be processed as:
 
 ```java
 /**
-* 用户类型
+* User type
 * @see UserType#code
 */
 private int type;
 ```
 
-- 导出API结果为:
+- The exported API result will be:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | 用户类型 | 枚举: 1,2,3<br>枚举备注: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3])
+| type | integer | NO | | User type | Enum: 1,2,3<br>Enum Remarks: 1: Administrator, 2: Member, 3: Guest<br>Mock: @pick([1,2,3]) |

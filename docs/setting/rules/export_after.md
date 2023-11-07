@@ -1,39 +1,39 @@
 # export.after
 
-> 每个api导出完成后回调
+> The callback will be performed after each API export completion
 
-| 规则目标(上下文it) | 附加上下文 |
+| Contextual Target (it) | Additional Context |
 | ------------ | ------------ |
 | [method](../tools/it.html) | [api](../tools/api.html)  |
 
 
 ## demo
 
-***增加接口描述信息***
+***Add interface description information***
 
 ```properties
-export.after=groovy:api.appendDesc("\n这个接口Deprecated\n")
+export.after=groovy:api.appendDesc("\nThis interface is deprecated\n")
 ```
 
-***header中token不需要显示传参***
+***Do not display the token in the header***
 
 ```properties
 export.after=groovy:api.removeHeader("token")
 ```
 
-***修改url***
+***Modify the url***
 
 ```properties
 export.after=groovy:api.setPath("/pre"+api.path())
 ```
 
-***response的header中会返回当前用户会员等级***
+***The response header include the current user's membership level***
 
 ```properties
-export.after=groovy:api.addResponseHeader("level","","true","当前用户会员等级")
+export.after=groovy:api.addResponseHeader("level","","true","Current user's membership level")
 ```
 
-***将method上的`@version xxx`加入到`url`中***
+***Include the `@version xxx` from the method in the `url`***
 
 ``````properties
 export.after[#version]=groovy:```

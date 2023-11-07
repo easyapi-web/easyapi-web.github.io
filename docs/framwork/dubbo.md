@@ -1,19 +1,18 @@
-# 导出`dubbo`文档
+# Exporting `dubbo` Documentation
 
-***如果仅希望导出`markdown`***
+***If you only want to export as `Markdown`***
 
-> 参照[导出普通java method文档](/documents/export_methodDoc.html)即可
-
-
-***如果希望导出到`postman`***
+> Please refer to [Exporting Regular Java Method Documentation](/documents/export_methodDoc.html) for instructions.
 
 
-> 参照[自定义框架](/documents/generic.html)
+***If you want to export to `Postman`***
 
-1. 取消勾选 <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd>
+> Please refer to [Custom Framework](/documents/generic.html) for instructions.
 
-2. 勾选 <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>generic export</kbd>
+1. Uncheck <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>methodDoc</kbd>
 
-3. 在<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Remote</kbd>中添加[dubbo.config](https://raw.githubusercontent.com/tangcent/easy-api/master/third/dubbo.config)
+2. Check <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Support</kbd> > <kbd>generic export</kbd>
 
-4. 如果配置不满足预期, 可以复制并修改[dubbo.config](https://raw.githubusercontent.com/tangcent/easy-api/master/third/dubbo.config)的内容放在[本地文件](/setting/local-file-config.html)里
+3. Add [dubbo.config](https://raw.githubusercontent.com/tangcent/easy-api/master/third/dubbo.config) to <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Remote</kbd>
+
+4. If the configuration does not meet your expectations, you can copy and modify the content of [dubbo.config](https://raw.githubusercontent.com/tangcent/easy-api/master/third/dubbo.config) and place it in a [local file](/setting/local-file-config.html).

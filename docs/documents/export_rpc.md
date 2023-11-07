@@ -22,7 +22,7 @@
 | ☆[mdoc.class.filter](/setting/rules/mdoc_class_filter.html) | class | v0.9.5+ | Filter classes which can export method documents(rpc) |
 | &nbsp;&nbsp;&nbsp;&nbsp;mdoc.method.filter | method | v0.9.5+ | Filter methods which can export method documents(rpc) |
 
-click[config rule](/setting/config-rule.html)to view more.
+click [config rule](/setting/config-rule.html) to view more.
 
 ----
 

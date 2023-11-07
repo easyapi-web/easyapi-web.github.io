@@ -1,24 +1,22 @@
 # enum.use.name
 
-> 用于设置使用`@see`枚举类型时的默认使用`name`作为取值
+Used to set `name` as the value when using `@see` with enum types.
 
-> 优先级低于[enum.use.custom](enum_use_custom.md)和[enum.use.by.type](enum_use_by_type.md)
-
-> 所以要使用`enum.use.name`需要先在推荐配置中取消[enum.use.by.type](enum_use_by_type.md)
+This setting has lower priority than [enum.use.custom](enum_use_custom.md) and [enum.use.by.type](enum_use_by_type.md). Therefore, to use `enum.use.name`, you need to first disable `enum.use.by.type` in the recommended configuration.
 
 
-**假定有如下枚举类** 
+**Assuming the following enum class exists** 
 
 ```java
 public enum UserType {
-    //管理员
-    ADMIN(1, "管理员"),
+    // Administrator
+    ADMIN(1, "Administrator"),
 
-    //成员
-    MEMBER(2, "成员"),
+    // Member
+    MEMBER(2, "Member"),
 
-    //游客
-    GUEST(3, "游客");
+    // Guest
+    GUEST(3, "Guest");
 
     private int code;
     private String desc;
@@ -38,50 +36,50 @@ public enum UserType {
 }
 ```
 
-**对于如下字段**
+**For the following field:**
 
 ```java
 /**
-* 用户类型
+* User type
 *
 * @see UserType
 */
 private int type;
 ```
 
-### 默认情况
+### Default Case
 
-- 由于UserType中不存在字段type, 默认情况下这里的`@see UserType`会被忽略掉
+- Since the UserType class does not have a type field, by default, the `@see UserType` in this case will be ignored.
 
-### 增加配置
+### Adding Configuration
 
-- 做如下配置,设置`@see UserType`时默认使用`name`字段作为取值
+- Configure the default value for `@see UserType` to use the `name` field:
 
 ```properties
 enum.use.name[com.itangcent.common.constant.UserType]=true
 ```
 
-- 则上述注释将等价于
+- With this configuration, the above comment will be equivalent to:
 
 ```java
 /**
-* 用户类型
+* User type
 * @see UserType#name()
 */
 private String type;
 ```
 
-- 导出API结果为:
+- The exported API result would be:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | string | 非必须 | | 用户类型 | 枚举: ADMIN,MEMBER,GUEST<br>枚举备注: ADMIN :管理员 MEMBER :成员 GUEST :游客<br>mock: @pick([ADMIN,MEMBER,GUEST])
+| type | string | Optional | | User type | Enum: ADMIN, MEMBER, GUESTEnum Remarks: ADMIN: Administrator, MEMBER: Member, GUEST: GuestMock: @pick([ADMIN,MEMBER,GUEST]) | 
 
 
 
-### 统一处理
+### Unified Handling
 
-- 特殊的, 声明如下接口:
+- Declare the following interface:
 
 ```java
 package com.itangcent.common.constant;
@@ -90,7 +88,7 @@ public interface BaseEnum {
 }
 ```
 
-- 改造`UserType`,使其继承`BaseEnum`
+- Modify the `UserType` class to implement the `BaseEnum` interface:
 
 ```java
 public enum UserType implements BaseEnum {
@@ -98,14 +96,13 @@ public enum UserType implements BaseEnum {
 }
 ```
 
-- 则可做如下配置,将所有继承`BaseEnum`的类默认使用`name`作为取值
+- With this, you can configure all classes that implement `BaseEnum` to use the `name` field as the default value:
 
 ```properties
 enum.use.name[groovy:it.isExtend("com.itangcent.common.constant.BaseEnum")]=true
 ```
 
-### 整个项目所有`@see 枚举类`都默认使用`name`作为取值
-
+### Defaulting to use `name` for all `@see` with enum types in the entire project
 
 ```properties
 enum.use.name=true

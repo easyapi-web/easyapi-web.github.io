@@ -1,15 +1,12 @@
 # class.is.ctrl
 
-> 默认的只会导出注解有`org.springframework.stereotype.Controller`或`org.springframework.web.bind.annotation.RestController`
-的类中的`api`.
+> By default, only classes annotated with `org.springframework.stereotype.Controller` or `org.springframework.web.bind.annotation.RestController` will be exported as api.
 
-> 当有导出未注解`org.springframework.stereotype.Controller`或`org.springframework.web.bind.annotation.RestController`
-的类中的`api`的需求时,可以配置此规则
+> When there is a need to export api from classes that are not annotated with `org.springframework.stereotype.Controller` or `org.springframework.web.bind.annotation.RestController`, you can configure this rule.
 
+## Allowing export of `api` from all classes
 
-## 允许导出所有类中的`api`
-
-- 则可配置
+- You can configure:
 
  ```properties
  class.is.ctrl=true
@@ -17,9 +14,9 @@
 
 ---
 
-## 允许导出注释有`ctrl`类中的`api`
+## Allowing export of `api` from classes annotated with `ctrl` comment
 
-- 如果配置为`导出所有类中的api`出现卡顿, 希望通过注释`@ctrl`来控制哪些类会包含`api`, 那可配置为
+- If configuring to export `api` from all classes causes lag, and you want to control which classes include `api` using the `@ctrl` comment, you can configure:
 
  ```properties
  class.is.ctrl=#ctrl
@@ -35,7 +32,7 @@
 public interface BaseController {
 
     /**
-     * 当前ctrl名称
+     * Current controller name
      *
      * @public
      */

@@ -1,20 +1,21 @@
 # enum.use.custom
 
-> 用于设置使用`@see`枚举类型时的默认取值字段
+> Used to set the default value field when using `@see` enum types
 
+### Example
 
-**假定有如下枚举类** 
+**Assuming the following enum class**
 
 ```java
 public enum UserType {
-    //管理员
-    ADMIN(1, "管理员"),
+    // Administrator
+    ADMIN(1, "Administrator"),
 
-    //成员
-    MEMBER(2, "成员"),
+    // Member
+    MEMBER(2, "Member"),
 
-    //游客
-    GUEST(3, "游客");
+    // Guest
+    GUEST(3, "Guest");
 
     private int code;
     private String desc;
@@ -34,50 +35,51 @@ public enum UserType {
 }
 ```
 
-**对于如下字段**
+**For the following field**
 
 ```java
 /**
-* 用户类型
+* User type
 *
 * @see UserType
 */
 private int type;
 ```
 
-### 默认情况
+### Default behavior
 
-- 由于UserType中不存在字段type, 默认情况下这里的`@see UserType`会被忽略掉
+- Since `UserType` does not have a field named type, the `@see UserType` will be ignored in the default case.
 
-### 增加配置
 
-- 做如下配置,设置`@see UserType`时默认使用`code`字段作为取值
+### Adding configuration
+
+- To set the `code` field as the default value for `@see UserType`, add the following configuration:
 
 ```properties
 enum.use.custom[com.itangcent.common.constant.UserType]=code
 ```
 
-- 则上述注释将等价于
+- This will make the `@see UserType` use the `code` field as the default value.
 
 ```java
 /**
-* 用户类型
+* User type
 * @see UserType#code
 */
 private int type;
 ```
 
-- 导出API结果为:
+- The API result will be:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
-| --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | 用户类型 | 枚举: 1,2,3<br>枚举备注: 1 :管理员 2 :成员 3 :游客<br>mock: @pick([1,2,3])
+| name | type | required | default | desc | other |
+| --- | --- | --- | --- | --- | --- | 
+| type | integer | Not Required | | User Type | Enum: 1,2,3Enum Remark: 1 : Administrator 2 : Member 3 : GuestMock: @pick([1,2,3])
 
 
 
-### 统一处理
+### Unified handling
 
-- 特殊的, 声明如下接口:
+- For special cases, declare the following interface:
 
 ```java
 package com.itangcent.common.constant;
@@ -88,7 +90,7 @@ public interface BaseEnum {
 }
 ```
 
-- 改造`UserType`,使其继承`BaseEnum`
+- Modify `UserType` to inherit `BaseEnum`:
 
 ```java
 public enum UserType implements BaseEnum {
@@ -96,7 +98,7 @@ public enum UserType implements BaseEnum {
 }
 ```
 
-- 则可做如下配置,将所有继承`BaseEnum`的类默认使用`code`字段作为取值
+- Then, you can configure the following to set the `code` field as the default value for all classes that inherit `BaseEnum`:
 
 ```properties
 enum.use.custom[groovy:it.isExtend("com.itangcent.common.constant.BaseEnum")]=code

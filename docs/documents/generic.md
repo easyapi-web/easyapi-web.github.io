@@ -1,36 +1,36 @@
-# Generic(自定义框架)
+# Generic (Custom Framework)
 
-插件可以通过配置来支持自定义web框架, 步骤如下:
-- 启用`generic`
+The plugin can support custom web frameworks through configuration. Here are the steps:
+- Enable `generic`
 
 ![call](../asset/generic.png)
 
-- 配置`generic`相关[配置](/setting/index.html)
+- Configure the [related settings](/setting/index.html) for `generic`
 
 ---
 
-**Generic相关规则**
+**Generic Related Rules**
 
-| &nbsp;&nbsp;&nbsp;&nbsp;规则的key | 规则目标(上下文) | 版本 | 规则描述 |
+| &nbsp;&nbsp;&nbsp;&nbsp;key | target(context) | version | desc |
 | ------------ | ------------ | ------------ |------------ |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.class.has.api](/documents/generic.html)  | class | v2.2.1+ | 判断一个类是否有API |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.path](/documents/generic.html)  | class/method | v2.2.1+ | 获取类/方法上的http路径 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.http.method](/documents/generic.html)  | class/method | v2.2.1+ | 获取类/方法上的httpMethod |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.method.has.api](/documents/generic.html)  | class | v2.2.1+ | 判断一个方法是否有API |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.name](/documents/generic.html)  | param | v2.2.1+ | 获取一个参数的名称 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.json.body](/documents/generic.html)  | param | v2.2.1+ | 判断一个参数是否应该处理为JsonBody |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.form.body](/documents/generic.html)  | param | v2.2.1+ | 判断一个参数是否应该处理为表单 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.path.var](/documents/generic.html)  | param | v2.2.1+ | 判断一个参数是否应该处理为url路径参数 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.path.var](/documents/generic.html)  | param | v2.2.1+ | 获取一个参数作为url路径参数的名称 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.cookie](/documents/generic.html)  | param | v2.2.1+ | 判断一个参数是否应该处理为Cookie |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.cookie](/documents/generic.html)  | param | v2.2.1+ | 获取一个参数作为Cookie的名称 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.cookie.value](/documents/generic.html)  | param | v2.2.1+ | 获取一个参数作为Cookie的值 |
-| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.header](/documents/generic.html)  | param | v2.2.1+ | 获取一个参数作为Header的内容 |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.class.has.api](/documents/generic.html)  | class | v2.2.1+ | Determine if a class has any API |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.path](/documents/generic.html)  | class/method | v2.2.1+ |  Get the HTTP path from a class/method |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.http.method](/documents/generic.html)  | class/method | v2.2.1+ | Get the HTTP method from a class/method |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.method.has.api](/documents/generic.html)  | class | v2.2.1+ | Determine if a method has an API  |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.name](/documents/generic.html)  | param | v2.2.1+ | Get the name of a parameter |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.json.body](/documents/generic.html)  | param | v2.2.1+ | Determine if a parameter should be treated as a JSON body |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.form.body](/documents/generic.html)  | param | v2.2.1+ | Determine if a parameter should be treated as a form |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.path.var](/documents/generic.html)  | param | v2.2.1+ | Determine if a parameter should be treated as a URL path variable |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.path.var](/documents/generic.html)  | param | v2.2.1+ | Get the name of a parameter as a URL path variable |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.as.cookie](/documents/generic.html)  | param | v2.2.1+ | Determine if a parameter should be treated as a Cookie |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.cookie](/documents/generic.html)  | param | v2.2.1+ | Get the name of a parameter as a Cookie  |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.cookie.value](/documents/generic.html)  | param | v2.2.1+ | Get the value of a parameter as a Cookie |
+| &nbsp;&nbsp;&nbsp;&nbsp;[generic.param.header](/documents/generic.html)  | param | v2.2.1+ | Get the content of a parameter as a Header  |
 
 
 ---
 
-以下是`spring`框架的等价`generic`配置
+The following is an equivalent `generic configuration` for the `spring framework`
 
 ``````
 # generic.class.has.api
