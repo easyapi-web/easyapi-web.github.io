@@ -1,102 +1,102 @@
-# `httpClient`是提供的http相关帮助类(v1.9.0+)
+# `httpClient`is a provided helper class for HTTP-related tasks (v1.9.0+)
 
 ---
 
-## 主要方法
+## Main Methods
 
-| 方法  |  返回值  |  描述  |  示例  |
+| Method  |  Return Type  |  Description  |  Example  |
 | ------------ | ------------ | ------------ |------------ |
-| cookieStore() | cookieStore | 获取cookie管理器 | httpClient.cookieStore()|
-| request() | request | 创建request | httpClient.request()|
-| delete() | request | 创建`request`,并设置`method`为`DELETE` | httpClient.delete()| 
-| delete(str) | request | 创建`request`,并设置`method`为`DELETE`、设置`url` | httpClient.delete("http://www.easyyapi.com")|
-| get() | request | 创建`request`,并设置`method`为`GET` | httpClient.get()| 
-| get(str) | request | 创建`request`,并设置`method`为`GET`、设置`url` | httpClient.get("http://www.easyyapi.com")|
-| options() | request | 创建`request`,并设置`method`为`OPTIONS` | httpClient.options()| 
-| options(str) | request | 创建`request`,并设置`method`为`OPTIONS`、设置`url` | httpClient.options("http://www.easyyapi.com")|
-| post() | request | 创建`request`,并设置`method`为`POST` | httpClient.post()| 
-| post(str) | request | 创建`request`,并设置`method`为`POST`、设置`url` | httpClient.post("http://www.easyyapi.com")|
-| put() | request | 创建`request`,并设置`method`为`PUT` | httpClient.put()| 
-| put(str) | request | 创建`request`,并设置`method`为`PUT`、设置`url` | httpClient.put("http://www.easyyapi.com")|
-| trace() | request | 创建`request`,并设置`method`为`TRACE` | httpClient.trace()| 
-| trace(str) | request | 创建`request`,并设置`method`为`TRACE`、设置`url` | httpClient.trace("http://www.easyyapi.com")|
+| cookieStore() | cookieStore | Obtain cookie manager | httpClient.cookieStore()|
+| request() | request | Create `request` | httpClient.request()|
+| delete() | request | Create `request`, set `method` to `DELETE` | httpClient.delete()| 
+| delete(str) | request | Create `request`, set `method` to `DELETE`, set `url` | httpClient.delete("https://easyapi.itangcent.com")|
+| get() | request | Create `request`, set `method` to `GET` | httpClient.get()| 
+| get(str) | request | Create `request`, set `method` to `GET`, set `url` | httpClient.get("https://easyapi.itangcent.com")|
+| options() | request | Create `request`, set `method` to `OPTIONS` | httpClient.options()| 
+| options(str) | request | Create `request`, set `method` to `OPTIONS`, set `url` | httpClient.options("https://easyapi.itangcent.com")|
+| post() | request | Create `request`, set `method` to `POST` | httpClient.post()| 
+| post(str) | request | Create `request`, set `method` to `POST`, set `url` | httpClient.post("https://easyapi.itangcent.com")|
+| put() | request | Create `request`, set `method` to `PUT` | httpClient.put()| 
+| put(str) | request | Create `request`, set `method` to `PUT`, set `url` | httpClient.put("https://easyapi.itangcent.com")|
+| trace() | request | Create `request`, set `method` to `TRACE` | httpClient.trace()| 
+| trace(str) | request | Create `request`, set `method` to `TRACE`, set `url` | httpClient.trace("https://easyapi.itangcent.com")|
 
 ---
 
 # request
 
-- 可以由`httpClient`创建
+- Can be created by `httpClient`
 
 ## Methods:
 
-| 方法  |  返回值  |  描述  |  示例  |
+| Method  |  Return Type  |  Description  |  Example  |
 | ------------ | ------------ | ------------ |------------ |
-| call() | response | 发起`http`请求 | request.call()|
-| method() | string | 获取当前请求的`method` | request.method()|
-| method(string) | request | 设置当前请求的`method` | request.method("POST")|
-| url() | string | 获取当前请求的`url` | request.url()|
-| url(string) | request | 设置当前请求的`url` | request.url("http://www.easyyapi.com")|
-| body() | object | 获取当前请求体 | request.body()|
-| body(object) | request | 设置当前请求体 | request.body({"name":"admin"})|
-| contentType() | string | 获取当前请求的`Content-type` | request.contentType()|
-| contentType(string) | string | 设置当前请求的`Content-type` | request.contentType("application/json")|
-| querys() | request | 获取所有的query参数 | request.querys()|
-| query(string, string) | request | 设置query(请求时将被追加在url后) | request.query("name","Tom")|
-| params() | array\<param> | 获取所有参数 | request.params()|
-| params(string) | array\<param> | 获取指定参数名的所有参数 | request.params("name")|
-| containsParam(string) | bool | 判断当前请求是否有指定请求参数 | request.containsParam("name")|
-| fileParam(string, string) | request | 设置一个文件参数 | request.fileParam("file","/xxx/xxx/xxxx.xxx")|
-| firstParam(string) | param | 获取第一个请求参数(注意返回值是param,包含参数名/参数值/参数类型[text/file]) | request.firstParam("name")|
-| firstParamValue(string) | param | 获取第一个请求参数值 | request.firstParamValue("name")|
-| lastParam(string) | param | 获取最后一个请求参数(注意返回值是param,包含参数名/参数值/参数类型[text/file]) | request.lastParam("name")|
-| lastParamValue(string) | param | 获取最后一个请求参数值 | request.lastParamValue("name")|
-| param(string, string) | request | 设置`param` | request.param("name","Tom")|
-| paramValues(string) | array\<string> | 获取指定参数所有值 | request.paramValues("name")|
-| header(string, string) | request | 设置`header` | request.header("Content-type","application/json")|
-| headers() | array\<header> | 获取所有的`header` | request.headers()|
-| headers(string) | array\<string> | 获取指定`header`所有值 | request.headers("Content-type")|
-| containsHeader(string) | bool | 判断当前请求是否有指定`header` | request.containsHeader("token")|
-| firstHeader(string) | string | 获取第一个header参数 | request.firstHeader("Content-type")|
-| lastHeader(string) | string | 获取最后一个header参数 | request.lastHeader("Content-type")|
-| setHeader(string, string) | request | 移除当前`header`名称的所有值,并设置`header` | request.setHeader("Content-type","application/json")|
-| removeHeader(string, string) | request | 移除指定`header`名称的指定值 | request.removeHeader("Content-type","application/json")|
-| removeHeaders(string) | request | 移除当前`header`名称的所有值 | request.removeHeaders("Content-type")|
+| call() | response | Perform `http` request | request.call()|
+| method() | string | Get the current request `method` | request.method()|
+| method(string) | request | Set the current request `method` | request.method("POST")|
+| url() | string | Get the current request `url` | request.url()|
+| url(string) | request | Set the current request `url` | request.url("https://easyapi.itangcent.com")|
+| body() | object | Get the current request body | request.body()|
+| body(object) | request | Set the current request body | request.body({"name":"admin"})|
+| contentType() | string | Get the current request `Content-type` | request.contentType()|
+| contentType(string) | string | Set the current request `Content-type` | request.contentType("application/json")|
+| querys() | request | Get all query parameters | request.querys()|
+| query(string, string) | request | Set query (will be appended to url) | request.query("name","Tom")|
+| params() | array\<param> | Get all parameters | request.params()|
+| params(string) | array\<param> | Get all parameters of specified name | request.params("name")|
+| containsParam(string) | bool | Check if current request contains specified parameter | request.containsParam("name")|
+| fileParam(string, string) | request | Set a file parameter | request.fileParam("file","/xxx/xxx/xxxx.xxx")|
+| firstParam(string) | param | Get the first request parameter (Note: return value is param, containing parameter name/value/type [text/file]) | request.firstParam("name")|
+| firstParamValue(string) | param | Get the value of the first request parameter | request.firstParamValue("name")|
+| lastParam(string) | param | Get the last request parameter (Note: return value is param, containing parameter name/value/type [text/file]) | request.lastParam("name")|
+| lastParamValue(string) | param | Get the value of the last request parameter | request.lastParamValue("name")|
+| param(string, string) | request | Set `param` | request.param("name","Tom")|
+| paramValues(string) | array\<string> | Get all values of specified parameter | request.paramValues("name")|
+| header(string, string) | request | Set `header` | request.header("Content-type","application/json")|
+| headers() | array\<header> | Get all `header` | request.headers()|
+| headers(string) | array\<string> | Get all values of specified `header` | request.headers("Content-type")|
+| containsHeader(string) | bool | Check if current request contains specified `header` | request.containsHeader("token")|
+| firstHeader(string) | string | Get the first header parameter | request.firstHeader("Content-type")|
+| lastHeader(string) | string | Get the last header parameter | request.lastHeader("Content-type")|
+| setHeader(string, string) | request | Remove all values of current `header` name and set `header` | request.setHeader("Content-type","application/json")|
+| removeHeader(string, string) | request | Remove specified value of specified `header` name | request.removeHeader("Content-type","application/json")|
+| removeHeaders(string) | request | Remove all values of specified `header` name | request.removeHeaders("Content-type")|
 
 
 ---
 
 # response
 
-- 可以由`request.call()`得到
+- Can be obtained by `request.call()`
 
 ## Methods:
 
-| 方法  |  返回值  |  描述  |  示例  |
+| Method  |  Return Type  |  Description  |  Example  |
 | ------------ | ------------ | ------------ |------------ |
-| discard() | void | 丢弃这次请求的结果, 重新发起此请求 | response.discard()|
-| code() | int | 响应code | response.code()|
-| string() | string | 响应内容 | response.string()|
-| contentType() | string | 响应的contentType | response.contentType()|
-| headers() | array\<header> | 获取所有的`header` | response.headers()|
-| headers(string) | array\<string> | 获取指定`header`所有值 | response.headers("Content-type")|
-| containsHeader(string) | bool | 判断当前响应是否有指定`header` | response.containsHeader("token")|
-| firstHeader(string) | string | 获取第一个header参数 | response.firstHeader("Content-type")|
-| lastHeader(string) | string | 获取第一个header参数 | response.lastHeader("Content-type")|
-| request() | request | 获取得到此响应的`request` | response.request()|
+| discard() | void | Discard the result of this request, and re-call it | response.discard()|
+| code() | int | Response code | response.code()|
+| string() | string | Response content | response.string()|
+| contentType() | string | Response Content-type | response.contentType()|
+| headers() | array\<header> | Get all `header` | response.headers()|
+| headers(string) | array\<string> | Get all values of specified `header` | response.headers("Content-type")|
+| containsHeader(string) | bool | Check if current response contains specified `header` | response.containsHeader("token")|
+| firstHeader(string) | string | Get the first header parameter | response.firstHeader("Content-type")|
+| lastHeader(string) | string | Get the last header parameter | response.lastHeader("Content-type")|
+| request() | request | Get the `request` that resulted in this response | response.request()|
 
 ---
 
 
 # cookieStore
 
-- 可以由`httpClient.cookieStore()`获得
+- Can be obtained by `httpClient.cookieStore()`
 
 ## Methods:
 
-| 方法  |  返回值  |  描述  |  示例  |
+| Method  |  Return Type  |  Description  |  Example  |
 | ------------ | ------------ | ------------ |------------ |
-| addCookie(cookie) | void | 添加一个cookie | httpClient.cookieStore().addCookie(cookie) |
-| addCookies(cookies) | void | 添加多个cookie | httpClient.cookieStore().addCookies(cookies) |
-| clear() | void | 清除cookie | httpClient.cookieStore().clear() |
-| cookies() | array\<cookie> | 获得当前的cookies | httpClient.cookieStore().cookies() |
-| newCookie() | cookie | 创建一个`cookie`,注意:并不会自动添加到`cookieStore`中, 需要手动调用`addCookie`加入 | httpClient.cookieStore().newCookie() |
+| addCookie(cookie) | void | Add a cookie | httpClient.cookieStore().addCookie(cookie) |
+| addCookies(cookies) | void | Add multiple cookies | httpClient.cookieStore().addCookies(cookies) |
+| clear() | void | Clear cookie | httpClient.cookieStore().clear() |
+| cookies() | array\<cookie> | Get current cookies | httpClient.cookieStore().cookies() |
+| newCookie() | cookie | Create a `cookie`, note: it will not be automatically added to `cookieStore`, you need to call `addCookie` to add it manually | httpClient.cookieStore().newCookie() |

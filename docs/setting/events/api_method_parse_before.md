@@ -1,15 +1,16 @@
 # api.method.parse.before
 
-- 解析api方法前回调
+- Callback before parsing the API method
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [method](../tools/it.html)  | 无  |
+| [method](../tools/it.html)  | None  |
 
 ## demo
 
-***增加log***
+***Add log***
+
 
 ```properties
-api.method.parse.before=groovy:logger.info("开始解析api:"+it.name())
+api.method.parse.before=groovy:logger.info("Beginning to parse API:" + it.name())
 ```

@@ -1,15 +1,15 @@
 # api.class.parse.before
 
-- 解析controller类前回调
+- Callback before parsing the controller class
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [class](../tools/it.html) | 无  |
+| [class](../tools/it.html)  | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-api.class.parse.before=groovy:logger.info("开始解析controller:"+it.name())
+api.class.parse.before=groovy:logger.info("Beginning to parse controller:" + it.name())
 ```

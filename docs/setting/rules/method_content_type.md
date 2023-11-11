@@ -1,12 +1,11 @@
 # method.content.type
 
-> 用于设置API请求默认的`content-type`, 插件依然会在必要的时候强行覆盖掉
+> Used to set the default `content-type` for API requests. The plugin will still override this when necessary.
+> For example, when encountering `@RequestBody`, it will be forcibly overridden to `application/json`.
 
-> 如当遇到`@RequestBody`时, 将被强行覆盖为`application/json`
+### By default, the plugin prioritizes `application/x-www-form-urlencoded`. If you prefer to use `multipart/form-data`
 
-### 默认情况下, 插件优先使用`application/x-www-form-urlencoded`, 如希望优先使用`multipart/form-data`
-
-***配置如下:***
+***Configuration is as follows:***
 
 ```properties
 method.content.type=multipart/form-data

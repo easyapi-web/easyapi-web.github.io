@@ -1,9 +1,9 @@
 # field.ignore
 
-> 忽略字段(设置某些字段不出现在json中,或不需要请求时给出)
+> Ignore fields (set certain fields not to appear in json, or not to be provided when requested)
 
 
-## 默认推荐配置
+## Default Recommended Configuration
 
 ```properties
 #Support for Jackson annotations
@@ -38,54 +38,54 @@ public class TestJsonIgnoreBean {
 }
 ```
 
-### 作为API返回值导出:
+### Exported as API return value:
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息 |
+| name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| shouldNotIgnoreForGson |	integer | 非必须 |  |  | mock: @natural(0,10000) |
-| shouldNotIgnoreForJackson | integer | 非必须 |  |  | mock: @natural(0,10000) |
+| shouldNotIgnoreForGson |	integer | NO |  |  | mock: @natural(0,10000) |
+| shouldNotIgnoreForJackson | integer | NO |  |  | mock: @natural(0,10000) |
 
-## 定制化配置示例
+## Customized Configuration Example
 
-- 忽略指定名称的字段:
+- Ignore fields with specified names:
 
-  - 配置如下
+  - Configuration as follows
 
     ```properties
     # ignore field 'log'
     field.ignore=log
     ```
 
-  - 将忽略如下字段
+  - The following field will be ignored
 
     ```java
     private String log;
     ```
 
-- 忽略指定类型的字段:
+- Ignore fields with specified types:
 
-  - 配置如下
+  - Configuration as follows
 
     ```properties
     # ignore field 'log' typed xxx.xxx.Log
     field.ignore=groovy:it.type().name()=="xxx.xxx.Log"
     ```
 
-  - 将忽略如下字段
+  - The following field will be ignored
   
     ```java
     private Log xxx;
     ```
 
-- 忽略指定`modifier`的字段:
+- Ignore fields with specified `modifier`:
 
-  - 配置如下
+  - Configuration as follows
     ```properties
     #ignore transient field
     field.ignore=groovy:it.hasModifier("transient")||it.hasModifier("protected")
     ```
 
-  - 将忽略如下字段
+  - The following field will be ignored
   
     ```java
     private transient Int xxx;

@@ -28,7 +28,7 @@ public class UserTypeConstant implements Serializable {
 }
 ```
 
-### 对于如下注释
+### For the following annotations:
 
 ```java
 @see com.itangcent.common.constant.UserTypeConstant
@@ -38,7 +38,7 @@ or
 {@link com.itangcent.common.constant.UserTypeConstant}
 ```
 
-### 将被解析为:
+### They will be parsed as:
 
 ```
 1 :Admin 2 :Member 3 :Guest

@@ -1,30 +1,29 @@
 # folder.name
 
-> 用于设置API所属文件夹的名称
-
-> 缺省情况下, 默认使用api所在类作为所属文件夹
+> Used to set the name of the folder to which the API belongs
+> By default, the class where the API resides is used as the folder name
 
 ## demo
 
-***配置如下:***
+***Configuration is as follows:***
 
 ```properties
 # read folder name from tag `folder`
 folder.name=#folder
 ```
 
-***使用如下:*** 
+***Usage is as follows:*** 
 
 ```java
 /**
-* 一些Mock相关的API
+* Some Mock related APIs
 */
 @RestController
 @RequestMapping(value = "mock")
 public class MockCtrl {
 
     /**
-    * @folder Mock字符串
+    * @folder Mock String
     */
     @GetMapping("/string")
     public String mockString() {
@@ -33,4 +32,4 @@ public class MockCtrl {
 }
 ```
 
-默认情况下上述api会归属到文件夹`一些Mock相关的API`,加上注释`@folder Mock字符串`后归属到`Mock字符串`
+In the default scenario, the above API would belong to the folder `Some Mock related APIs`. After adding the annotation `@folder Mock String`, it belongs to `Mock String`.

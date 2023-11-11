@@ -1,13 +1,13 @@
 # mdoc.method.http.method
 
-> 设置方法文档(rpc)HTTP请求方式, 默认`POST`
+> Set the HTTP request method for method documentation (rpc), default is `POST`
 
 
-## 修改默认行为
+## Modify Default Behavior
 
-***将无参方法设置为`GET`***
+***Setting methods with no arguments to `GET`***
 
-- 配置如下:
+- Configuration is as follows:
 
 ```properties
 mdoc.method.http.method=groovy:it.argCnt()==0?"GET":null

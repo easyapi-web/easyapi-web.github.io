@@ -6,6 +6,7 @@
 
 The default initial value of field
 e.g.:
+
 ```java
 private Integer code = 200;//default 200
 ```
@@ -36,7 +37,6 @@ public class DemoDto{
 
 ***Export as API response:***
 
-
-| name | type | required | default | desc | other |
-| --- | --- | --- | --- | --- | --- |
-| price	| number | 必须 | 666 | 价格	| |
+| name   | type   | required | default | desc   | other |
+|--------|--------|----------|---------|--------|-------|
+| price	 | number | YES      | 666     | price	 |       |

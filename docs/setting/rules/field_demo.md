@@ -56,9 +56,9 @@ field.demo[field:*Time|int]=1681649569869
 
 #Sex&Gender
 field.demo[field:*.sex|int]=1
-field.demo[field:*.sex|string]=男
+field.demo[field:*.sex|string]=Male
 field.demo[field:*.gender|int]=1
-field.demo[field:*.gender|string]=女
+field.demo[field:*.gender|string]=Female
 
 #User Info
 field.demo[field:*.name|string]=tangcent
@@ -68,7 +68,7 @@ field.demo[field:*.mobile|string]=18888888888
 field.demo[field:*Phone|string]=18888888888
 field.demo[field:*Mobile|string]=18888888888
 
-#链接
+#links
 field.demo[field:*.url|string]=https://github.com/
 field.demo[field:*.link|string]=https://github.com/
 field.demo[field:*.linkUrl|string]=https://github.com/

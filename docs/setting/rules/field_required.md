@@ -24,7 +24,7 @@ field.required=@io.swagger.annotations.ApiModelProperty#required
 ```java
 public class SwaggerModel {
 
-    @ApiModelProperty(value = "字段A", required = true)
+    @ApiModelProperty(value = "Field A", required = true)
     private String a;
 
     public String getA() {
@@ -37,9 +37,8 @@ public class SwaggerModel {
 }
 ```
 
-
 ### Export as API response:
 
-| name | type | required | default | desc | other |
-| --- | --- | --- | --- | --- | --- |
-| a |	integer | 必须 |  |  | mock: @natural(0,10000) |
+| name | type     | required | default | desc | other                   |
+|------|----------|----------|---------|------|-------------------------|
+| a    | 	integer | Yes      |         |      | mock: @natural(0,10000) |

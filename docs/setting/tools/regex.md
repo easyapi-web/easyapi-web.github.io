@@ -1,4 +1,4 @@
-# `regex`是提供的正则工具
+# `regex` is a provided tool for regular expressions
 
 ---
 

@@ -1,61 +1,61 @@
 # path.multi
 
-> 用于当API有多个可用路径时如何处理
+> Used for handling cases where an API has multiple available paths.
 
-> 目前可用策略(策略不区分大小写):
+> Currently available strategies (case insensitive):
 
-| 可用策略 | 策略描述 |
+| Available Strategy | Strategy Description |
 | ------------ | ------------ |
-| FIRST | 选择第一个可用路径 |
-| LAST | 选择最后一个可用路径 |
-| LONGEST | 选择最长的可用路径 |
-| SHORTEST | 选择最短的可用路径 |
-| ALL | 为每一个可用路径生成一个api |
+| FIRST | Choose the first available path |
+| LAST | Choose the last available path |
+| LONGEST | Choose the longest available path |
+| SHORTEST | Choose the shortest available path |
+| ALL | Generate an API for every available path |
 
-***可能的配置如下:***
+***Possible configurations are as follows:***
 
-1. 选择第一个可用路径
+1. Choose the first available path
 
 ```properties
 path.multi=first
 ```
 
-2. 选择最后一个可用路径
+2. Choose the last available path
 
 ```properties
 path.multi=last
 ```
 
-3. 选择最长的可用路径
+3. Choose the longest available path
 
 ```properties
 path.multi=longest
 ```
 
-4. 选择最短的可用路径
+4. Choose the shortest available path
 
 ```properties
 path.multi=shortest
 ```
 
-5. 为每一个可用路径生成一个api
+5. Generate an API for every available path
 
 ```properties
 path.multi=all
 ```
 
 
-***也可以由api自行决定选择策略***
+***The API can also decide the selection strategy itself***
 
 ```properties
 path.multi=#multi
 ```
 
-***使用如下:*** 
+***Usage is as follows:*** 
 
 ```java
 /**
-* 一些Mock相关的API
+* Some Mock related APIs
 */
 @RestController
 @RequestMapping(value = "mock")

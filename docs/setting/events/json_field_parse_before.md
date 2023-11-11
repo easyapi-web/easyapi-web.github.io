@@ -1,15 +1,15 @@
 # json.field.parse.before
 
-- 解析属性(字段)前回调
+- Callback before parsing field
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [field](../tools/it.html) | 无  |
+| [field](../tools/it.html) | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-json.field.parse.before=groovy:logger.info("开始解析属性:"+it.name())
+json.field.parse.before=groovy:logger.info("Beginning to parse field: "+it.name())
 ```

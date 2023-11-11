@@ -1,26 +1,26 @@
 # field.order
 
-> 返回一个int值, 用于设置字段在结果中的顺序  
+> Returns an int value to set the order of fields in the result.
   
-注意: 优先级低于[field.order.with](field_order_with.md)，一般不建议同时使用。
+Note: It has a lower priority than [field.order.with](field_order_with.md), and it's generally not recommended to use them at the same time.
 
 
-## 推荐配置中能找到一些field.order相关的配置
+## Some configurations related to field.order can be found in the recommended configurations
 
-1. 通过字段上注释顺序
+1. Order by tag on fields
 
 ```properties
 field.order=#order
 ```
 
-2. 通过JsonProperty设置顺序
+2. Set order through JsonProperty
 ```properties
 field.order=@com.fasterxml.jackson.annotation.JsonProperty#index
 ```
 
 ## demo
 
-***在推荐配置中选中***
+***Select in the recommended configurations***
 
 ```
 field.order=@com.fasterxml.jackson.annotation.JsonProperty#index
@@ -43,9 +43,9 @@ public class TestJsonFieldBean {
 }
 ```
 
-### 作为API返回值导出:
+### Exported as API return value:
 
-| 名称 | 类型 |
+| name | type |
 | --- | --- |
 | c |	integer |
 | propertyB | integer | 

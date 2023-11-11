@@ -1,15 +1,15 @@
 # api.class.parse.after
 
-- 解析controller类后回调
+- Callback after parsing the controller class
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [class](../tools/it.html)  | 无  |
+| [class](../tools/it.html)  | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-api.class.parse.after=groovy:logger.info("controller:"+it.name()+"解析完成")
+api.class.parse.after=groovy:logger.info("Controller:" + it.name() + " parsing completed")
 ```

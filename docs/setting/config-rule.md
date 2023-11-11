@@ -37,6 +37,47 @@
 ---
 
 
+# Supported Simple Configurations
+
+*Simple configurations without context*
+
+| &nbsp;&nbsp;&nbsp;&nbsp;key | target(context) | version | desc |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| &nbsp;&nbsp;&nbsp;&nbsp;dev | v2.2.1+ | bool | Enables development mode, providing more detailed logs. | dev=true |
+| &nbsp;&nbsp;&nbsp;&nbsp;max.deep | v2.3.6+ | int | Sets the maximum depth for `json` parsing, default is 6. | max.deep=8 |
+| &nbsp;&nbsp;&nbsp;&nbsp;max.elements | v2.3.6+ | int | Sets the maximum field count for `json` parsing, default is 256. | max.elements=512 |
+| &nbsp;&nbsp;&nbsp;&nbsp;json.cache.disable | v2.1.0+ | bool | Disables `json` parsing cache. | json.cache.disable=true |
+| &nbsp;&nbsp;&nbsp;&nbsp;http.timeOut | v2.1.0+ | int | Sets the `http` request timeout (s), prioritized over `setting`. | http.timeOut=5 |
+| &nbsp;&nbsp;&nbsp;&nbsp;ignore_static_and_final_field | v2.1.0+ | bool | By default, the plugin ignores static final fields. Set to false to change this behavior.  | ignore_static_and_final_field=false | |
+| &nbsp;&nbsp;&nbsp;&nbsp;ignore_irregular_api_method | v2.5.4+ | bool | By default, the plugin ignores API methods with names matching basic Object method names. Set to false to change this behavior. | ignore_irregular_api_method=false | |
+| &nbsp;&nbsp;&nbsp;&nbsp;doc.source.disable | v2.5.5+ | bool | Set to true to prevent the plugin from reading comments.   | doc.source.disable=true | |
+
+
+---
+
+# Supported Callbacks
+
+*Some callback methods might not have `it`, but additional context may be available for use.*
+
+| &nbsp;&nbsp;&nbsp;&nbsp;key | target(context) | version | desc |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.class.parse.before](events/api_class_parse_before.md)  | class | None  | v2.2.8+ | Callback before parsing `api` |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.class.parse.after](events/api_class_parse_after.md)  | class | None  | v2.2.8+ | Callback after parsing `api` |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.method.parse.before](events/api_method_parse_before.md)  | method | None  | v2.2.8+ | Callback before parsing `api` method |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.method.parse.after](events/api_method_parse_after.md)  | method | None  | v2.2.8+ | Callback after parsing `api` method |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.param.parse.before](events/api_param_parse_before.md)  | param | None  | v2.2.8+ | Callback before parsing `api` parameter |
+| &nbsp;&nbsp;&nbsp;&nbsp;[api.param.parse.after](events/api_param_parse_after.md)  | param | None  | v2.2.8+ | Callback after parsing `api` parameter |
+| &nbsp;&nbsp;&nbsp;&nbsp;[export.after](rules/export_after.md)  | method | [api](tools/api.html) | v2.0.1+ | Callback after each api export is complete |
+| &nbsp;&nbsp;&nbsp;&nbsp;[http.call.before](rules/http_call_before.md)  | None  | [request](tools/httpClient.html#request) | v1.9.0+ | Callback before http request |
+| &nbsp;&nbsp;&nbsp;&nbsp;[http.call.after](rules/http_call_after.md)  | None  | [request](tools/httpClient.html#request), [response](tools/httpClient.html#response) | v1.9.0+ | Callback after http request |
+| &nbsp;&nbsp;&nbsp;&nbsp;[json.class.parse.before](events/json_class_parse_before.md)  | class | None  |  v2.2.8+ | Callback before parsing class |
+| &nbsp;&nbsp;&nbsp;&nbsp;[json.class.parse.after](events/json_class_parse_after.md)  | class | None  | v2.2.8+ | Callback after parsing class |
+| &nbsp;&nbsp;&nbsp;&nbsp;[json.field.parse.before](events/json_field_parse_before.md)  | field | None  | v2.2.8+ | Callback before parsing field |
+| &nbsp;&nbsp;&nbsp;&nbsp;[json.field.parse.after](events/json_field_parse_after.md)  | field | None  | v2.2.8+ | Callback after parsing field |
+
+---
+
+
 # Simple rules
 
 - \# Read tag on comment

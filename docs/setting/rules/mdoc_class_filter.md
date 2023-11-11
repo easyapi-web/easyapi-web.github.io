@@ -1,17 +1,17 @@
 # mdoc.class.filter
 
-- 用于选择哪些类可以导出method(rpc)文档, 根据当前项目情况
+- Used to select which classes can export method (rpc) documentation, based on the current project situation.
 
 
 ***Demo***
  
- - 如果所有的RPC接口类都以`Client`结尾, 则可配置:
+ - If all RPC interface classes end with `Client`, you can configure it as follows:
  
  ```properties
  mdoc.class.filter=groovy:it.name().endsWith("Client")
  ```
 
- - 如果所有的RPC接口类包都在`a.b.c.client`, 则可配置:
+- If all RPC interface classes are contained within package `a.b.c.client`, you can configure it as follows:
  
  ```properties
  mdoc.class.filter=groovy:it.name().startsWith("a.b.c.client")

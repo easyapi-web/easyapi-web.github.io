@@ -1,71 +1,68 @@
 # mdoc.method.path
 
-> 用于设置方法文档(rpc)的路径
+> Used to set the path for method documentation (rpc).
+> To prevent method overloading from causing conflicts, the default generated path includes argument information: `$className/$methodName/$args`.
+> Depending on the project, the path can be configured to simplify its length.
 
-> 为了防止重载方法覆盖,默认生成的path后加上了参数信息:`$className/$methodName/$args`
+## Modify Default Behavior
 
-> 根据项目情况, 可自行配置以简化路径长度
-
-
-## 修改默认行为
-
-***假设有如下类***
+***Assuming the following class exists***
 
 ```java
 package com.itangcent.dubbo.demo.client;
 
 /**
- * 用户相关Client
+ * User related Client
  *
  * @module user_dubbo
  */
 public interface UserClient {
 
     /**
-     * 更新用户名
+     * Update username
      *
-     * @param id      用户id
-     * @param newName 新的用户名
-     * @param slogon  个人签名
-     * @deprecated 改用{@link #update(UserInfo)}
+     * @param id      User id
+     * @param newName New username
+     * @param slogan  Personal signature
+     * @deprecated Use {@link #update(UserInfo)} instead
      */
     public UserInfo set(long id, String newName,
-                        String slogon,
+                        String slogan,
                         long times);
 }
 ```
 
-***默认情况下***
+***In the default scenario:***
 
-- 导出的路径为:<br>
+- The exported path is:<br>
     `/com.itangcent.dubbo.demo.client.UserClient/set/long/java.lang.String/java.lang.String/long/`
 
-***如果确认无重载方法, 可以尝试去掉参数信息:***
+***If it's confirmed that there are no overloaded methods, you can attempt to remove the argument information:***
 
-- 配置如下:
+- Configuration is as follows:
 
 ```properties
 mdoc.method.path=groovy:it.containingClass().name()+"/"+it.name()
 ```
 
-- 导出的接口路径为: `/com.itangcent.dubbo.demo.client.UserClient/set`
+- The exported interface path is: `/com.itangcent.dubbo.demo.client.UserClient/set`
 
-***可以尝试去掉包名:***
+***You can try removing the package name:***
 
-- 配置如下:
+- Configuration is as follows:
 
 ```properties
 mdoc.method.path=groovy:it.containingClass().getSimpleName()+"/"+it.name()
 ```
 
-- 导出的接口路径为:`/UserClient/set`
+- The exported interface path is:`/UserClient/set`
 
-***可以进一步将类名转换为小写:***
+***You can further convert the class name to lowercase:***
 
-- 配置如下:
+- Configuration is as follows:
 
 ```properties
 mdoc.method.path=groovy:it.containingClass().getSimpleName().toLowerCase()+"/"+it.name()
 ```
 
-- 导出的接口路径为:`/userclient/update`
+- The exported interface path is:`/userclient/update`

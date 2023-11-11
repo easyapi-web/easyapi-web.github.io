@@ -1,22 +1,22 @@
 # http.call.before
 
-> http请求前回调
+> Callback before http request
 
-> 注意:插件所有的`http`请求都将触发此回调
+> Note: All http requests from the plugin will trigger this callback.
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (context it) | Additional Context |
 | ------------ | ------------ |
-| 无 | [request](../tools/httpClient.html#request) |
+| None | [request](../tools/httpClient.html#request) |
 
 ## demo
 
-***记录插件所有的请求***
+***Logging all requests from the plugin***
 
 ```properties
 http.call.before=groovy:logger.info("call:"+request.url())
 ```
 
-***自动加入指定toekn***
+***Automatically adding a specified token***
 
 ``````properties
 http.call.before=groovy:```
@@ -24,11 +24,11 @@ request.header("token","xxxxxxxxxxxxx")
 ```
 ``````
 
-***自动加入从localStorage获取的toekn***
+***Automatically adding a token retrieved from localStorage***
 
 ``````properties
 http.call.before=groovy:```
-//从localStorage取token
+//Retrieve token from localStorage
 request.header("token",localStorage.get("token"))
 ```
 ``````

@@ -1,15 +1,15 @@
 # api.param.parse.after
 
-- 解析api参数后回调
+- Callback after parsing the API parameter
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [param](../tools/it.html) | 无  |
+| [param](../tools/it.html) | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-api.param.parse.after=groovy:logger.info("api参数:"+it.name()+"解析完成")
+api.param.parse.after=groovy:logger.info("API parameter:" + it.name() + " parsing completed")
 ```

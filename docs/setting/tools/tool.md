@@ -1,36 +1,36 @@
-# `tool`是提供的主工具类
+# `tool` is the provided utility class
 
 ---
 
-# 主要method
+# Main methods
 
 | method  |  return  |  desc  |  Demo  |
 | ------------ | ------------ | ------------ |------------ |
-| debug(obj) | void | debug对象,获取对象所有可用method | tool.debug(tool)| 
-| newSet(items...) | Set | 创建Set对象 | tool.newSet("ele1","ele2")| 
-| newList(items...) | List | 创建List对象 | tool.newList("ele1","ele2")| 
-| newMap() | Map | 创建Map对象 | tool.newMap()| 
-| parseJson(json) | Object | 解析json字符串 | tool.parseJson("{\"key\":\"value\"}")| 
-| toJson(obj) | Object | 对象转json字符串 | groovy:tool.toJson([key:"value"])<br/>js:tool.toJson({key:"value"})| 
-| prettyJson(obj) | Object | 对象转json字符串(格式化) | groovy:tool.prettyJson([key:"value"])<br/>js:tool.prettyJson({key:"value"})| 
-| headLine(str) | string | 获取字符串第一行 | tool.headLine("multi\nline") | 
-| capitalize(str) | string | 字符串首字母大写 | tool.capitalize("words") | 
-| uncapitalize(str) | string | 字符串首字母小写 | tool.uncapitalize("Words") | 
-| swapCase(str) | string | 字符串每个字符大小写转换 | tool.swapCase("WoRdS") | 
-| upperCase(str) | string | 字符串全部大写 | tool.upperCase("words") | 
-| lowerCase(str) | string | 字符串全部小写 | tool.lowerCase("words") | 
-| reverse(str) | string | 字符串反转 | tool.reverse("sdrow") | 
-| repeat(str,repeat) | string | 重复指定字符串 | tool.repeat("x",10) | 
-| isNumeric(str) | string | 判断字符串是纯数字 | tool.isNumeric("123") | 
-| toCamelCase(str) | string | 字符串转驼峰式 | tool.toCamelCase("some words",true) | 
-| now() | string | 获取当前时间 格式为:yyyy-MM-dd HH:mm:ss | tool.now() | 
-| now(pattern) | string | 获取当前时间并指定格式  | tool.now("yyyy-MM-dd") | 
-| today() | string | 获取当前时间 格式为:yyyy-MM-dd  | tool.today() | 
-| format() | string | 格视化时间戳  | tool.format(1000000000000,"yyyy-MM-dd HH:mm:ss") | 
+| debug(obj) | void | Debug object, get all available methods of the object | tool.debug(tool)| 
+| newSet(items...) | Set | Create Set object | tool.newSet("ele1","ele2")| 
+| newList(items...) | List | Create List object | tool.newList("ele1","ele2")| 
+| newMap() | Map | Create Map object | tool.newMap()| 
+| parseJson(json) | Object | Parse JSON string | tool.parseJson("{\"key\":\"value\"}")| 
+| toJson(obj) | Object | Convert object to JSON string | groovy:tool.toJson([key:"value"])<br/>js:tool.toJson({key:"value"})| 
+| prettyJson(obj) | Object | Convert object to formatted JSON string | groovy:tool.prettyJson([key:"value"])<br/>js:tool.prettyJson({key:"value"})| 
+| headLine(str) | string | Get the first line of the string | tool.headLine("multi\nline") | 
+| capitalize(str) | string | Capitalize the first letter of the string | tool.capitalize("words") | 
+| uncapitalize(str) | string | Make the first letter of the string lowercase | tool.uncapitalize("Words") | 
+| swapCase(str) | string | Swap the case of each character in the string | tool.swapCase("WoRdS") | 
+| upperCase(str) | string | Convert the string to uppercase | tool.upperCase("words") | 
+| lowerCase(str) | string | Convert the string to lowercase | tool.lowerCase("words") | 
+| reverse(str) | string | Reverse the string | tool.reverse("sdrow") | 
+| repeat(str,repeat) | string | Repeat the specified string | tool.repeat("x",10) | 
+| isNumeric(str) | string | Determine if the string is purely numeric | tool.isNumeric("123") | 
+| toCamelCase(str) | string | Convert the string to camel case | tool.toCamelCase("some words",true) | 
+| now() | string | Get the current time in format: yyyy-MM-dd HH:mm:ss | tool.now() | 
+| now(pattern) | string | Get the current time in specified format  | tool.now("yyyy-MM-dd") | 
+| today() | string | Get the current date in format: yyyy-MM-dd | tool.today() | 
+| format(time, pattern) | string | Format the timestamp  | tool.format(1000000000000,"yyyy-MM-dd HH:mm:ss") | 
 
 ---
 
-# 其他一些method
+# Some other methods
 
 ---
 

@@ -1,6 +1,6 @@
-# `it` Represents the Application Object of the Current Rule (a few rules do not have an application object)
+# `it` Represents the Context Object of the Current Rule (a few rules do not have a context object)
 
-- The application object provides only methods (it.method()✅) and does not provide properties (it.property❎).
+- The context object provides only methods (it.method()✅) and does not provide properties (it.property❎).
 
 ### The following methods are supported for class, method, field, and arg:
 

@@ -83,7 +83,7 @@ private int type;
 
 | name | type | required | default | desc | other |
 | --- | --- | --- | --- | --- | --- |
-| type | integer | 非必须 | | USER type | ENUM: 1,2,3<br>ENUMdesc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3])
+| type | integer | NO | | USER type | ENUM: 1,2,3<br>ENUMdesc: 1 :Admin 2 :Member 3 :Guest<br>mock: @pick([1,2,3])
 
 
 

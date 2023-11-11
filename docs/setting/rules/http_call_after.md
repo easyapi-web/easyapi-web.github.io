@@ -1,26 +1,26 @@
 # http.call.after
 
-> http请求后回调
+> Callback after http request
 
-> 注意:插件所有的`http`请求都将触发此回调
+> Note: All `http requests` from the plugin will trigger this callback.
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (context it) | Additional Context |
 | ------------ | ------------ |
-| 无 | [request](../tools/httpClient.html#request), [response](../tools/httpClient.html#response)  |
+| None | [request](../tools/httpClient.html#request), [response](../tools/httpClient.html#response)  |
 
 ## demo
 
-***记录插件所有的请求的响应***
+***Logging responses for all requests from the plugin***
 
 ```properties
 http.call.after=groovy:logger.info("response:"+response.string())
 ```
 
-***某个接口请求成功后执行其他接口***
+***Executing another API after a particular API request succeeds***
 
 ``````properties
 http.call.after=groovy:```
-//判断是不是指定接口
+// Check if it's the specified interface
 if(request.code()==200&&request.url().endsWith("/xxx")){
     httpClient.post("http://xxx/xxx")
     .contentType("application/json")
@@ -30,27 +30,27 @@ if(request.code()==200&&request.url().endsWith("/xxx")){
 ```
 ``````
 
-***`Call`自动登陆(Cookie)***
+***Automatic login (Cookie) on `Call`***
 
 ``````properties
 http.call.after=groovy:```
-//判断是不是需要登录的接口
+//Check if it's an interface that requires login
 if(response.code()==401){
     httpClient.post("http://xxx/login")
         .contentType("application/json")
         .body({"username":"xxx","passwd":"xxx"})
         .call()
-    response.discard()//丢弃这一次的请求结果
+    response.discard()//Discard the result of this request
 }
 ```
 ``````
 
-***`Call`自动登陆(Token)***
+***Automatic login (Token) on `Call`***
 
 
 ``````properties
 http.call.after=groovy:```
-//判断是不是需要登录的接口
+// Check if it's an interface that requires login
 if(response.code()==401){
     def loginResponse = httpClient.post("http://xxx/login")
         .contentType("application/json")
@@ -58,25 +58,25 @@ if(response.code()==401){
         .call()
     def token = loginResponse.firstHeader("token")
     localStorage.set("token",token)
-    response.discard()//丢弃这一次的请求结果
+    response.discard()//Discard the result of this request
 }
 ```
 http.call.before=groovy:```
-//从localStorage取token
+//Retrieve token from localStorage
 request.header("token",localStorage.get("token"))
 ```
 ``````
 
 ---
 
-***`host`不固定***
+***`Host` is not fixed***
 
 ``````properties
-//可以尝试通过正则获取当前请求的host
+//You can try to obtain the current request's host through regex
 def host = regex.getGroup1("(https?://.+?)/.*?",request.url());
 ``````
 
-***`x-www-form-urlencoded`提交***
+***`x-www-form-urlencoded` submission***
 
 ``````properties
 httpClient.post("http://xxx/login")

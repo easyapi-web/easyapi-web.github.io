@@ -1,43 +1,41 @@
 # method.additional.param
 
-> API需要额外的`param`
+> Additional `param` required for the API.
+> Only applicable to URL parameters, does not support `form/body`.
 
-> 仅适用于url参数,不支持`form`/`body`
-
-### 例如接口都需要在`param`中携带token
+###For instance, if all interfaces need to carry a `token` in the `param`:
 
 ```properties
-method.additional.param={name: "Authorization",value: "",desc: "认证Token",required:true}
+method.additional.param={name: "Authorization",value: "",desc: "Authentication Token",required:true}
 ```
 
-### 如果需要排除指定开放的接口不需要token可以这样配置:
+### If you need to exclude specific open interfaces from requiring a token, you can configure as follows:
 
-- 假定有如下注解:
+- Assume the following annotation:
 
 ```java
 package com.itangcent.common.annotation;
 
 /**
- * 声明接口为公开接口
+ * Declares the interface as a public interface.
  */
 @Documented
 @Retention(RUNTIME)
 @Target({TYPE, METHOD})
 public @interface Public {
 }
-
 ```
 
-- 则可如此配置
+- Then it can be configured as follows:
 
 ```properties
-method.additional.param[!@com.itangcent.common.annotation.Public]={name: "Authorization",value: "",desc: "认证Token",required:true, example:""}
+method.additional.param[!@com.itangcent.common.annotation.Public]={name: "Authorization",value: "",desc: "Authentication Token",required:true, example:""}
 ```
 
-- 等价于
+- Equivalent to:
 
 ```properties
-method.additional.param[groovy:!it.hasAnn("com.itangcent.common.annotation.Public")]={name: "Authorization",value: "",desc: "认证Token",required:true, example:""}
+method.additional.param[groovy:!it.hasAnn("com.itangcent.common.annotation.Public")]={name: "Authorization",value: "",desc: "Authentication Token",required:true, example:""}
 ```
 
 

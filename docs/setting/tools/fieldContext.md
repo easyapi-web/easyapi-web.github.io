@@ -1,19 +1,19 @@
-# `fieldContext`提供字段解析过程中的上下文
+# `fieldContext` provides context during the field parsing process
 
-在解析复杂的嵌套类的时候，可以通过`fieldContext`获得当前字段在最终结果中的路径等信息。 
+When parsing complex nested classes, `fieldContext` can be used to obtain information such as the path of the current field in the final result.
 
-## 主要方法
+## Main Methods
 
-| 方法  |  返回值  |  描述  |  示例  |
+| method  |  return  |  desc  |  demo  |
 | ------------ | ------------ | ------------ |------------ |
-| path() | string | 当前全路径 | fieldContext.path() |
-| property("propertyName") | string | 给出指定字段的全路径 | fieldContext.property("xxx") |
+| path() | string | Current full path | fieldContext.path() |
+| property("propertyName") | string | Provides the full path of the specified field | fieldContext.property("xxx") |
 
 ---
 
-## 示例
+## Example
 
-对于如下类:
+For the classes below:
 
 ```java
 class A{
@@ -28,6 +28,8 @@ class C{
 }
 
 ```
-当解析到`d`字段时
-- 通过`fieldContext.path()`可以得到`b.c`
-- 通过`fieldContext.property("e")`可以得到`b.c.e`
+
+When parsing the d field:
+
+- `fieldContext.path()` will return `b.c`
+- `fieldContext.property("e")` will return `b.c.e`

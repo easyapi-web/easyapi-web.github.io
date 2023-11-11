@@ -1,13 +1,13 @@
 # field.order.with
 
-> 类似于comparator, 通过比较两个字段, 返回-1,0,1来表示被比较的两个字段在结果中的顺序
+> Similar to a `comparator`, it returns -1, 0, or 1 by comparing two fields to indicate the order of the two compared fields in the result.
 
-注意: 优先级高于[field.order](field_order.md), 一般不建议同时使用。
+Note: This has a higher priority than [field.order](field_order.md), and it's generally not recommended to use them at the same time.
 
 
-## 推荐配置中能找到一些field.order.with相关的配置
+## Some configurations related to field.order.with can be found in the recommended configurations
 
-1. 通过注解JsonPropertyOrder控制顺序
+1. Control order through annotation JsonPropertyOrder
 
 ``````properties
 
@@ -52,7 +52,7 @@ field.order.with=groovy:```
 ```
 ``````
 
-2. 子类字段优先
+2. Subclass fields first
 
 ``````properties
 # child fields first
@@ -69,7 +69,7 @@ field.order.with=groovy:```
 ```
 ``````
 
-3. 父类字段优先
+3. Superclass fields first
 
 ``````properties
 # parent fields first
@@ -87,7 +87,7 @@ field.order.with=groovy:```
 ``````
 
 
-4. 按字典升序
+4. Alphabetically Ascending Order
 
 ``````properties
 # fields alphabetically ordered
@@ -96,7 +96,7 @@ field.order.with=groovy:```
 ```
 ``````
 
-5. 按字典降序
+5. Alphabetically Descending Order
 
 ``````properties
 # fields descending alphabetically ordered
@@ -107,7 +107,7 @@ field.order.with=groovy:```
 
 ## demo
 
-***在推荐配置中选中`Jackson_JsonPropertyOrder`***
+***Select `Jackson_JsonPropertyOrder` in the recommended configurations***
 
 ***UserInfo.java***
 
@@ -115,22 +115,22 @@ field.order.with=groovy:```
 @JsonPropertyOrder(value = {"name", "birthDay"}, alphabetic = true)
 public class UserInfo {
 
-    private Long id;//用户id
+    private Long id;//user id
 
     /**
      * @see com.itangcent.common.constant.UserType
      */
-    private int type;//用户类型
+    private int type;//user type
 
     /**
      * @mock tangcent
      * @order 1
      */
     @NotBlank
-    private String name;//用户名
+    private String name;//user name
 
     /**
-     * 年龄
+     * age
      *
      * @mock 1${digit}
      */
@@ -142,29 +142,28 @@ public class UserInfo {
      */
     private Integer sex;
 
-    //生日
+    //birthday
     private LocalDate birthDay;
 
-    //注册时间
+    //registration time
     private LocalDateTime regtime;
 }
-
 ```
 
-### 解析为json5:
+### Parse into json5:
 
 ```json5
 {
     "name": "",
-    "birthDay": "", //生日
-    "age": 0, //年龄
-    "id": 0, //用户id
-    "regtime": "", //注册时间
+    "birthDay": "", //birthday
+    "age": 0, //age
+    "id": 0, //user id
+    "regtime": "", //registration time
     "sex": 0, //「Deprecated」It's a secret
     /**
-     * 1 :管理员
-     * 2 :成员
-     * 3 :游客
+     * 1 :Administrator
+     * 2 :Member
+     * 3 :Guest
      */
     "type": 0
 }

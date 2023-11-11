@@ -1,15 +1,15 @@
 # json.class.parse.before
 
-- 解析类型前回调
+- Callback before parsing class
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [class](../tools/it.html) | 无  |
+| [class](../tools/it.html) | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-json.class.parse.before=groovy:logger.info("开始解析类:"+it.name())
+json.class.parse.before=groovy:logger.info("Beginning to parse class: "+it.name())
 ```

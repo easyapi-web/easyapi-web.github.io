@@ -1,15 +1,15 @@
 # api.method.parse.after
 
-- 解析api方法后回调
+- Callback after parsing the API method
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [method](../tools/it.html)  | 无  |
+| [method](../tools/it.html)  | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-api.method.parse.after=groovy:logger.info("api:"+it.name()+"解析完成")
+api.method.parse.after=groovy:logger.info("API:" + it.name() + " parsing completed")
 ```

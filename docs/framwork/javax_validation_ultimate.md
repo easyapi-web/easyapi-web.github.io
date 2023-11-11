@@ -151,7 +151,7 @@ field.advanced[@javax.validation.constraints.Size]=groovy:```
 ```properties
 properties.additional=https://raw.githubusercontent.com/tangcent/easy-api/master/third/javax.validation.config
 ```
-或者
+Or
 ```properties
 properties.additional=https://gitee.com/tangcent/easy-api/raw/master/third/javax.validation.config
 ```

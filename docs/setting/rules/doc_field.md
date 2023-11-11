@@ -42,5 +42,5 @@ public class SwaggerModel {
 ## Export as API response:
 
 | name | type | required | default | desc | other |
-| --- | --- | --- | --- | --- | --- |
-| a | string | 非必须 |  | fieldA<br/>「deprecated」No longer used |  |
+| --- | --- |----------| --- | --- | --- |
+| a | string | No       |  | fieldA<br/>「deprecated」No longer used |  |

@@ -1,15 +1,15 @@
 # api.param.parse.before
 
-- 解析api参数前回调
+- Callback before parsing the API parameter
 
-| 规则目标(上下文it) | 附加上下文 |
+| Rule Target (Context: it) | Additional Context |
 | ------------ | ------------ |
-| [param](../tools/it.html) | 无  |
+| [param](../tools/it.html) | None  |
 
 ## demo
 
-***增加log***
+***Add log***
 
 ```properties
-api.method.parse.before=groovy:logger.info("开始解析api参数:"+it.name())
+api.param.parse.before=groovy:logger.info("Beginning to parse API parameter:" + it.name())
 ```
