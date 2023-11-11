@@ -1,3 +1,3 @@
-## 默认推荐配置中不包含`swagger3`的支持
+## The default recommended settings do not include support for swagger3
 
-如果需要支持[swagger3](https://swagger.io),可在<kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Remote</kbd>中勾选`https://raw.githubusercontent.com/tangcent/easy-api/master/third/swagger3.config`
+To support Swagger3, you can select [swagger3.config](https://raw.githubusercontent.com/tangcent/easy-api/master/third/swagger3.config) in <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd> > <kbd>Remote</kbd>.

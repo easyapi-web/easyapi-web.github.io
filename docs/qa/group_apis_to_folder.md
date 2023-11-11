@@ -1,19 +1,18 @@
-## 如何组织API到指定文件夹
+## How to Organize APIs into Specified Folders
 
-   * `module`用于分类api
-        * 导出`postman`时,每个`module`将作为一个单独的文件夹
-        * 导出`yapi`时,每个`module`需要配置相应的`token`,即对应一个`yapi`中的项目
+   * `module` is used for categorizing APIs.
+        * When exporting to `postman`, each `module` will be treated as a separate folder.
 
-   * 默认情况下取当前模块名(单模块项目取项目名)
+   * By default, the current module name is used (or the project name for single-module projects).
 
-   * 默认推荐配置:
+   * Default recommended configuration:
 
    ```properties
    #find module from comment tag 
    module=#module
    ```
    
-   * 在类上这样注释:
+   * Comment on the class like this:
 
    ```java
    /**

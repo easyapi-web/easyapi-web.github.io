@@ -1,6 +1,6 @@
-## 如何将指定类型转换为另一种类型处理
+## How to Convert Specified Types to Another Type for Processing
 
-   * 将`java.time.LocalDateTime`作为`yyyy-mm-dd`形式字符串处理
+   * Treat `java.time.LocalDateTime` as a `yyyy-mm-dd` formatted string:
 
    ```properties
    #Resolve 'java.time.LocalDateTime' as 'java.lang.String'
@@ -8,7 +8,7 @@
    json.rule.convert[java.time.LocalDate]=java.lang.String
    ```
    
-   * 将`java.time.LocalDateTime`作为`timestamp`处理
+   * Treat `java.time.LocalDateTime` as a `timestamp`:
    
    ```properties
    #Resolve 'java.time.LocalDateTime' as 'java.lang.Long'

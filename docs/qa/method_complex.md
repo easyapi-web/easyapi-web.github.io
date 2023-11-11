@@ -1,12 +1,12 @@
-## 导出时出现`com.xxx.Xxx is to complex. Blocked cause by xxx reached xxx`, 如何处理
+## During Export, an Error Appears Stating `com.xxx.Xxx is to complex. Blocked cause by xxx reached xxx`, How to Handle
 
-   - 检查错误信息中的类是否不应该出现在请求体/响应中, 可尝试做如下配置:
+   - Check whether the class in the error message should not appear in the request/response body. You could try the following configuration:
    ```
    # ignore field with type com.xxx.Xxx
    field.ignore=groovy:it.type().name()=="com.xxx.Xxx"
    ```
    
-   - 如果此类确实字段繁多, 需要完全解析, 可通过配置放宽解析限制:
+   - If this class indeed has numerous fields and needs to be fully parsed, you can relax the parsing limits through configuration:
    ```
    max.deep=8
    max.elements=512

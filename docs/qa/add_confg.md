@@ -1,3 +1,3 @@
-## 如何添加配置文件
+## How to Add Configuration Files
 
 see [local-file-config](/setting/local-file-config.html)

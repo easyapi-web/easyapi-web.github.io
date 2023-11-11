@@ -1,21 +1,20 @@
+## How to Set the Name/Description for APIs/Folders
 
-## 如何设置API/文件夹的名称/描述
-
- * 一般来说:
+ * Generally:
 
     ```java
     /**
-     * 第一行注释作为文件夹的标题
-     * 剩余行注释作为文件夹的描述
-     */
+    * The first line of comments serves as the title for the folder.
+    * The remaining lines of comments serve as the description for the folder.
+    */
     @RestController
     @RequestMapping(value = "mock")
     public class MockCtrl {
-    
+
         /**
-         * 第一行行注释作为API的标题
-         * 剩余行注释作为API的描述
-         */
+        * The first line of comments serves as the title for the API.
+        * The remaining lines of comments serve as the description for the API.
+        */
         @GetMapping("/string")
         public String mockString() {
             return Result.success("mock string");
@@ -23,4 +22,4 @@
     }
     ```
  
- * 特殊需求参照:[class.doc](/setting/rules/class_doc.html) | [method.doc](/setting/rules/method_doc.html) | [api.name](/setting/rules/api_name.html)
+ * For special requirements, refer to:[class.doc](/setting/rules/class_doc.html) | [method.doc](/setting/rules/method_doc.html) | [api.name](/setting/rules/api_name.html)

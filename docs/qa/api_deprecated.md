@@ -1,6 +1,6 @@
-## 如何在API/文件夹的描述中说明API/文件夹被废弃了
+## How to Indicate in the API/Folder Description that the API/Folder has been Deprecated
 
-*   默认推荐配置如下:
+*  The default recommended configuration is as follows:
 
     ```properties
     method.doc[#deprecated]=groovy:"\n「deprecated」" + it.doc("deprecated")
@@ -13,18 +13,19 @@
 
     ```
 
-*  使用注解或者注释标记API废弃即可:
+*  Use annotations or comments to mark the API as deprecated:
 
     ```java
     /**
-    * 可以用注解`@Deprecated`来表示api废弃
-    * 也可以用注释`@deprecated`
+    * You can use the `@Deprecated` annotation to indicate the API is deprecated,
+    * or use the `@deprecated` comment.
     *
-    * @deprecated 改用{@link #methodName3(String)}
+    * @deprecated Use {@link #methodName3(String)} instead.
     */
     @Deprecated
     @RequestMapping(value = "/pathOfApi2")
     public Result methodName2(@RequestBody MockDtoOrVo jsonModel){
         ...
     }
+
     ```

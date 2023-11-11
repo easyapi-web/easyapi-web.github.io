@@ -1,7 +1,9 @@
-# 对spring-boot的支持
+# Support for Spring Boot
 
-### 在推荐配置中有很多spring-boot相关的配置
-- 自动加载spring-boot相关配置:
+### Many Spring Boot-related configurations are found in the recommended settings
+
+- Auto-loading of Spring Boot configurations:
+
 ```properties
 #Import spring properties
 properties.additional=${module_path}/src/main/resources/application.properties
@@ -9,7 +11,8 @@ properties.additional=${module_path}/src/main/resources/application.yml
 properties.additional=${module_path}/src/main/resources/application.yaml
 ```
 
-- 默认使用spring-boot配置中的`server.servlet.context-path`
+- Default usage of `server.servlet.context-path` from Spring Boot configurations:
+
 ```
 #Resolve spring properties
 ###set ignoreUnresolved = true

@@ -1,5 +1,4 @@
-## 需要对`javax.validation`完整的支持, 可自行增加如下[配置](/setting/index.html)
-
+## Complete Support for `javax.validation` can be Enhanced with the Following [Configuration](/setting/index.html)
 ``````properties
 # rules for javax.validation
 
@@ -139,16 +138,15 @@ field.advanced[@javax.validation.constraints.Size]=groovy:```
 ```
 ``````
 
-- 上述配置可根据实际情况予以必要的调整
+- Adjustments can be made to the above configurations based on actual needs.
 
-| key | desc |
+| Key | Description |
 | --- | --- |
-| number_min | 数字最小值 |
-| number_max | 数字最大值 |
-| float_dmin | 浮点数小数位数 |
+| number_min | Minimum numeric value |
+| number_max | Maximum numeric value |
+| float_dmin | Decimal places for floating point numbers |
 
-
-***快速配置***
+***Quick Configuration***
 
 ```properties
 properties.additional=https://raw.githubusercontent.com/tangcent/easy-api/master/third/javax.validation.config

@@ -1,39 +1,38 @@
-## 如何在API描述中声明API需要的权限(spring security)
+## How to Declare the Required Permissions for an API in the API Description (spring security)
 
-   * 可考虑增加如下配置:
+* Consider adding the following configuration:
 
 ``````properties
 ## security description
 doc.method[@org.springframework.security.access.prepost.PreAuthorize]=groovy:```
    def preAuthorize = it.ann("org.springframework.security.access.prepost.PreAuthorize")
    if(tool.nullOrBlank(preAuthorize)){
-        return
+      return
    }
    def role = regex.getGroup1("hasRole\\('(.*?)'\\)",preAuthorize)
    return "require role: $role"
 ```
 ``````
    
-   * 示例:
+* Example:
 
-   ```java
-   /**
-    * 第一行注释作为文件夹的标题
-    * 剩余行注释作为文件夹的描述
-    */
-   @RestController
-   @RequestMapping(value = "mock")
-   public class MockCtrl {
-   
-       /**
-        * 第一行行注释作为API的标题
-        * 剩余行注释作为API的描述
-        */
-       @GetMapping("/string")
-       @PreAuthorize("hasRole('admin')")
-       public String mockString() {
-           return Result.success("mock string");
-       }
-   }
+```java
+/**
+ * The first line of comments serves as the title for the folder.
+   * The remaining lines of comments serve as the description for the folder.
+   */
+@RestController
+@RequestMapping(value = "mock")
+public class MockCtrl {
 
-   ```
+      /**
+       * The first line of comments serves as the title for the API.
+      * The remaining lines of comments serve as the description for the API.
+      */
+      @GetMapping("/string")
+      @PreAuthorize("hasRole('admin')")
+      public String mockString() {
+         return Result.success("mock string");
+      }
+}
+```
