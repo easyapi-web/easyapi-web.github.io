@@ -4,9 +4,8 @@
 
 ### The following methods are supported for class, method, field, and arg:
 
-
 | method                             | return        | desc                                                                                         | Demo                                                                         |
-| ---------------------------------- | ------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+|------------------------------------|---------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | name()                             | string        | Returns the name                                                                             | it.name()                                                                    |
 | hasAnn("annotation_name")          | boolean       | Checks if the object has a specific annotation                                               | it.hasAnn("org.springframework.web.bind.annotation.RequestBody")             |
 | ann("annotation_name")             | string        | Retrieves the value of a specific annotation                                                 | it.ann("org.springframework.web.bind.annotation.RequestBody")                |
@@ -31,7 +30,7 @@
 - class
 
 | method                          | return   | desc                                         | Demo                                    |
-| ------------------------------- | -------- | -------------------------------------------- | --------------------------------------- |
+|---------------------------------|----------|----------------------------------------------|-----------------------------------------|
 | methods()                       | method[] | Retrieves all methods in the class           | it.methods()                            |
 | methodCnt()                     | int      | Retrieves the number of methods in the class | it.methodCnt()                          |
 | field()                         | field[]  | Retrieves all fields in the class            | it.field()                              |
@@ -44,11 +43,12 @@
 | toJson(readGetter, readSetter)  | string   | Gets the JSON string of the current type     | it.toJson(true, true)                   |
 | toJson5()                       | string   | Gets the JSON5 string of the current type    | it.toJson5()                            |
 | toJson5(readGetter, readSetter) | string   | Gets the JSON5 string of the current type    | it.toJson5(true, true)                  |
+| mavenId()                       | MavenId  | get Maven ID info                            | it.mavenId()                            |
 
 - method(method/API)
 
 | method                            | return  | desc                                                                                | Demo                     |
-| --------------------------------- | ------- | ----------------------------------------------------------------------------------- | ------------------------ |
+|-----------------------------------|---------|-------------------------------------------------------------------------------------|--------------------------|
 | returnType()                      | class   | Returns the type of the method                                                      | it.returnType()          |
 | isVarArgs()                       | boolean | Indicates if the method has variable arguments                                      | it.isVarArgs()           |
 | args()                            | arg[]   | Returns all the parameters of the method                                            | it.args()                |
@@ -60,7 +60,7 @@
 - field(Property)
 
 | method            | return | desc                                                  | Demo                 |
-| ----------------- | ------ | ----------------------------------------------------- | -------------------- |
+|-------------------|--------|-------------------------------------------------------|----------------------|
 | type()            | class  | Returns the type of the field                         | it.type()            |
 | containingClass() | class  | Returns the class to which the field belongs          | it.containingClass() |
 | jsonName()        | string | Returns the JSON name of the field                    | it.jsonName()        |
@@ -69,6 +69,20 @@
 - arg(Parameter)
 
 | method      | return  | desc                                             | Demo           |
-| ----------- | ------- | ------------------------------------------------ | -------------- |
+|-------------|---------|--------------------------------------------------|----------------|
 | type()      | class   | Returns the type of the argument                 | it.type()      |
 | isVarArgs() | boolean | Indicates if the argument is a variable argument | it.isVarArgs() |
+
+- MavenId
+
+| method         | return | desc                                                 | Demo              |
+|----------------|--------|------------------------------------------------------|-------------------|
+| groupId        | string | Returns the group ID                                 | it.groupId        |
+| artifactId     | string | Returns the artifact ID                              | it.artifactId     |
+| version        | string | Returns the version                                  | it.version        |
+| maven()        | String | Generates a Maven dependency snippet                 | it.maven()        |
+| gradle()       | String | Generates a Gradle implementation dependency snippet | it.gradle()       |
+| gradleShort()  | String | Generates a short-form Gradle dependency snippet     | it.gradleShort()  |
+| gradleKotlin() | String | Generates a Gradle dependency snippet in Kotlin DSL  | it.gradleKotlin() |
+| sbt()          | String | Generates an SBT dependency snippet                  | it.sbt()          |
+| ivy()          | String | Generates an Ivy dependency snippet                  | it.ivy()          |
