@@ -1,46 +1,53 @@
+# IDE Settings (Global)
 
-# Setting in IDE (global)
+Navigate to: <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd>
 
-- <kbd>Preferences(Settings)</kbd> > <kbd>Other Settings</kbd> > <kbd>EasyApi</kbd>
+## General Settings
 
-## General
+![EasyApi General Settings](/asset/idea-general.png)
 
-![avatar](/asset/idea-general.png)
+### Common
 
-**Common** :
+- **log**: Controls the verbosity of logging output
+    - Set to "high" for normal operation (less output)
+    - Set to "low" when troubleshooting issues (more detailed information)
 
- - log: In general, the log can be set to "high" to ignore unnecessary output. When an exception occurs, it can be set to "low" to obtain more information.
+### Support
 
-**Support** :
+- **methodDoc**: When enabled, allows:
+    - Export of method documentation
+    - Export of RPC documentation
+    - Currently supports export to `markdown` format only
 
- - methodDoc: When enabled, method documents can be exported. It can also be used to export RPC documents. Only export to `markdown` format is supported.
+### Postman
 
-### Postman:
+- **token**: Required for Postman API integration
+    - Obtain your token from [Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)
+    - Used for API calls to Postman services
 
- - token: Token refers to the `postman privateToken` which is used to make calls to the Postman API. It can be obtained from [Postman Integrations Dashboard](https://go.postman.co/integrations/services/pm_pro_api)
+### Markdown
 
-**Markdown** :
+- **outputDemo**: When enabled, generates example response data for each API in exported `markdown` documents
+- **outputCharset**: Specify the character encoding for generated `markdown` documents
 
- - outputDemo: Generate a response demo for each API when exporting `markdown` documents
- - outputCharset: Select the character set to used for the `markdown` document
+### Cache
 
-**Cache** :
+- **global**: Cache across all projects
+- **project**: Project-specific caches
 
- - global: Global cache.
- - project: Cache specific to the current project.
+### Intelligent
 
-**intelligent** :
+- **inferEnable**: Enables smart type inference when encountering uncertain method return types (e.g., Object,
+  Some\<Object>)
+- **maxDeep**: Sets the recursion limit for type inference
+- **getter as field**: Treats getter methods as JSON fields in processing
+- **setter as Field**: Treats setter methods as JSON fields in processing
+- **use recommend config**: Enables built-in recommended settings
 
- - inferEnable: Allows plugins to attempt inference through code flow when encountering uncertain method return types (e.g., Object, Some\<Object>).
- - maxDeep: Maximum depth allowed for inference.
- - getter as field: Tries to interpret getter methods as JSON fields.
- - setter as field: Tries to interpret setter methods as JSON fields.
- - use recommend config: Determines whether to use the built-in recommended configuration.
+## Built-in Recommended Configuration
 
+![Recommended Configuration](/asset/idea-recommend.png)
 
-## Built-in optional recommended configuration
-
-![avatar](/asset/idea-recommend.png)
-
-- Select the desired configuration by checking the corresponding options.
-- Source code of built-in recommended configuration : [portal](https://github.com/tangcent/easy-api/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)
+- Select desired configurations by checking the corresponding options
+- View the source code of built-in
+  recommendations: [GitHub Repository](https://github.com/tangcent/easy-api/blob/master/idea-plugin/src/main/resources/.recommend.easy.api.config)

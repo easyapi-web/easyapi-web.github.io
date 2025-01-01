@@ -2,14 +2,14 @@
 
 ### Quick Start
 
-* [introduce](index.md)
-* [installation](installation.md)
+* [Introduction](index.md)
+* [Installation](installation.md)
 * [Quick Start](use.md)
-    * [export postman](export2postman.md)
-    * [export markdown](export2markdown.md)
-    * [export rpc doc](export_rpc.md)
-* [advanced](advanced_use.md)
+    * [Export to Postman](export2postman.md)
+    * [Export to Markdown](export2markdown.md)
+    * [Export RPC Doc](export_rpc.md)
+* [Advanced](advanced_use.md)
     * [Debug](debug.md)
     * [Generic](generic.md)
-* [comment doc](docs.md)
-    * [java comment demo](java_doc_demo.md)
+* [Comment Documentation](docs.md)
+    * [Java Comment Demo](java_doc_demo.md)

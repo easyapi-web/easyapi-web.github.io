@@ -1,13 +1,29 @@
-**The following usages are supported:**
+# Export to Markdown
 
-1. Open the file containing the API in the project or select the file or folder in the project file area on the left-hand side of IntelliJ IDEA. Use the shortcut `Alt + Shift + E` (Windows) or `Ctrl + E` (Mac) to open the export dialog. Select the APIs you want to export and choose `Markdown` as the export format. Finally, click the [✔] button or press Enter to confirm the export.
+## Export Methods
 
-2. Open the file containing the API in the project or select the file or folder in the project file area on the left-hand side of IntelliJ IDEA. Right-click on the file editor or folder, and from the context menu, choose `EasyApi` -> `ExportMarkdown`.
+1. **Using Keyboard Shortcut**:
+   - Open the API file in the project, or select file/folder in the project explorer
+   - Press <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> (Windows) or <kbd>Ctrl</kbd> + <kbd>E</kbd> (Mac)
+   - In the export dialog:
+     - Select the APIs you want to export
+     - Choose `Markdown` as the export format
+     - Click [✔] or press <kbd>Enter</kbd> to confirm
 
----
+2. **Using Context Menu**:
+   - Open the API file in the project, or select file/folder in the project explorer
+   - Right-click on the file editor or folder
+   - Navigate to `EasyApi` -> `ExportMarkdown`
 
-**Markdown available [settings](/setting/ide-setting.html)** :
+## Markdown Export Settings
 
+You can customize the Markdown export behavior in [IDE Global Settings](/setting/ide-setting.html). The following options are available:
 
-- outputDemo: Generate a response demo for each API in the `markdown` document.
-- outputCharset: Choose the character encoding for the exported 'markdown' document. If the exported document appears garbled, please try adjusting this configuration.
+- **Output Demo** (`outputDemo`):
+  - Generates example response data for each API in the exported Markdown
+  - Useful for documentation that requires sample responses
+
+- **Output Charset** (`outputCharset`):
+  - Controls the character encoding for the exported Markdown document
+  - If you see garbled text in the output, try adjusting this setting
+  - Common options include: UTF-8, UTF-16, etc.

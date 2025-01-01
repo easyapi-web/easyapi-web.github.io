@@ -1,4 +1,6 @@
-# General configuration
+# Configuration Overview
+
+This guide explains how to configure the plugin to match your needs. The plugin is designed with a **configuration optional** approach, allowing immediate use while providing extensive customization options when needed.
 
 ### Zero configuration, out of the box
 
@@ -7,7 +9,7 @@
 ### Additional configuration options
 
 - [Setting in IDEA](ide-setting.md)
-    - Convenient and quick, allowing you to adjust default behaviors of the plugin.
+    - Quick configuration through the IDE interface for adjusting common plugin behaviors and preferences.
 
-- [Configuration file in project ](local-file-config.md)
-    - Highly customizable, enabling adaptation to personalized code style preferences.
+- [Configuration file in project](local-file-config.md)
+    - Advanced configuration through project-level files for teams requiring specific code style rules and custom behaviors.
