@@ -2,6 +2,6 @@
 
 ----
 
-**The following usage are supported**
-
-1. Click <kbd>Code</kbd> > <kbd>Debug</kbd>, The script debug dialog will be open.
+* Built-in API debugging tool: [Call Api](call.md)
+* Script executor: [Script Executor](script_executor.md)
+* Custom framework: [Generic](generic.md)
