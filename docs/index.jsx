@@ -11,6 +11,7 @@ features:
   - { name: 'several framwork', desc: 'Spring MVC/Spring boot/Spring WebFlux' }
   - { name: 'several channel', desc: 'Postman/Markdown' }
   - { name: 'rich extensibility', desc: 'Supports a wide range of configurations and extensions to cater to diverse frameworks and code specifications.' }
+  - { name: 'debugging tool', desc: 'A compact built-in API calling tool' }
 
 footer:
   copyRight:
