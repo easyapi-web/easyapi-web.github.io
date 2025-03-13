@@ -81,6 +81,7 @@
 # Simple rules
 
 - \# Read tag on comment
+   - For example, #fake corresponds to the following comment:
    ```java
    /**
     * @fake
