@@ -1,0 +1,1 @@
+import{_ as i,o as a,c as e,ag as n}from"./chunks/framework.DXGyWiRo.js";const c=JSON.parse('{"title":"FAQ","description":"","frontmatter":{},"headers":[],"relativePath":"faq.md","filePath":"faq.md"}'),t={name:"faq.md"};function p(l,s,h,o,r,d){return a(),e("div",null,[...s[0]||(s[0]=[n("",31)])])}const g=i(t,[["render",p]]);export{c as __pageData,g as default};
