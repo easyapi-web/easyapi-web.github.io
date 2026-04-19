@@ -56,7 +56,7 @@ Use the `folder.name` rule:
 
 ```properties
 # Group by package
-folder.name=groovy:it.pkg().name().split("\\.")[-1]
+folder.name=groovy:it.packageName().split("\\.")[-1]
 
 # Group by annotation value
 folder.name=groovy:it.ann("org.springframework.web.bind.annotation.RequestMapping")?.value()
