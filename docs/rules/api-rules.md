@@ -22,6 +22,13 @@ Rules for controlling how APIs are named, grouped, and identified.
 | `method.additional.response.header` | string (merge) | Add additional response headers |
 | `path.multi` | string | Handle multiple paths |
 
+## Property Resolution Rules
+
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `properties.prefix` | string | Set property prefix for `@ConfigurationProperties` classes |
+| `properties.additional` | string | Load additional properties files |
+
 ## Class Recognition Rules
 
 | Rule Key | Type | Aliases | Description |
@@ -34,13 +41,22 @@ Rules for controlling how APIs are named, grouped, and identified.
 
 ## API Lifecycle Events
 
+| Rule Key | Type | Aliases | Description |
+|----------|------|---------|-------------|
+| `api.class.parse.before` | event | — | Before parsing a class as API |
+| `api.class.parse.after` | event | — | After parsing a class as API |
+| `api.method.parse.before` | event | — | Before parsing a method as API |
+| `api.method.parse.after` | event | — | After parsing a method as API |
+| `api.param.parse.before` | event | `param.before` | Before parsing a parameter |
+| `api.param.parse.after` | event | `param.after` | After parsing a parameter |
+| `export.after` | event | — | After export completes |
+
+## HTTP Call Events
+
 | Rule Key | Type | Description |
 |----------|------|-------------|
-| `api.class.parse.before` | event | Before parsing a class as API |
-| `api.class.parse.after` | event | After parsing a class as API |
-| `api.method.parse.before` | event | Before parsing a method as API |
-| `api.method.parse.after` | event | After parsing a method as API |
-| `export.after` | event | After export completes |
+| `http.call.before` | event | Before making an HTTP call (in API Call feature) |
+| `http.call.after` | event | After an HTTP call completes |
 
 ## api.name
 
@@ -146,4 +162,39 @@ Add extra response headers to API methods:
 
 ```properties
 method.additional.response.header=groovy:{"name":"X-Total-Count","value":"0","desc":"Total count","required":false}
+```
+
+## properties.prefix
+
+Set the property prefix for `@ConfigurationProperties` classes. This is used by the `spring-configuration` extension:
+
+```properties
+properties.prefix=@org.springframework.boot.context.properties.ConfigurationProperties
+properties.prefix=@org.springframework.boot.context.properties.ConfigurationProperties#prefix
+```
+
+When a class is annotated with `@ConfigurationProperties(prefix = "app.security")`, the prefix `app.security` will be used to resolve property placeholders in that class.
+
+## properties.additional
+
+Load additional properties files for placeholder resolution:
+
+```properties
+properties.additional=${module_path}/src/main/resources/application.properties
+properties.additional=${module_path}/src/main/resources/application.yml
+properties.additional=${module_path}/src/main/resources/application.yaml
+```
+
+You can also load remote properties:
+
+```properties
+properties.additional=https://raw.githubusercontent.com/example/config/main/application.properties
+```
+
+Use `###set ignoreNotFoundFile = true` to suppress errors when a file doesn't exist:
+
+```properties
+###set ignoreNotFoundFile = true
+properties.additional=${module_path}/src/main/resources/application.properties
+###set ignoreNotFoundFile = false
 ```

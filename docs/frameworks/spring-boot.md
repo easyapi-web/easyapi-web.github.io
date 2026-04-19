@@ -4,7 +4,7 @@ EasyApi provides comprehensive support for Spring Boot applications.
 
 ## Built-in Recommended Configuration
 
-### Resolve HttpEntity/RequestEntity/ResponseEntity
+### Resolve HttpEntity/RequestEntity/ResponseEntity/DeferredResult
 
 ```properties
 ###set resolveProperty = false
@@ -14,10 +14,25 @@ json.rule.convert[#regex:org.springframework.http.RequestEntity<(.*?)>]=${1}
 json.rule.convert[#regex:org.springframework.http.RequestEntity]=java.lang.Object
 json.rule.convert[#regex:org.springframework.http.ResponseEntity<(.*?)>]=${1}
 json.rule.convert[#regex:org.springframework.http.ResponseEntity]=java.lang.Object
+json.rule.convert[#regex:org.springframework.web.context.request.async.DeferredResult<(.*?)>]=${1}
+json.rule.convert[#regex:org.springframework.web.context.request.async.DeferredResult]=java.lang.Object
 ###set resolveProperty = true
 ```
 
+EasyApi automatically unwraps Spring wrapper types:
+
+| Type | Resolution |
+|------|-----------|
+| `HttpEntity<T>` | Resolved to `T` |
+| `RequestEntity<T>` | Resolved to `T` |
+| `ResponseEntity<T>` | Resolved to `T` |
+| `DeferredResult<T>` | Resolved to `T` |
+
+For example, a method returning `ResponseEntity<User>` will have its response type resolved as `User` in the API documentation.
+
 ### Load Spring Boot Configuration Properties
+
+You can manually add Spring property files to your local config:
 
 ```properties
 # Import spring properties
@@ -25,6 +40,8 @@ properties.additional=${module_path}/src/main/resources/application.properties
 properties.additional=${module_path}/src/main/resources/application.yml
 properties.additional=${module_path}/src/main/resources/application.yaml
 ```
+
+Alternatively, enable the **spring-properties** extension in **Preferences** > **Other Settings** > **EasyApi** > **Extensions** to automatically load these files. This extension is disabled by default because it loads all Spring properties which may include sensitive values.
 
 ### Use server.servlet.context-path as Prefix Path
 
@@ -34,6 +51,8 @@ properties.additional=${module_path}/src/main/resources/application.yaml
 class.prefix.path=${server.servlet.context-path}
 ###set ignoreUnresolved = false
 ```
+
+This is also included in the **spring-properties** extension when enabled.
 
 ## Supported Annotations
 
@@ -53,6 +72,27 @@ class.prefix.path=${server.servlet.context-path}
 | `@RequestHeader` | Binds a request header |
 | `@CookieValue` | Binds a cookie value |
 | `@FeignClient` | Marks a Feign client interface |
+| `@ConfigurationProperties` | Binds external properties to a class |
+
+## @ConfigurationProperties Support
+
+EasyApi supports `@ConfigurationProperties` classes via the `spring-configuration` extension (enabled by default). When a class is annotated with `@ConfigurationProperties(prefix = "app.security")`, EasyApi uses the prefix to resolve property placeholders:
+
+```java
+@ConfigurationProperties(prefix = "app.security")
+public class SecurityProperties {
+    private String tokenHeader;    // resolves app.security.tokenHeader
+    private long tokenExpiration;  // resolves app.security.tokenExpiration
+    // getters and setters
+}
+```
+
+The extension applies these rules:
+
+```properties
+properties.prefix=@org.springframework.boot.context.properties.ConfigurationProperties
+properties.prefix=@org.springframework.boot.context.properties.ConfigurationProperties#prefix
+```
 
 ## Feign Support
 

@@ -58,6 +58,7 @@ export default defineConfig({
           { text: 'Dubbo', link: '/frameworks/dubbo' },
           { text: 'Swagger', link: '/frameworks/swagger' },
           { text: 'Jackson', link: '/frameworks/jackson' },
+          { text: 'Gson', link: '/frameworks/gson' },
           { text: 'javax.validation', link: '/frameworks/javax-validation' },
           { text: 'gRPC', link: '/frameworks/grpc' },
         ],

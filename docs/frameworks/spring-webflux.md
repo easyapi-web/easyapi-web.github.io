@@ -28,6 +28,11 @@ public Mono<User> getUser(@PathVariable Long id) {
 public Flux<User> listUsers() {
     // Flux<User> is resolved to List<User> in the documentation
 }
+
+@GetMapping("/events")
+public Publisher<Event> streamEvents() {
+    // Publisher<Event> is resolved to Event in the documentation
+}
 ```
 
 ### Built-in Resolution Rules
@@ -35,10 +40,22 @@ public Flux<User> listUsers() {
 ```properties
 ###set resolveProperty = false
 json.rule.convert[#regex:reactor.core.publisher.Mono<(.*?)>]=${1}
+json.rule.convert[reactor.core.publisher.Mono]=java.lang.Object
 json.rule.convert[#regex:reactor.core.publisher.Flux<(.*?)>]=java.util.List<${1}>
-json.rule.convert[#regex:org.springframework.web.server.ServerWebExchange]=java.lang.Object
+json.rule.convert[reactor.core.publisher.Flux]=java.util.List<java.lang.Object>
+json.rule.convert[#regex:org.reactivestreams.Publisher<(.*?)>]=${1}
+json.rule.convert[org.reactivestreams.Publisher]=java.lang.Object
 ###set resolveProperty = true
 ```
+
+| Type | Resolution |
+|------|-----------|
+| `Mono<T>` | Resolved to `T` |
+| `Mono` (no generic) | Resolved to `Object` |
+| `Flux<T>` | Resolved to `List<T>` |
+| `Flux` (no generic) | Resolved to `List<Object>` |
+| `Publisher<T>` | Resolved to `T` |
+| `Publisher` (no generic) | Resolved to `Object` |
 
 ## ServerWebExchange Handling
 

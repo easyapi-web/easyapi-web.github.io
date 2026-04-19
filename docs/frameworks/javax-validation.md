@@ -4,17 +4,13 @@ EasyApi supports javax.validation (Jakarta Bean Validation) annotations for docu
 
 ## Supported Annotations
 
+The `javax-validation` extension (enabled by default) processes the following annotations:
+
 | Annotation | Effect on Documentation |
 |------------|------------------------|
-| `@NotNull` | Field is marked as required |
-| `@NotEmpty` | Field is marked as required |
-| `@NotBlank` | Field is marked as required |
-| `@Size(min, max)` | Adds min/max length info |
-| `@Min` | Adds minimum value info |
-| `@Max` | Adds maximum value info |
-| `@Email` | Adds email format info |
-| `@Pattern` | Adds regex pattern info |
-| `@Valid` | Triggers nested validation |
+| `@NotNull` | Field/parameter is marked as required |
+| `@NotEmpty` | Field/parameter is marked as required |
+| `@NotBlank` | Field/parameter is marked as required |
 
 ## Example
 
@@ -22,20 +18,13 @@ EasyApi supports javax.validation (Jakarta Bean Validation) annotations for docu
 public class CreateUserRequest {
 
     @NotBlank(message = "Name is required")
-    @Size(min = 2, max = 50)
     private String name;
 
     @NotNull
-    @Email
     private String email;
 
-    @Min(18)
-    @Max(120)
-    private Integer age;
-
-    @Valid
     @NotNull
-    private Address address;
+    private Integer age;
 }
 ```
 
@@ -59,25 +48,61 @@ public class UserRequest {
 
 ### Simple Group Configuration
 
+The default `javax-validation` extension treats all `@NotNull`/`@NotBlank`/`@NotEmpty` as required regardless of groups:
+
 ```properties
-# Use validation groups for required fields
-field.required=groovy:it.hasAnn("javax.validation.constraints.NotNull")||it.hasAnn("javax.validation.constraints.NotBlank")||it.hasAnn("javax.validation.constraints.NotEmpty")
+field.required=@javax.validation.constraints.NotNull
+field.required=@javax.validation.constraints.NotBlank
+field.required=@javax.validation.constraints.NotEmpty
+param.required=@javax.validation.constraints.NotNull
+param.required=@javax.validation.constraints.NotBlank
+param.required=@javax.validation.constraints.NotEmpty
 ```
 
-### Grouped Validation Configuration
+### Strict Group Configuration
 
-For more advanced group-based validation, you can configure rules that respect specific validation groups:
+The `javax-validation-strict` extension (disabled by default) respects validation groups. When a parameter is annotated with `@Validated(Group.class)`, only fields whose validation annotations include that group will be marked as required:
 
 ```properties
-# Respect validation groups in required field detection
-field.required=groovy:
-    def notNull = it.ann("javax.validation.constraints.NotNull")
-    if (notNull != null) {
-        def groups = notNull.groups
-        if (groups != null && groups.length > 0) {
-            return groups.any { g -> g.simpleName == "Create" }
-        }
-        return true
-    }
-    return false
+# Enable in: Preferences > Other Settings > EasyApi > Extensions > javax-validation-strict
+```
+
+With strict mode enabled:
+
+```java
+@Validated(Create.class)
+@PostMapping
+public void create(@RequestBody UserRequest request) {
+    // Only fields with groups={Create.class} or groups={Default.class} will be required
+}
+```
+
+## Jakarta Validation
+
+EasyApi also supports Jakarta Validation 3.x annotations via the `jakarta-validation` and `jakarta-validation-strict` extensions:
+
+| Extension | Default | Description |
+|-----------|---------|-------------|
+| `jakarta-validation` | On | Jakarta validation annotations (`jakarta.validation.constraints.*`) |
+| `jakarta-validation-strict` | Off | Jakarta validation with strict group checking |
+
+These work identically to their javax counterparts but use the `jakarta.validation.constraints` package.
+
+## Custom Validation Rules
+
+You can add custom rules for other validation annotations:
+
+```properties
+# Add @Size constraint info to field documentation
+field.doc[@javax.validation.constraints.Size]=groovy:"min:" + it.ann("javax.validation.constraints.Size","min") + ", max:" + it.ann("javax.validation.constraints.Size","max")
+
+# Add @Min/@Max constraint info
+field.doc[@javax.validation.constraints.Min]=groovy:"min:" + it.ann("javax.validation.constraints.Min","value")
+field.doc[@javax.validation.constraints.Max]=groovy:"max:" + it.ann("javax.validation.constraints.Max","value")
+
+# Add @Email format info
+field.doc[@javax.validation.constraints.Email]=groovy:"email format"
+
+# Add @Pattern regex info
+field.doc[@javax.validation.constraints.Pattern]=groovy:"pattern:" + it.ann("javax.validation.constraints.Pattern","regexp")
 ```
