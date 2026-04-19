@@ -12,42 +12,44 @@ EasyApi includes a script executor that allows you to run Groovy scripts within 
 
 Scripts have access to the following context objects:
 
-| Object | Description |
-|--------|-------------|
-| `project` | The current IntelliJ project |
-| `module` | The current module |
-| `logger` | Logging utility |
-| `api` | API utility for extracting API info |
-| `config` | Configuration reader |
-| `helper` | Various helper utilities |
-| `httpClient` | HTTP client for making requests |
-| `localStorage` | Key-value storage |
-| `session` | Session-scoped storage |
-| `it` | Iterator for current context |
-| `tool` | General tool utilities |
-| `regex` | Regular expression utilities |
-| `runtime` | Runtime information |
+| Object | Alias | Description |
+|--------|-------|-------------|
+| `it` | — | Current context element (class, method, field) |
+| `logger` | `LOG` | Logging utility |
+| `tool` | `T` | General utility (string, collection, JSON, time) |
+| `regex` | `RE` | Regular expression utilities |
+| `config` | `C` | Configuration reader |
+| `files` | `F` | File operations |
+| `helper` | `H` | Class lookup and link resolution |
+| `runtime` | `R` | Project/module metadata |
+| `session` | `S`, `sessionStorage` | Session-scoped key-value storage |
+| `localStorage` | — | Persistent key-value storage |
+| `httpClient` | — | HTTP client for making requests |
 
 ## Example Scripts
 
-### List All APIs in a Module
+### Inspect Current Class
 
 ```groovy
-def apis = api.list(module)
-apis.each { apiInfo ->
-    logger.info("${apiInfo.method()} ${apiInfo.path()}")
-}
+logger.info("Class: ${it.name()}")
+logger.info("Doc: ${it.doc()}")
+logger.info("Has @RestController: ${it.hasAnn('org.springframework.web.bind.annotation.RestController')}")
 ```
 
-### Export APIs to Custom Format
+### Get Module Info
 
 ```groovy
-def apis = api.list(module)
-apis.each { apiInfo ->
-    logger.info("API: ${apiInfo.name()}")
-    logger.info("  Method: ${apiInfo.method()}")
-    logger.info("  Path: ${apiInfo.path()}")
-}
+logger.info("Project: ${runtime.projectName()}")
+logger.info("Module: ${runtime.module()}")
+logger.info("File: ${runtime.filePath()}")
 ```
 
-See [Tools Reference](/tools/api-tool) for detailed API documentation.
+### Use Tool Utilities
+
+```groovy
+def json = tool.toJson(["name": it.name(), "path": runtime.filePath()])
+logger.info(json)
+tool.copy2Clipboard(json)
+```
+
+See [Script Tools Reference](/tools/script-tools) for detailed documentation of all available tools.

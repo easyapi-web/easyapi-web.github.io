@@ -17,7 +17,7 @@ export default defineConfig({
       { text: 'Frameworks', link: '/frameworks/spring-boot' },
       { text: 'Configuration', link: '/configuration/ide-settings' },
       { text: 'Rules', link: '/rules/api-rules' },
-      { text: 'Tools', link: '/tools/api-tool' },
+      { text: 'Tools', link: '/tools/script-tools' },
       { text: 'FAQ', link: '/faq' },
       {
         text: 'Links',
@@ -87,11 +87,7 @@ export default defineConfig({
       {
         text: 'Tools Reference',
         items: [
-          { text: 'API Tool', link: '/tools/api-tool' },
-          { text: 'HTTP Client', link: '/tools/http-client' },
-          { text: 'Helper', link: '/tools/helper' },
-          { text: 'Logger', link: '/tools/logger' },
-          { text: 'Config Tool', link: '/tools/config-tool' },
+          { text: 'Script Tools', link: '/tools/script-tools' },
         ],
       },
       {
@@ -111,7 +107,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/tangcent/easyapi-web.github.io/edit/dev/docs/:path',
+      pattern: 'https://github.com/tangcent/easyapi-web.github.io/edit/master/docs/:path',
       text: 'Edit this page on GitHub',
     },
 

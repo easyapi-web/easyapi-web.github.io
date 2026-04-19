@@ -11,7 +11,6 @@ Rules for controlling how APIs are named, grouped, and identified.
 | `class.is.ctrl` | Determine if a class is a controller |
 | `class.doc` | Set class documentation |
 | `folder.name` | Set folder/group name for API |
-| `module` | Set module name |
 | `ignore` | Ignore a class or method |
 | `method.default.http.method` | Set default HTTP method |
 | `method.content.type` | Set content type |
