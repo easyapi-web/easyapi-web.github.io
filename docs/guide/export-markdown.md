@@ -5,7 +5,7 @@ EasyApi can generate Markdown documentation from your API endpoints.
 ## How to Export
 
 1. Open a file containing API endpoints
-2. Right-click in the editor > **EasyApi** > **Export to Markdown**
+2. Right-click in the editor > **EasyApi** > **ExportMarkdown**
 3. A Markdown document will be generated with all API details
 
 ## Output Format

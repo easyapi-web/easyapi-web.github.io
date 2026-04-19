@@ -44,7 +44,6 @@ export default defineConfig({
           { text: 'Export to Markdown', link: '/guide/export-markdown' },
           { text: 'Export to RPC', link: '/guide/export-rpc' },
           { text: 'API Call', link: '/guide/api-call' },
-          { text: 'Script Executor', link: '/guide/script-executor' },
           { text: 'Generic Type Support', link: '/guide/generic' },
           { text: 'Advanced Usage', link: '/guide/advanced-use' },
         ],
@@ -89,6 +88,7 @@ export default defineConfig({
       {
         text: 'Tools Reference',
         items: [
+          { text: 'Script Executor', link: '/tools/script-executor' },
           { text: 'Script Tools', link: '/tools/script-tools' },
         ],
       },

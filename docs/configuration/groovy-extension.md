@@ -8,7 +8,7 @@ You can place Groovy scripts in the following locations:
 
 1. **IDE Settings** — Add scripts in **Preferences(Settings)** > **Other Settings** > **EasyApi** > **Extensions** tab
 2. **Local Config File** — Reference Groovy scripts from `.easy.api.config` or `.easy.api.yml`
-3. **Script Executor** — Run ad-hoc Groovy scripts via **Tools** > **EasyApi** > **Script Executor**
+3. **Script Executor** — Run ad-hoc Groovy scripts via **Code** > **EasyApi** > **ScriptExecutor**
 
 ## Using Groovy in Rules
 

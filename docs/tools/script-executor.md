@@ -4,7 +4,7 @@ EasyApi includes a script executor that allows you to run Groovy scripts within 
 
 ## How to Use
 
-1. Open **Tools** > **EasyApi** > **Script Executor**
+1. Open **Code** > **EasyApi** > **ScriptExecutor** (or **Generate** > **EasyApi** > **ScriptExecutor** on Windows/Linux)
 2. Write your Groovy script in the editor
 3. Click **Run** to execute
 

@@ -33,7 +33,7 @@ http.call.after=groovy:logger.info("Response: " + response.code())
 
 The API Dashboard provides a tree view of all APIs in your project:
 
-1. Open **View** > **Tool Windows** > **API Dashboard**
+1. Open **Tools** > **Open API Dashboard**
 2. Browse the API tree organized by controller
 3. Click on any endpoint to view details
 4. Use the **Call** button to send requests directly

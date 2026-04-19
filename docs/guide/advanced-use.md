@@ -7,14 +7,14 @@ This page covers advanced features and workflows of EasyApi.
 You can export APIs from multiple files or an entire module at once:
 
 1. Select multiple files or a module in the **Project** view
-2. Right-click > **EasyApi** > **Export to Postman/Markdown**
+2. Right-click > **EasyApi** > **ExportToPostman**/**ExportMarkdown**
 3. All APIs from the selected scope will be exported
 
 ## API Dashboard
 
 The API Dashboard provides a visual overview of all APIs in your project:
 
-1. Open **View** > **Tool Windows** > **API Dashboard**
+1. Open **Tools** > **Open API Dashboard**
 2. Browse APIs organized by controller and method
 3. Click any endpoint to view details or send a request
 

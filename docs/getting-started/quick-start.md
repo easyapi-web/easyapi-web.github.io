@@ -5,13 +5,13 @@ This guide walks you through the basic workflow of using EasyApi.
 ## Export APIs to Postman
 
 1. Open a Java/Kotlin file containing API endpoints (e.g., a Spring `@RestController`)
-2. Right-click in the editor and select **EasyApi** > **Export to Postman**
+2. Right-click in the editor and select **EasyApi** > **ExportToPostman**
 3. The API definitions will be exported to your Postman collection
 
 ## Export APIs to Markdown
 
 1. Open a Java/Kotlin file containing API endpoints
-2. Right-click in the editor and select **EasyApi** > **Export to Markdown**
+2. Right-click in the editor and select **EasyApi** > **ExportMarkdown**
 3. A Markdown document will be generated with all API details
 
 ## Call an API
