@@ -1,19 +1,20 @@
 # Export to RPC
 
-EasyApi supports exporting API definitions in RPC format for Dubbo and similar frameworks.
+EasyApi supports exporting API definitions in RPC format for gRPC services.
 
 ## How to Export
 
-1. Open a file containing RPC service interfaces
-2. Right-click in the editor > **EasyApi** > **Export to RPC**
+1. Open a file containing gRPC service interfaces
+2. Right-click in the editor > **EasyApi** > **Export**
 3. The RPC definitions will be exported
 
-## Dubbo Support
+## gRPC Support
 
-For Dubbo services, EasyApi recognizes:
+For gRPC services, EasyApi recognizes:
 
-- `@DubboService` / `@DubboReference` annotations
-- `@Service` (Alibaba Dubbo) annotations
-- Standard Dubbo interface definitions
+- Classes extending `io.grpc.BindableService`
+- Classes extending generated `ImplBase` superclasses
+- Classes annotated with `@GrpcService` (from grpc-spring-boot-starter)
+- Methods annotated with `@RpcMethod`
 
-See [Dubbo Framework](/frameworks/dubbo) for detailed configuration.
+See [gRPC Framework](/frameworks/grpc) for detailed configuration.

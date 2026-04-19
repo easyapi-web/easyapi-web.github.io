@@ -39,6 +39,8 @@ Configure artifact repositories for gRPC runtime resolution:
 | **Path** | Repository directory path |
 | **Enable** | Enable or disable the repository |
 
+EasyApi searches these repositories for gRPC runtime JARs when the gRPC call feature is enabled.
+
 ## Postman
 
 Postman-specific settings:
@@ -119,12 +121,18 @@ Additional settings:
 
 Configure gRPC support:
 
-| Setting | Description |
-|---------|-------------|
-| **Enable gRPC support** | Recognize gRPC service classes (default: on) |
-| **Enable gRPC call** | Allow calling gRPC endpoints from the IDE (default: off) |
-| **Auto Detect** | Automatically detect gRPC runtime artifacts in project |
-| **Runtime Packages** | gRPC runtime artifact configurations (group ID, artifact ID, version mode) |
-| **Additional JARs** | Additional JAR files for gRPC runtime |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Enable gRPC support** | On | Recognize gRPC service classes |
+| **Enable gRPC call** | Off | Allow calling gRPC endpoints from the IDE |
+| **Auto Detect** | — | Automatically detect gRPC runtime artifacts in project |
+| **Runtime Packages** | — | gRPC runtime artifact configurations (group:artifact:version:enabled) |
+| **Additional JARs** | — | Additional JAR files for gRPC runtime |
+
+When **gRPC call** is enabled, the runtime packages panel becomes visible. Click **Auto Detect** to automatically find gRPC runtime artifacts in your local Maven/Gradle repositories.
+
+Runtime packages can be configured with version mode:
+- **Latest**: Use the newest version found in repositories
+- **Fixed**: Use a specific version
 
 See [gRPC](/frameworks/grpc) for more details.

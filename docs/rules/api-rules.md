@@ -73,7 +73,7 @@ api.name=groovy:it.name().replace("Controller", "").replace("Resource", "")
 Determine if a class should be treated as an API controller:
 
 ```properties
-class.is.ctrl=groovy:it.hasAnn("org.apache.dubbo.config.annotation.DubboService")||it.hasAnn("com.alibaba.dubbo.config.annotation.Service")
+class.is.ctrl=groovy:it.hasAnn("org.springframework.web.bind.annotation.RestController")
 ```
 
 ## class.is.feign.ctrl

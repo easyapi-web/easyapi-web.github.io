@@ -54,7 +54,6 @@ export default defineConfig({
           { text: 'Spring Boot', link: '/frameworks/spring-boot' },
           { text: 'Spring WebFlux', link: '/frameworks/spring-webflux' },
           { text: 'JAX-RS', link: '/frameworks/jaxrs' },
-          { text: 'Dubbo', link: '/frameworks/dubbo' },
           { text: 'Swagger', link: '/frameworks/swagger' },
           { text: 'Jackson', link: '/frameworks/jackson' },
           { text: 'Gson', link: '/frameworks/gson' },
