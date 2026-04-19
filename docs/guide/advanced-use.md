@@ -18,47 +18,55 @@ The API Dashboard provides a visual overview of all APIs in your project:
 2. Browse APIs organized by controller and method
 3. Click any endpoint to view details or send a request
 
+## API Search Everywhere
+
+Use IntelliJ's **Search Everywhere** (double-press Shift) to find API endpoints:
+
+- Search by path: `/api/users`
+- Search by method prefix: `GET /users`
+- Paste a full URL to auto-extract the path for matching
+
 ## Event Hooks
 
 EasyApi provides event hooks that let you customize the parsing process:
 
 | Event | Description |
 |-------|-------------|
-| `api_class_parse_before` | Before parsing a class as API |
-| `api_class_parse_after` | After parsing a class as API |
-| `api_method_parse_before` | Before parsing a method as API |
-| `api_method_parse_after` | After parsing a method as API |
-| `api_param_parse_before` | Before parsing a parameter |
-| `api_param_parse_after` | After parsing a parameter |
-| `json_class_parse_before` | Before parsing a class as JSON |
-| `json_class_parse_after` | After parsing a class as JSON |
-| `json_field_parse_before` | Before parsing a field as JSON |
-| `json_field_parse_after` | After parsing a field as JSON |
+| `api.class.parse.before` | Before parsing a class as API |
+| `api.class.parse.after` | After parsing a class as API |
+| `api.method.parse.before` | Before parsing a method as API |
+| `api.method.parse.after` | After parsing a method as API |
+| `api.param.parse.before` | Before parsing a parameter |
+| `api.param.parse.after` | After parsing a parameter |
+| `json.class.parse.before` | Before parsing a class as JSON |
+| `json.class.parse.after` | After parsing a class as JSON |
+| `json.field.parse.before` | Before parsing a field as JSON |
+| `json.field.parse.after` | After parsing a field as JSON |
+| `http.call.before` | Before making an HTTP call |
+| `http.call.after` | After an HTTP call completes |
+| `export.after` | After export completes |
 
 ## Custom Export with Groovy
 
-You can write Groovy scripts to customize the export process:
+You can write Groovy scripts to customize the export process using the script executor:
 
 ```groovy
-// Access all APIs in the current module
-def apis = api.list(module)
+// Inspect the current class
+logger.info("Class: ${it.name()}")
+logger.info("Has @RestController: ${it.hasAnn('org.springframework.web.bind.annotation.RestController')}")
 
-// Filter and transform
-apis.each { apiInfo ->
-    // Custom processing
-    def name = apiInfo.name()
-    def method = apiInfo.method()
-    def path = apiInfo.path()
-    logger.info("${method} ${path} - ${name}")
-}
+// Get module info
+logger.info("Project: ${runtime.projectName()}")
+logger.info("Module: ${runtime.module()}")
 ```
+
+See [Script Tools Reference](/tools/script-tools) for all available tools.
 
 ## Remote Configuration
 
 You can store configuration files remotely and have EasyApi load them automatically:
 
 ```properties
-# In your local config file
 properties.additional=https://raw.githubusercontent.com/your-org/your-repo/main/easyapi.config
 ```
 
@@ -79,3 +87,10 @@ public Object getUser(@PathVariable Long id) {
     // ...
 }
 ```
+
+## Export Fields to JSON
+
+EasyApi can export field definitions from any class to JSON format:
+
+1. Right-click in a class > **EasyApi** > **FieldsTo*** > **ToJson** / **ToJson5** / **ToProperties**
+2. The field structure will be exported in the selected format

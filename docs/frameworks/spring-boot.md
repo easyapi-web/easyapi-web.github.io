@@ -69,3 +69,66 @@ public interface UserClient {
     User createUser(@RequestBody UserRequest request);
 }
 ```
+
+## Spring Boot Actuator Support
+
+EasyApi recognizes Spring Boot Actuator endpoint classes and exports them as API documentation.
+
+### Supported Actuator Annotations
+
+| Annotation | Description |
+|------------|-------------|
+| `@Endpoint` | Marks a standard Actuator endpoint |
+| `@WebEndpoint` | Marks a web-specific Actuator endpoint |
+| `@ControllerEndpoint` | Marks a controller-style Actuator endpoint |
+| `@RestControllerEndpoint` | Marks a REST controller-style Actuator endpoint |
+| `@ReadOperation` | Maps to HTTP GET |
+| `@WriteOperation` | Maps to HTTP POST |
+| `@DeleteOperation` | Maps to HTTP DELETE |
+| `@Selector` | Marks a path variable in an Actuator method |
+
+### How Actuator Endpoints Are Parsed
+
+Actuator endpoints use a different annotation model than standard Spring MVC:
+
+- `@ReadOperation` → HTTP GET
+- `@WriteOperation` → HTTP POST
+- `@DeleteOperation` → HTTP DELETE
+- `@Selector` → Path variable
+
+All Actuator endpoints are automatically mapped under `/actuator/{endpointId}`.
+
+### Example
+
+```java
+@Component
+@Endpoint(id = "custom")
+public class CustomActuatorEndpoint {
+
+    @ReadOperation
+    public Map<String, Object> getInfo() {
+        return Map.of("status", "UP");
+    }
+
+    @ReadOperation
+    public Map<String, Object> getDetail(@Selector String name) {
+        return Map.of("name", name, "status", "UP");
+    }
+
+    @WriteOperation
+    public void updateConfig(@Selector String name, String value) {
+        // update configuration
+    }
+
+    @DeleteOperation
+    public void resetConfig(@Selector String name) {
+        // reset configuration
+    }
+}
+```
+
+This will be exported as:
+- `GET /actuator/custom` — Get info
+- `GET /actuator/custom/{name}` — Get detail
+- `POST /actuator/custom/{name}` — Update config
+- `DELETE /actuator/custom/{name}` — Reset config

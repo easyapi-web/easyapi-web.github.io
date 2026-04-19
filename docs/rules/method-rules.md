@@ -4,29 +4,32 @@ Rules for controlling how methods are documented and how return types are resolv
 
 ## Available Rules
 
-| Rule Key | Description |
-|----------|-------------|
-| `method.doc` | Set method documentation |
-| `method.return` | Set method return type |
-| `method.return.main` | Set primary return type for multiple returns |
-| `method.content.type` | Set content type |
-| `method.default.http.method` | Set default HTTP method |
-| `method.additional.header` | Add additional headers to method |
-| `method.additional.param` | Add additional parameters to method |
-| `mdoc.method.path` | Set method path for method docs |
-| `mdoc.method.http.method` | Set HTTP method for method docs |
-| `mdoc.class.filter` | Filter classes for method doc export |
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `method.doc` | string (merge distinct) | Set method documentation |
+| `method.return` | string | Set method return type |
+| `method.return.main` | string | Set primary return type for multiple returns |
+| `method.content.type` | string | Set content type |
+| `method.default.http.method` | string | Set default HTTP method |
+| `method.additional.header` | string (merge) | Add additional headers to method |
+| `method.additional.param` | string (merge) | Add additional parameters to method |
+| `method.additional.response.header` | string (merge) | Add additional response headers to method |
+
+## Method Lifecycle Events
+
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `api.method.parse.before` | event | Before parsing a method as API |
+| `api.method.parse.after` | event | After parsing a method as API |
 
 ## method.doc
 
 Set method descriptions:
 
 ```properties
-# Use Java doc
 method.doc=groovy:it.doc()?.split("\n")?.find { line -> !line.startsWith("@") }
 
-# Use Swagger @ApiOperation
-method.doc=groovy:it.ann("io.swagger.annotations.ApiApiOperation")?.value()
+method.doc=groovy:it.ann("io.swagger.annotations.ApiOperation")?.value()
 ```
 
 ## method.return
@@ -34,10 +37,6 @@ method.doc=groovy:it.ann("io.swagger.annotations.ApiApiOperation")?.value()
 Override method return types:
 
 ```properties
-# Use @return tag in Java doc
-method.return=groovy:it.doc()?.find("@return\\s+(\\S+)")?.group(1)
-
-# Custom return type based on annotation
 method.return=groovy:it.ann("com.example.CustomReturn")?.value()
 ```
 
@@ -46,7 +45,6 @@ method.return=groovy:it.ann("com.example.CustomReturn")?.value()
 When a method has multiple possible return types, set the primary one:
 
 ```properties
-# Use the first @return type as main
 method.return.main=groovy:it.doc()?.find("@return\\s+(\\S+)")?.group(1)
 ```
 
@@ -55,8 +53,15 @@ method.return.main=groovy:it.doc()?.find("@return\\s+(\\S+)")?.group(1)
 Set the default HTTP method when not specified by annotations:
 
 ```properties
-# Default to POST for methods starting with "save" or "create"
 method.default.http.method=groovy:it.name().startsWith("save") || it.name().startsWith("create") ? "POST" : "GET"
+```
+
+## method.content.type
+
+Set the content type for the request body:
+
+```properties
+method.content.type=groovy:it.hasAnn("org.springframework.web.bind.annotation.PostMapping") ? "application/json" : null
 ```
 
 ## method.additional.header
@@ -64,7 +69,6 @@ method.default.http.method=groovy:it.name().startsWith("save") || it.name().star
 Add extra headers to API methods:
 
 ```properties
-# Add authorization header to all APIs
 method.additional.header=groovy:{"name":"Authorization","value":"Bearer ${token}","desc":"Auth token","required":true}
 ```
 
@@ -73,15 +77,13 @@ method.additional.header=groovy:{"name":"Authorization","value":"Bearer ${token}
 Add extra parameters to API methods:
 
 ```properties
-# Add common query parameter
 method.additional.param=groovy:{"name":"version","value":"v1","desc":"API version","required":false}
 ```
 
-## mdoc.class.filter
+## method.additional.response.header
 
-Filter which classes are included in method doc export:
+Add extra response headers to API methods:
 
 ```properties
-# Only include classes in the "service" package
-mdoc.class.filter=groovy:it.pkg().name().contains(".service.")
+method.additional.response.header=groovy:{"name":"X-Total-Count","value":"0","desc":"Total count","required":false}
 ```

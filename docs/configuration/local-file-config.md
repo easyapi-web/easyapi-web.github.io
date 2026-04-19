@@ -6,12 +6,18 @@ You can create a local configuration file to customize EasyApi behavior for your
 
 Create a file named `.easy.api.config` in your project root directory. EasyApi will automatically load this file.
 
+You can also use YAML format with the following file names:
+
+- `.easy.api.config` — Properties format (default)
+- `.easy.api.yml` — YAML format
+- `.easy.api.yaml` — YAML format
+
 ## Config File Location
 
 EasyApi searches for configuration files in the following order:
 
-1. `.easy.api.config` in the module directory
-2. `.easy.api.config` in the project root directory
+1. `.easy.api.config` / `.easy.api.yml` / `.easy.api.yaml` in the module directory
+2. `.easy.api.config` / `.easy.api.yml` / `.easy.api.yaml` in the project root directory
 3. IDE settings (Preferences > Other Settings > EasyApi)
 4. Built-in recommended configuration
 
@@ -36,6 +42,36 @@ field.ignore=groovy:it.name() == "password"
 
 # Set field default value
 field.default.value=groovy:it.hasAnn("javax.validation.constraints.NotNull") ? "required" : null
+```
+
+## YAML Format
+
+When using `.easy.api.yml` or `.easy.api.yaml`, the configuration uses YAML format:
+
+```yaml
+# Set API name
+api:
+  name: "#regex:^(.+)Controller$=$1"
+
+# Set class prefix path
+class:
+  prefix:
+    path: "${server.servlet.context-path}"
+
+# Ignore specific fields
+field:
+  ignore: "groovy:it.name() == 'password'"
+
+# Set field default value
+field:
+  default:
+    value: "groovy:it.hasAnn('javax.validation.constraints.NotNull') ? 'required' : null"
+
+# Type conversions
+json:
+  rule:
+    convert:
+      "#regex:org.springframework.http.ResponseEntity<(.*?)>": "${1}"
 ```
 
 ## Property Resolution

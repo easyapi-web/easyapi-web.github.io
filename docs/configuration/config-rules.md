@@ -10,6 +10,8 @@ Rules follow the format:
 rule.key=rule_value
 ```
 
+Rules can be written in either properties format (`.easy.api.config`) or YAML format (`.easy.api.yml` / `.easy.api.yaml`). See [Local File Config](/configuration/local-file-config) for details on file formats.
+
 ### Simple Rules
 
 ```properties

@@ -59,6 +59,7 @@ export default defineConfig({
           { text: 'Swagger', link: '/frameworks/swagger' },
           { text: 'Jackson', link: '/frameworks/jackson' },
           { text: 'javax.validation', link: '/frameworks/javax-validation' },
+          { text: 'gRPC', link: '/frameworks/grpc' },
         ],
       },
       {

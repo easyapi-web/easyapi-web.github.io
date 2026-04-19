@@ -6,7 +6,7 @@
 
 - **Export API Documents** — Generate API documentation from your code and export to Postman, Markdown, Curl, or IntelliJ HTTP Client format.
 - **Send API Requests** — Use the built-in API calling tool to test your endpoints without leaving the IDE.
-- **Framework Support** — Works with Spring MVC, Spring Boot, Spring WebFlux, Feign, JAX-RS (Quarkus/Jersey), and more.
+- **Framework Support** — Works with Spring MVC, Spring Boot, Spring WebFlux, Feign, JAX-RS (Quarkus/Jersey), gRPC, and more.
 - **Language Support** — Java, Kotlin, and Scala.
 - **Validation & Serialization** — Full support for javax.validation, Jackson, Gson, and Swagger annotations.
 - **Rich Extensibility** — Customize behavior through configuration rules, Groovy scripts, and event hooks.

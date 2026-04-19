@@ -2,62 +2,27 @@
 
 Rules for controlling how enum types are handled in API documentation.
 
-## Default Behavior
-
-By default, EasyApi resolves enum types to their possible values. You can customize this behavior.
-
 ## Available Rules
 
-| Rule Key | Description |
-|----------|-------------|
-| `enum.use.by.type` | Use enum by type (default) |
-| `enum.use.name` | Use enum constant names |
-| `enum.use.ordinal` | Use enum ordinal values |
-| `enum.use.custom` | Use custom enum resolution |
-
-## enum.use.by.type
-
-Default behavior — resolve enums based on their declared type:
-
-```properties
-enum.use.by.type=true
-```
-
-## enum.use.name
-
-Use enum constant names as string values:
-
-```properties
-# All enums use name
-enum.use.name=true
-
-# Specific enum uses name
-enum.use.name=groovy:it.name() == "Status"
-```
-
-Example: `UserStatus.ACTIVE` → `"ACTIVE"`
-
-## enum.use.ordinal
-
-Use enum ordinal (index) values as integer values:
-
-```properties
-# All enums use ordinal
-enum.use.ordinal=true
-
-# Specific enum uses ordinal
-enum.use.ordinal=groovy:it.name() == "Priority"
-```
-
-Example: `Priority.HIGH` (ordinal 0) → `0`
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `enum.use.custom` | string | Use custom logic to resolve enum values |
+| `constant.field.ignore` | boolean | Ignore constant fields in enum classes |
 
 ## enum.use.custom
 
-Use custom logic to resolve enum values:
+Use custom logic to resolve enum values. This rule allows you to specify how enum constants should be represented in the API documentation.
 
 ```properties
-# Use a custom field from the enum
-enum.use.custom=groovy:it.fields().find { f -> f.name() == "value" }?.value()
+enum.use.custom=groovy:"java.lang.String"
+```
+
+### Custom Value Resolution
+
+You can use Groovy to extract specific values from enum constants:
+
+```properties
+enum.use.custom=groovy:it.fields().find { f -> f.name() == "value" }?.constantValue()?.toString()
 ```
 
 Example with a custom value field:
@@ -77,16 +42,32 @@ public enum Status {
 }
 ```
 
-With `enum.use.custom`, the resolved values would be `1` and `0`.
+With `enum.use.custom`, you can resolve the `value` field to get `1` and `0` instead of `"ACTIVE"` and `"INACTIVE"`.
+
+### Type Conversion with json.rule.convert
+
+You can also control enum serialization in JSON output using type conversion:
+
+```properties
+json.rule.convert[#regex:com.example.Status]=java.lang.Integer
+
+json.rule.convert[#regex:com.example.Type]=java.lang.String
+```
+
+## constant.field.ignore
+
+Ignore static final constant fields in enum and regular classes:
+
+```properties
+constant.field.ignore=true
+```
+
+By default, constant fields (static final) in enum classes may be included in the output. Set this to `true` to exclude them.
 
 ## JSON Enum Conversion
 
-You can also control enum serialization in JSON output:
+To convert all enums to strings in JSON output:
 
 ```properties
-# Convert all enums to strings
-json.rule.enum.convert=groovy:"java.lang.String"
-
-# Convert specific enums
-json.rule.enum.convert[#regex:com.example.Status]=java.lang.Integer
+json.rule.convert[#regex:java.lang.Enum]=java.lang.String
 ```

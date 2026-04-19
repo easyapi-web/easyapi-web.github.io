@@ -4,32 +4,51 @@ Rules for controlling how APIs are named, grouped, and identified.
 
 ## Available Rules
 
-| Rule Key | Description |
-|----------|-------------|
-| `api.name` | Set API name |
-| `class.prefix.path` | Set class-level prefix path |
-| `class.is.ctrl` | Determine if a class is a controller |
-| `class.doc` | Set class documentation |
-| `folder.name` | Set folder/group name for API |
-| `ignore` | Ignore a class or method |
-| `method.default.http.method` | Set default HTTP method |
-| `method.content.type` | Set content type |
-| `method.additional.header` | Add additional headers |
-| `method.additional.param` | Add additional parameters |
-| `method.doc` | Set method documentation |
-| `method.return` | Set method return type |
-| `method.return.main` | Set primary return type |
-| `path.multi` | Handle multiple paths |
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `api.name` | string | Set API name |
+| `folder.name` | string | Set folder/group name for API |
+| `class.doc` | string (merge distinct) | Set class documentation |
+| `class.prefix.path` | string | Set class-level prefix path |
+| `endpoint.prefix.path` | string | Set endpoint-level prefix path |
+| `ignore` | boolean | Ignore a class or method |
+| `method.doc` | string (merge distinct) | Set method documentation |
+| `method.default.http.method` | string | Set default HTTP method |
+| `method.content.type` | string | Set content type |
+| `method.return` | string | Set method return type |
+| `method.return.main` | string | Set primary return type |
+| `method.additional.header` | string (merge) | Add additional headers |
+| `method.additional.param` | string (merge) | Add additional parameters |
+| `method.additional.response.header` | string (merge) | Add additional response headers |
+| `path.multi` | string | Handle multiple paths |
+
+## Class Recognition Rules
+
+| Rule Key | Type | Aliases | Description |
+|----------|------|---------|-------------|
+| `class.is.ctrl` | boolean | `class.is.spring.ctrl` | Determine if a class is a Spring controller |
+| `class.is.feign.ctrl` | boolean | — | Determine if a class is a Feign client |
+| `class.is.jaxrs.ctrl` | boolean | — | Determine if a class is a JAX-RS resource |
+| `class.is.quarkus.ctrl` | boolean | — | Determine if a class is a Quarkus resource |
+| `class.is.grpc` | boolean | — | Determine if a class is a gRPC service |
+
+## API Lifecycle Events
+
+| Rule Key | Type | Description |
+|----------|------|-------------|
+| `api.class.parse.before` | event | Before parsing a class as API |
+| `api.class.parse.after` | event | After parsing a class as API |
+| `api.method.parse.before` | event | Before parsing a method as API |
+| `api.method.parse.after` | event | After parsing a method as API |
+| `export.after` | event | After export completes |
 
 ## api.name
 
 Set the API name for a class:
 
 ```properties
-# Use class name without "Controller" suffix
 api.name=#regex:^(.+)Controller$=$1
 
-# Use Groovy for complex logic
 api.name=groovy:it.name().replace("Controller", "").replace("Resource", "")
 ```
 
@@ -38,9 +57,31 @@ api.name=groovy:it.name().replace("Controller", "").replace("Resource", "")
 Determine if a class should be treated as an API controller:
 
 ```properties
-# Default: classes with @RestController or @Controller
-# Custom: also treat Dubbo services as controllers
 class.is.ctrl=groovy:it.hasAnn("org.apache.dubbo.config.annotation.DubboService")||it.hasAnn("com.alibaba.dubbo.config.annotation.Service")
+```
+
+## class.is.feign.ctrl
+
+Recognize Feign client interfaces:
+
+```properties
+class.is.feign.ctrl=groovy:it.hasAnn("org.springframework.cloud.openfeign.FeignClient")
+```
+
+## class.is.jaxrs.ctrl
+
+Recognize JAX-RS resource classes:
+
+```properties
+class.is.jaxrs.ctrl=groovy:it.hasAnn("javax.ws.rs.Path")
+```
+
+## class.is.grpc
+
+Recognize gRPC service classes:
+
+```properties
+class.is.grpc=groovy:it.isExtend("io.grpc.BindableService")
 ```
 
 ## class.prefix.path
@@ -48,13 +89,19 @@ class.is.ctrl=groovy:it.hasAnn("org.apache.dubbo.config.annotation.DubboService"
 Set the prefix path for all APIs in a class:
 
 ```properties
-# Use Spring context-path
 ###set ignoreUnresolved = true
 class.prefix.path=${server.servlet.context-path}
 ###set ignoreUnresolved = false
 
-# Use custom prefix
 class.prefix.path=groovy:"/api/v1" + it.ann("org.springframework.web.bind.annotation.RequestMapping")?.value()
+```
+
+## endpoint.prefix.path
+
+Set a prefix path at the endpoint level (applied after `class.prefix.path`):
+
+```properties
+endpoint.prefix.path=groovy:"/v2"
 ```
 
 ## folder.name
@@ -62,10 +109,8 @@ class.prefix.path=groovy:"/api/v1" + it.ann("org.springframework.web.bind.annota
 Group APIs into folders:
 
 ```properties
-# Group by package name
-folder.name=groovy:it.pkg().name().split("\\.")[-1]
+folder.name=groovy:it.packageName().split("\\.")[-1]
 
-# Group by annotation
 folder.name=groovy:it.ann("org.springframework.web.bind.annotation.RequestMapping")?.value()?.replace("/", "-") ?: "default"
 ```
 
@@ -74,9 +119,31 @@ folder.name=groovy:it.ann("org.springframework.web.bind.annotation.RequestMappin
 Ignore specific classes or methods:
 
 ```properties
-# Ignore deprecated APIs
 ignore=groovy:it.hasAnn("java.lang.Deprecated")
 
-# Ignore by name pattern
 ignore=#regex:^internal.*
+```
+
+## method.additional.header
+
+Add extra headers to API methods:
+
+```properties
+method.additional.header=groovy:{"name":"Authorization","value":"Bearer ${token}","desc":"Auth token","required":true}
+```
+
+## method.additional.param
+
+Add extra parameters to API methods:
+
+```properties
+method.additional.param=groovy:{"name":"version","value":"v1","desc":"API version","required":false}
+```
+
+## method.additional.response.header
+
+Add extra response headers to API methods:
+
+```properties
+method.additional.response.header=groovy:{"name":"X-Total-Count","value":"0","desc":"Total count","required":false}
 ```
