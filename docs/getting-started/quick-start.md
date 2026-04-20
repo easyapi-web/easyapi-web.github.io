@@ -17,13 +17,13 @@ This guide walks you through the basic workflow of using EasyApi.
 ## Call an API
 
 1. Open a Java/Kotlin file containing API endpoints
-2. Right-click on a method and select **EasyApi** > **Call**
-3. The built-in API calling tool will open, pre-populated with the endpoint details
+2. Click the gutter icon (▶) next to an API method, or right-click > **EasyApi** > **Call**
+3. The API Dashboard opens with the endpoint details pre-populated
 4. Modify parameters as needed and click **Send**
 
 ## Next Steps
 
 - [Export to Postman](/guide/export-postman) — Detailed Postman export options
 - [Export to Markdown](/guide/export-markdown) — Customize Markdown output format
-- [API Call](/guide/api-call) — Advanced API calling features
+- [API Dashboard & Call](/guide/api-call) — Dashboard features, request editing, and Search Everywhere
 - [Configuration](/configuration/ide-settings) — Configure EasyApi behavior

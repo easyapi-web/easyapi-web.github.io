@@ -5,7 +5,9 @@
 ## Features
 
 - **Export API Documents** — Generate API documentation from your code and export to Postman, Markdown, Curl, or IntelliJ HTTP Client format.
-- **Send API Requests** — Use the built-in API calling tool to test your endpoints without leaving the IDE.
+- **API Dashboard** — Browse all endpoints in a tree view, edit and send requests, view responses, and export — all within the IDE.
+- **Gutter Icon Navigation** — Click the gutter icon next to any API method to jump directly to it in the API Dashboard.
+- **Search Everywhere** — Find API endpoints by path, URL, method prefix, or gRPC URL using IntelliJ's Search Everywhere.
 - **Framework Support** — Works with Spring MVC, Spring Boot, Spring WebFlux, Feign, JAX-RS (Quarkus/Jersey), gRPC, and more.
 - **Language Support** — Java, Kotlin, and Scala.
 - **Validation & Serialization** — Full support for javax.validation, Jackson, Gson, and Swagger annotations.
@@ -22,5 +24,6 @@
 
 - [Installation](/getting-started/installation)
 - [Quick Start](/getting-started/quick-start)
+- [API Dashboard & Call](/guide/api-call)
 - [Spring Boot Support](/frameworks/spring-boot)
 - [Configuration](/configuration/ide-settings)
