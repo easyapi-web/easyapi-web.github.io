@@ -42,21 +42,3 @@ Get user by ID
 | email | string | NO | - | Email address |
 ```
 
-## Customizing Markdown Output
-
-You can customize the Markdown output format using rules. See [Markdown Custom Rules](/configuration/markdown-rules) for details.
-
-### Example: Change Boolean Display
-
-```properties
-# Display true/false instead of YES/NO
-md.bool.true=true
-md.bool.false=false
-```
-
-### Example: Hide a Table Column
-
-```properties
-# Hide the "Default" column in the request body table
-md.table.request.body.default.ignore=true
-```

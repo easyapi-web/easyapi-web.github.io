@@ -69,7 +69,6 @@ export default defineConfig({
           { text: 'Remote Config', link: '/configuration/remote-config' },
           { text: 'Config Rules', link: '/configuration/config-rules' },
           { text: 'Groovy Extension', link: '/configuration/groovy-extension' },
-          { text: 'Markdown Custom Rules', link: '/configuration/markdown-rules' },
         ],
       },
       {
