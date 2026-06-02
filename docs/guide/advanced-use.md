@@ -14,13 +14,13 @@ You can export APIs from multiple files or an entire module at once:
 
 The API Dashboard provides a tree view of all APIs in your project with request editing, response viewing, and export capabilities. It also includes a gutter icon for quick navigation from source code.
 
-See [API Dashboard & Call](/guide/api-call) for full documentation.
+See [API Dashboard & Call](/guide/call) for full documentation.
 
 ## API Search Everywhere
 
 Use IntelliJ's **Search Everywhere** (double-press Shift) to find API endpoints by path, URL, method prefix, or gRPC URL — with path variable matching support.
 
-See [API Search Everywhere](/guide/api-call#api-search-everywhere) for details.
+See [API Search Everywhere](/guide/call#api-search-everywhere) for details.
 
 ## Event Hooks
 
@@ -56,7 +56,7 @@ logger.info("Project: ${runtime.projectName()}")
 logger.info("Module: ${runtime.module()}")
 ```
 
-See [Script Tools Reference](/tools/script-tools) for all available tools.
+See [Script Tools Reference](/settings/tools) for all available tools.
 
 ## Remote Configuration
 
@@ -66,7 +66,7 @@ You can store configuration files remotely and have EasyApi load them automatica
 properties.additional=https://raw.githubusercontent.com/your-org/your-repo/main/easyapi.config
 ```
 
-See [Remote Config](/configuration/remote-config) for details.
+See [Remote Config](/settings/remote-config) for details.
 
 ## Multiple Return Types
 

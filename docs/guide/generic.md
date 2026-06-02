@@ -46,4 +46,4 @@ json.rule.convert[#regex:org.springframework.http.ResponseEntity]=java.lang.Obje
 ###set resolveProperty = true
 ```
 
-You can add custom generic resolution rules in your [configuration file](/configuration/local-file-config).
+You can add custom generic resolution rules in your [configuration file](/settings/local-file-config).

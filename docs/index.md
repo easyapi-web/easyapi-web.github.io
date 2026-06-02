@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /getting-started/introduction
+      link: /guide/
     - theme: alt
       text: View on GitHub
       link: https://github.com/tangcent/easy-api

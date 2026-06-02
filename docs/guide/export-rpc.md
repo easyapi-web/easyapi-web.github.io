@@ -17,4 +17,4 @@ For gRPC services, EasyApi recognizes:
 - Classes annotated with `@GrpcService` (from grpc-spring-boot-starter)
 - Methods annotated with `@RpcMethod`
 
-See [gRPC Framework](/frameworks/grpc) for detailed configuration.
+See [gRPC Framework](/framework/grpc) for detailed configuration.

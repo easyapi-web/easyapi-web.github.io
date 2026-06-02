@@ -42,4 +42,4 @@ postman.prerequest=console.log('pre-request');
 postman.test=pm.test('Status code is 200', function() { pm.response.to.have.status(200); });
 ```
 
-See [Postman Rules](/rules/postman-rules) for the full list of available rules.
+See [Postman Rules](/settings/rules/postman_host) for the full list of available rules.
