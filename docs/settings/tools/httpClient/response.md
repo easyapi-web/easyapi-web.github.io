@@ -86,4 +86,4 @@ logger.info("Request to " + response.request().url() + " returned " + response.c
 ## See Also
 
 - [request](./request) - HTTP request object
-- [httpClient](../) - HTTP client for making requests
+- [httpClient](../httpClient) - HTTP client for making requests

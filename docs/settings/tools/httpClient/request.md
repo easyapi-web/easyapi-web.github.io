@@ -67,4 +67,4 @@ headers.each { h ->
 ## See Also
 
 - [response](./response) - HTTP response object
-- [httpClient](../) - HTTP client for making requests
+- [httpClient](../httpClient) - HTTP client for making requests
