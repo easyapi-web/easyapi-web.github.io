@@ -8,11 +8,11 @@ The type of `it` depends on the rule context:
 
 | Rule Context | `it` Type | Description |
 |--------------|-----------|-------------|
-| Class rules | `ScriptPsiClassContext` | Class-level operations |
-| Method rules | `ScriptPsiMethodContext` | Method-level operations |
-| Field rules | `ScriptPsiFieldContext` | Field-level operations |
-| Parameter rules | `ScriptPsiParameterContext` | Parameter-level operations |
-| Type rules | `ScriptTypeContext` | Type information |
+| Class rules | `ClassContext` | Class-level operations |
+| Method rules | `MethodContext` | Method-level operations |
+| Field rules | `FieldContext` | Field-level operations |
+| Parameter rules | `ParameterContext` | Parameter-level operations |
+| Type rules | `TypeContext` | Type information |
 
 ## Common Methods (All Contexts)
 
@@ -66,7 +66,7 @@ These methods are available on all context types:
 
 ## Class Context Methods
 
-Available when `it` is a `ScriptPsiClassContext` (class rules):
+Available when `it` is a `ClassContext` (class rules):
 
 ### Basic Info
 
@@ -74,15 +74,15 @@ Available when `it` is a `ScriptPsiClassContext` (class rules):
 |--------|-------------|-------------|
 | `it.qualifiedName()` | `String?` | Get fully qualified class name |
 | `it.packageName()` | `String?` | Get package name |
-| `it.type()` | `ScriptTypeContext` | Get type information |
+| `it.type()` | `TypeContext` | Get type information |
 
 ### Members
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.methods()` | `Array<ScriptPsiMethodContext>` | Get all methods |
+| `it.methods()` | `Array<MethodContext>` | Get all methods |
 | `it.methodCnt()` | `Int` | Get method count |
-| `it.fields()` | `Array<ScriptPsiFieldContext>` | Get all fields |
+| `it.fields()` | `Array<FieldContext>` | Get all fields |
 | `it.fieldCnt()` | `Int` | Get field count |
 
 ### Type Checking
@@ -115,30 +115,30 @@ Available when `it` is a `ScriptPsiClassContext` (class rules):
 |--------|-------------|-------------|
 | `it.isInnerClass()` | `Boolean` | Check if is an inner class |
 | `it.isStatic()` | `Boolean` | Check if is static (for inner classes) |
-| `it.outerClass()` | `ScriptPsiClassContext?` | Get outer class for inner classes |
-| `it.superClass()` | `ScriptPsiClassContext?` | Get super class |
-| `it.extends()` | `Array<ScriptPsiClassContext>?` | Get extended classes |
-| `it.implements()` | `Array<ScriptPsiClassContext>?` | Get implemented interfaces |
+| `it.outerClass()` | `ClassContext?` | Get outer class for inner classes |
+| `it.superClass()` | `ClassContext?` | Get super class |
+| `it.extends()` | `Array<ClassContext>?` | Get extended classes |
+| `it.implements()` | `Array<ClassContext>?` | Get implemented interfaces |
 
 ## Method Context Methods
 
-Available when `it` is a `ScriptPsiMethodContext` (method rules):
+Available when `it` is a `MethodContext` (method rules):
 
 ### Return Type
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.returnType()` | `ScriptTypeContext?` | Get return type |
-| `it.type()` | `ScriptTypeContext?` | Alias for returnType() |
+| `it.returnType()` | `TypeContext?` | Get return type |
+| `it.type()` | `TypeContext?` | Alias for returnType() |
 
 ### Parameters
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.args()` | `Array<ScriptPsiParameterContext>` | Get all parameters |
-| `it.params()` | `Array<ScriptPsiParameterContext>` | Alias for args() |
-| `it.parameters()` | `Array<ScriptPsiParameterContext>` | Alias for args() |
-| `it.argTypes()` | `Array<ScriptTypeContext>` | Get parameter types |
+| `it.args()` | `Array<ParameterContext>` | Get all parameters |
+| `it.params()` | `Array<ParameterContext>` | Alias for args() |
+| `it.parameters()` | `Array<ParameterContext>` | Alias for args() |
+| `it.argTypes()` | `Array<TypeContext>` | Get parameter types |
 | `it.argCnt()` | `Int` | Get parameter count |
 | `it.paramCnt()` | `Int` | Alias for argCnt() |
 | `it.isVarArgs()` | `Boolean` | Check if has varargs |
@@ -147,8 +147,8 @@ Available when `it` is a `ScriptPsiMethodContext` (method rules):
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.containingClass()` | `ScriptPsiClassContext?` | Get the containing class |
-| `it.defineClass()` | `ScriptPsiClassContext?` | Class where method is actually defined |
+| `it.containingClass()` | `ClassContext?` | Get the containing class |
+| `it.defineClass()` | `ClassContext?` | Class where method is actually defined |
 
 ### Method Properties
 
@@ -164,28 +164,28 @@ Available when `it` is a `ScriptPsiMethodContext` (method rules):
 
 ## Field Context Methods
 
-Available when `it` is a `ScriptPsiFieldContext` (field rules):
+Available when `it` is a `FieldContext` (field rules):
 
 ### Type
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.type()` | `ScriptTypeContext` | Get field type |
-| `it.jsonType()` | `ScriptTypeContext` | Alias for type() |
+| `it.type()` | `TypeContext` | Get field type |
+| `it.jsonType()` | `TypeContext` | Alias for type() |
 
 ### Containing Class
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.containingClass()` | `ScriptPsiClassContext?` | Get the containing class |
-| `it.defineClass()` | `ScriptPsiClassContext?` | Class where field is actually defined |
+| `it.containingClass()` | `ClassContext?` | Get the containing class |
+| `it.defineClass()` | `ClassContext?` | Class where field is actually defined |
 
 ### Field Properties
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
 | `it.isEnumField()` | `Boolean` | Check if is an enum constant |
-| `it.asEnumField()` | `ScriptPsiEnumConstantContext?` | Get enum constant context |
+| `it.asEnumField()` | `EnumConstantContext?` | Get enum constant context |
 | `it.isStatic()` | `Boolean` | Check if is static |
 | `it.isFinal()` | `Boolean` | Check if is final |
 | `it.isTransient()` | `Boolean` | Check if is transient |
@@ -194,14 +194,14 @@ Available when `it` is a `ScriptPsiFieldContext` (field rules):
 
 ## Parameter Context Methods
 
-Available when `it` is a `ScriptPsiParameterContext` (parameter rules):
+Available when `it` is a `ParameterContext` (parameter rules):
 
 ### Type
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.type()` | `ScriptTypeContext` | Get parameter type |
-| `it.jsonType()` | `ScriptTypeContext` | Alias for type() |
+| `it.type()` | `TypeContext` | Get parameter type |
+| `it.jsonType()` | `TypeContext` | Alias for type() |
 
 ### Parameter Properties
 
@@ -214,12 +214,12 @@ Available when `it` is a `ScriptPsiParameterContext` (parameter rules):
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.method()` | `ScriptPsiMethodContext?` | Get the declaring method |
-| `it.declaration()` | `ScriptItContext?` | Get the declaring element |
+| `it.method()` | `MethodContext?` | Get the declaring method |
+| `it.declaration()` | `ElementContext?` | Get the declaring element |
 
 ## Type Context Methods
 
-Available when `it` is a `ScriptTypeContext`:
+Available when `it` is a `TypeContext`:
 
 ### Name
 
@@ -249,8 +249,8 @@ Available when `it` is a `ScriptTypeContext`:
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.methods()` | `Array<ScriptPsiMethodContext>` | Get all methods |
-| `it.fields()` | `Array<ScriptPsiFieldContext>` | Get all fields |
+| `it.methods()` | `Array<MethodContext>` | Get all methods |
+| `it.fields()` | `Array<FieldContext>` | Get all fields |
 
 ## Examples
 

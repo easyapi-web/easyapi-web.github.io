@@ -18,9 +18,9 @@ return it.returnType().name()
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `helper.findClass(canonicalText)` | `ScriptPsiClassContext?` | Find a class by its fully qualified name |
-| `helper.resolveLink(canonicalText)` | `ScriptItContext?` | Resolve a javadoc link to a class, method, or field |
-| `helper.resolveLinks(canonicalText)` | `List<ScriptItContext>` | Resolve all matching links |
+| `helper.findClass(canonicalText)` | `ClassContext?` | Find a class by its fully qualified name |
+| `helper.resolveLink(canonicalText)` | `ElementContext?` | Resolve a javadoc link to a class, method, or field |
+| `helper.resolveLinks(canonicalText)` | `List<ElementContext>` | Resolve all matching links |
 
 ## Examples
 
