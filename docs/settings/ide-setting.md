@@ -56,6 +56,16 @@ Postman-specific settings:
 | **JSON5 Format Type** | Where to use JSON5 format: None, Request Only, Response Only, Example Only, or All |
 | **Collections** | Module-to-collectionId mapping (one per line, format: `module:collectionId`) |
 
+## Hoppscotch (Beta)
+
+Hoppscotch-specific settings (export to Hoppscotch is a beta feature):
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| **Hoppscotch Token** | — | Your Hoppscotch access token for direct upload |
+| **Server URL** | `https://hoppscotch.io` | Hoppscotch server URL |
+| **Backend URL** | — | Hoppscotch backend URL (for self-hosted instances) |
+
 ## HTTP
 
 Configure the built-in HTTP client:
@@ -102,6 +112,43 @@ Available extensions include:
 Add remote configuration file URLs. Remote configs are loaded after local configs and can override local settings.
 
 See [Remote Config](/settings/remote-config) for details.
+
+## Rules
+
+Manage rule files in the folder-based rule model. See [Local File Config](/settings/local-file-config) and [Config Rules](/settings/config-rule) for the rule format and syntax.
+
+The tab has three sub-tabs:
+
+| Sub-tab | Location | Scope |
+|---------|----------|-------|
+| **Project** | `<project>/.easyapi/*.rules` | Current project only |
+| **Global** | `~/.easyapi/*.rules` | Every project on the machine |
+| **Remote** | Remote URLs | Per URL |
+
+From this tab you can:
+
+- Create, edit, and delete rule files.
+- Enable or disable individual rule files without removing them.
+- Open a rule file in an editor dialog with the built-in AI assistant (**Chat** / **Magic** buttons).
+
+See [Write Rules with the Built-in AI Assistant](/settings/config-rule#write-rules-with-the-built-in-ai-assistant) for the AI workflow.
+
+## AI
+
+Configure the AI provider used by the built-in rule-authoring assistant.
+
+| Setting | Description |
+|---------|-------------|
+| **Provider** | The AI provider (OpenAI, Anthropic, Google Gemini, Azure OpenAI, Ollama, DeepSeek, Groq, Mistral, xAI, and many OpenAI-compatible hosts). A "Custom" option points at any OpenAI-compatible endpoint. |
+| **Base URL** | Provider API endpoint. Pre-filled from the provider default; override for proxies or self-hosted endpoints. |
+| **Model** | Model identifier. Pre-filled from the provider default; override to use a different model. |
+| **API Key** | Stored securely in the IDE's password store. Required for providers that need one. |
+| **Request Timeout (sec)** | HTTP timeout for each AI request (default: 60). |
+| **Max Requests** | Maximum requests per assistant turn (default: 100). The assistant asks you to confirm when the limit is reached. |
+
+Click **Test Connection** to verify the provider works. The assistant is available from the **Rules** tab via the **Chat** and **Magic** buttons.
+
+See [Write Rules with the Built-in AI Assistant](/settings/config-rule#write-rules-with-the-built-in-ai-assistant) for the full workflow.
 
 ## Built-in
 

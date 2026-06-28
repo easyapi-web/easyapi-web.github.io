@@ -69,8 +69,8 @@ function sidebarGuide() {
     {
       text: 'Export',
       items: [
-        { text: 'Export to Postman', link: '/guide/export2postman' },
-        { text: 'Export to Markdown', link: '/guide/export2markdown' },
+        { text: 'Export to Postman', link: '/guide/export-postman' },
+        { text: 'Export to Markdown', link: '/guide/export-markdown' },
         { text: 'Export to cURL', link: '/guide/export2curl' },
         { text: 'Export to HttpClient', link: '/guide/export2httpclient' },
         { text: 'Export RPC Doc', link: '/guide/export-rpc' },
