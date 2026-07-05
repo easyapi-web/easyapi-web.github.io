@@ -256,6 +256,17 @@ Available directives:
 | `resolveProperty` | Disable property placeholder resolution for the following rules |
 | `ignoreNotFoundFile` | Don't throw an error if a referenced file does not exist |
 
+### `###include` Directive
+
+The `###include` directive (since v3.1.6) pulls another config file's contents into the current file inline. It must be on its own line:
+
+```properties
+###include ./security.rules
+###include https://raw.githubusercontent.com/your-org/configs/main/easyapi.config
+```
+
+The included file is parsed with the caller's directive state, so `###set` options carry in. Relative paths resolve against the included file's directory (or same host, for remote includes). See [Local File Config — Including Other Config Files](/settings/local-file-config#including-other-config-files) for the full behavior. The legacy `properties.additional` key is kept for backward compatibility and behaves identically.
+
 ## Rule Priority
 
 Rules are evaluated in the following priority order (highest to lowest):

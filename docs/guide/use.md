@@ -14,6 +14,12 @@ This guide walks you through the basic workflow of using EasyApi.
 2. Right-click in the editor and select **EasyApi** > **ExportMarkdown**
 3. A Markdown document will be generated with all API details
 
+## Export Only Selected Methods
+
+Since v3.1.6, EasyApi respects method-level selection when exporting. Select one or more methods in the editor (either by caret or by selecting a text range that spans them) before triggering an export — only the endpoints whose source method matches (or overrides) the selection are exported, instead of every endpoint in the containing class.
+
+This works for every export channel (Postman, Markdown, cURL, HttpClient, Hoppscotch). If no methods are selected, the whole containing class is exported as before.
+
 ## Call an API
 
 1. Open a Java/Kotlin file containing API endpoints

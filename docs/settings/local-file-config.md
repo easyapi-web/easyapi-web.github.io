@@ -154,9 +154,36 @@ class.prefix.path=${server.servlet.context-path}
 
 The `###set ignoreUnresolved = true` directive tells EasyApi to not throw an error if the property cannot be resolved.
 
+## Including Other Config Files
+
+Use the `###include` directive (since v3.1.6) to split your configuration across multiple files and pull them into the current file inline. The directive must be on its own line:
+
+```properties
+# Include a local file (relative to this file, or absolute, or ~/...)
+###include ./security.rules
+###include ~/team-conventions.rules
+
+# Include a remote config over HTTP/HTTPS
+###include https://raw.githubusercontent.com/your-org/configs/main/easyapi.config
+```
+
+The included file's contents are parsed with the **same directive state** as the calling file — so `###set ignoreUnresolved = true` (and the other `###set` options) carry into the included content. Relative paths in an included file resolve against the included file's own directory (or, for a remote include, against the same host).
+
+`###include` is the preferred syntax; the legacy `properties.additional` key (below) is kept for backward compatibility and behaves identically — both forms resolve local paths and remote URLs the same way.
+
+### `###set ignoreNotFoundFile`
+
+By default, an include that cannot be resolved throws an error. Wrap unknown-may-not-exist includes with the `ignoreNotFoundFile` directive to silence missing-file errors:
+
+```properties
+###set ignoreNotFoundFile = true
+###include ${module_path}/src/main/resources/optional-rules.properties
+###set ignoreNotFoundFile = false
+```
+
 ## Adding Config Sources
 
-You can add additional configuration sources:
+You can add additional configuration sources (legacy form, equivalent to `###include`):
 
 ```properties
 # Add local property files
