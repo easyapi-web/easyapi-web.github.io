@@ -8,7 +8,7 @@ Documentation site for the **easy-api** IntelliJ IDEA plugin, built with VitePre
 
 ## Traced plugin version
 
-**v3.1.6** (released 2026-07-05)
+**v3.1.8** (released 2026-07-29)
 
 This is the version of the easy-api plugin that the documentation on this site
 currently describes. Update it whenever a doc update lands.

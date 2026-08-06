@@ -21,3 +21,7 @@ Rules are the core of EasyApi's extensibility. They allow you to customize how A
 ## Advanced
 
 - [Groovy Local Extension](./advanced/groovy-ext-config) — Extend EasyApi with custom Groovy scripts
+
+## Features and channel settings
+
+Use [IDE Settings](./ide-setting) > **Features** to control framework recognizers, export channels, and field-format channels. Experimental **Hoppscotch** and **OpenAPI** channels are disabled by default. Most of these extension points can be turned off when they are not relevant to a project; the General tab also controls API scanning and editor behavior. Their channel-specific settings are available from the EasyApi settings tree.

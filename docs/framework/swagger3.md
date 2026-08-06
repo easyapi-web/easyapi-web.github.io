@@ -8,7 +8,7 @@ EasyApi supports Swagger 3 / OpenAPI 3 annotations via the `swagger3` extension 
 |------------|--------------|
 | `@Tag` | `class.doc` (name, description) |
 | `@Operation` | `api.name` (summary), `method.doc` (summary, description), `method.default.http.method` (method), deprecated marking |
-| `@Parameter` | `param.doc` (description), `param.required` (required), `param.ignore` (hidden), deprecated marking, parameter extraction |
+| `@Parameter` | `param.doc` (description), `param.required` (required), `param.ignore` (hidden), deprecated marking, `example`, parameter extraction |
 | `@Parameters` | Extracts multiple parameters with type resolution |
 | `@Schema` | `field.name` (name), `field.doc` (description), `field.required` (requiredMode), `field.ignore` (hidden), `param.doc`, `param.required`, `param.ignore` |
 | `@Hidden` | `ignore`, `field.ignore`, `param.ignore` |
@@ -26,7 +26,7 @@ public class UserController {
     @Operation(summary = "Get user by ID", description = "Returns a single user")
     @GetMapping("/{id}")
     public User getUser(
-            @Parameter(description = "User ID", required = true)
+            @Parameter(description = "User ID", required = true, example = "42")
             @PathVariable Long id) {
         // ...
     }

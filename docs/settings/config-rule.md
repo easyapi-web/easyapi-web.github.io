@@ -291,3 +291,37 @@ Within the same source, later definitions override earlier ones for `replace` mo
 | [JSON Rules](/settings/rules/json_rule_convert) | Control JSON serialization behavior |
 | [Postman Rules](/settings/rules/postman_host) | Control Postman export behavior |
 | [Enum Rules](/settings/rules/enum_use_custom) | Control enum handling |
+
+## Channel-specific rules
+
+### OpenAPI
+
+| Rule | Description |
+|------|-------------|
+| `openapi.info.title` | Document title |
+| `openapi.info.version` | Document version |
+| `openapi.info.description` | Document description |
+| `openapi.server.url` | URL for the OpenAPI `servers` entry |
+| `openapi.host` | Legacy alias for the server URL |
+| `openapi.format.after` | Event that runs after formatting and before serialization |
+
+### Hoppscotch
+
+| Rule | Description |
+|------|-------------|
+| `hopp.host` | Collection host override |
+| `hopp.prerequest`, `hopp.class.prerequest`, `hopp.collection.prerequest` | Endpoint, class, and collection pre-request scripts |
+| `hopp.test`, `hopp.class.test`, `hopp.collection.test` | Endpoint, class, and collection response tests |
+| `hopp.format.after` | Event that runs after collection formatting |
+
+### Custom framework
+
+Custom is a disabled-by-default framework whose extraction is controlled by `custom.*` rules. The main keys are `custom.class.is.api`, `custom.method.is.api`, `custom.http.method`, `custom.path`, and the `custom.param.*` binding/name rules. It also provides `custom.class.parse.before`, `custom.class.parse.after`, `custom.method.parse.before`, `custom.method.parse.after`, and `custom.export.after` lifecycle hooks.
+
+See [Custom Framework](/framework/custom) for a worked example and the migration from the old `mdoc.*` generic-export keys.
+
+## AI-assisted workflows
+
+The AI assistant can inspect the project and existing rule files before proposing changes. Newer agent workflows also use task-scoped isolation, retry failed conversations, and inspect method bodies and resolved type names when detecting custom framework behavior. Always review the proposal and approve the save explicitly.
+
+For authentication or host workflows spanning several applications, keep the producer script, consumer header, host, and environment variable in one bundle. Namespace each app's host and token variables with its normalized module or application name so services in the same workspace do not overwrite one another. Do not place credentials directly in rule values; reference environment variables instead.

@@ -12,6 +12,7 @@ EasyApi understands standard HTTP frameworks out of the box — you do not need 
 | [Feign](./springboot#feign-support) | Spring Cloud OpenFeign client interfaces (`@FeignClient`) |
 | [JAX-RS](./jaxrs) | Java RESTful Web Services standard (Quarkus / Jersey) |
 | [gRPC](./grpc) | High-performance RPC framework |
+| [Custom](./custom) | Rule-driven support for project-specific API conventions |
 
 ## When You Need Custom Rules
 
