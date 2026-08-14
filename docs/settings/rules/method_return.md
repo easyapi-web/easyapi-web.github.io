@@ -15,4 +15,4 @@ method.return=groovy:it.ann("com.example.CustomReturn")?.value()
 method.return=groovy:it.ann("com.example.CustomReturn")?.value()
 ```
 
-See also: [method.return.main](/settings/rules/method_return_main) for setting the primary return type when multiple exist.
+See also: [method.return.main](/settings/rules/method_return_main) for attaching `@return` doc comments to a specific field in the response type.
