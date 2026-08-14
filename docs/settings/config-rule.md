@@ -190,7 +190,7 @@ The filter goes **inside** `[...]` after the rule key. Valid filter prefixes:
 | `#regex:` | Match by regex against the element's canonical text. Captured groups are available in the value as `${1}`, `${2}`, etc. | `field.name[#regex:.*List.*]=${it.name}s` |
 | `#` | Match elements tagged with the given tag (from comments or annotations). | `method.doc[#internal]=internal` |
 | `!` | Negate the following expression. | `method.doc[!@java.lang.Deprecated]=active` |
-| `groovy:` | Run a Groovy script; a truthy result means the rule matches. | `method.doc[groovy: it.containingClass().name().startsWith("com.example.web.")]=web` |
+| `groovy:` | Run a Groovy script; a truthy result means the rule matches. | `method.doc[groovy: it.containingClass()?.qualifiedName().startsWith("com.example.web.")]=web` |
 | *(none)* | A literal value, or a type name matched against the element's type. | `method.doc=disabled` |
 
 ::: warning

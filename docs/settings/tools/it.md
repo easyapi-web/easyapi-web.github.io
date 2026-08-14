@@ -30,6 +30,10 @@ These methods are available on all context types:
 | `it.hasDoc(tag)` | `Boolean` | Check if a doc tag exists |
 | `it.doc(tag, subTag)` | `String?` | Get a doc tag with sub-tag (e.g., `@param name desc`) |
 
+::: tip
+On a class context, `name()` returns the **simple** class name (e.g. `UserController`); use `qualifiedName()` for the fully-qualified name.
+:::
+
 ### Annotations
 
 | Method | Return Type | Description |
@@ -120,6 +124,12 @@ Available when `it` is a `ClassContext` (class rules):
 | `it.extends()` | `Array<ClassContext>?` | Get extended classes |
 | `it.implements()` | `Array<ClassContext>?` | Get implemented interfaces |
 
+### Class identity in rule scripts
+
+- Use `qualifiedName()` (not `name()`) when you need the fully-qualified name or a package-prefix comparison. On a class context `name()` returns only the **simple** class name (e.g. `UserController`), so a check like `it.name().startsWith("com.example.")` will never match.
+- `containingClass()` returns the class currently being exported (the member's nominal owner); `defineClass()` returns the class that originally declared the member. They differ for inherited members — use `defineClass()` when you want to attribute a field or method to its real declaring class.
+- Use `?.` null-safe navigation (e.g. `it.containingClass()?.qualifiedName()`) because `containingClass()` and `defineClass()` can return `null`.
+
 ## Method Context Methods
 
 Available when `it` is a `MethodContext` (method rules):
@@ -177,8 +187,8 @@ Available when `it` is a `FieldContext` (field rules):
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.containingClass()` | `ClassContext?` | Get the containing class |
-| `it.defineClass()` | `ClassContext?` | Class where field is actually defined |
+| `it.containingClass()` | `ClassContext?` | The class currently being exported (the field's nominal owner) |
+| `it.defineClass()` | `ClassContext?` | The class that originally declared the field (differs from containingClass() for inherited fields) |
 
 ### Field Properties
 

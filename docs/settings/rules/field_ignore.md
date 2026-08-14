@@ -33,3 +33,10 @@ field.ignore=@com.fasterxml.jackson.annotation.JsonIgnore#value
 ```properties
 field.ignore=groovy:!it.hasAnn("com.google.gson.annotations.Expose")
 ```
+
+### Ignore fields declared by a specific base class
+
+```properties
+# Ignore fields declared by a specific base class
+field.ignore=groovy:it.defineClass()?.qualifiedName()=="com.example.dto.TraceBean"
+```

@@ -54,7 +54,7 @@ Each line is one rule: `<key>[<filter>]=<value>`. See [Config Rules](/settings/c
 ```properties
 # security.rules
 # Add an auth header to every endpoint in the admin package
-method.additional.header[groovy: it.containingClass().name().startsWith("com.example.admin.")]={"name":"Authorization","value":"Bearer ${token}","desc":"auth token","required":true}
+method.additional.header[groovy: it.containingClass()?.qualifiedName().startsWith("com.example.admin.")]={"name":"Authorization","value":"Bearer ${token}","desc":"auth token","required":true}
 
 # naming.rules
 # Rename createTime -> created_at in DTOs

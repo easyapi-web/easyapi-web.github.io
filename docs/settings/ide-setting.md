@@ -13,12 +13,14 @@ General plugin settings:
 | **Enable Feign client support** | Recognize `@FeignClient` interfaces as API controllers |
 | **Enable JAX-RS support** | Recognize JAX-RS `@Path` resource classes (default: on) |
 | **Enable Spring Actuator support** | Recognize Spring Boot Actuator endpoint classes |
-| **Enable automatic API scanning on file changes** | Automatically scan for API endpoints when files change (default: on) |
-| **Enable concurrent API scanning (experimental)** | Use concurrent scanning for better performance (default: off) |
 | **Log Level** | Plugin logging verbosity: Silent, Error, Warning, Info, Debug, Trace |
 | **Output Charset** | Character encoding for output files (e.g., UTF-8, GBK, ISO-8859-1) |
 | **Output demo in markdown** | Include example values in Markdown export (default: on) |
 | **Markdown Format** | Output format for Markdown export: Simple or Ultimate |
+
+::: info
+API scanning, automatic/concurrent scanning, and editor integration are now controlled from the **Features** tab.
+:::
 
 ### Cache Management
 
@@ -40,6 +42,20 @@ Configure artifact repositories for gRPC runtime resolution:
 | **Enable** | Enable or disable the repository |
 
 EasyApi searches these repositories for gRPC runtime JARs when the gRPC call feature is enabled.
+
+## Markdown
+
+The persistent **Markdown** settings tab (**Settings > Other Settings > EasyApi > Markdown**) holds the template configuration reused by every Markdown export. These are application-scope preferences, not per-export overrides — the export dialog itself only asks for an output directory and file name.
+
+| Setting | Description |
+|---------|-------------|
+| **Template File** | A local `.tpl` / `.md.tpl` file to use as the template. |
+| **Template URL** | A remote `http(s)` URL to a remote template. Fetched on each export and cached for 10 minutes. Redirects are not followed. |
+| **Language** | Pick a bundled locale-specific template (e.g. `zh-CN`, `ja`, `en`). `en` uses the bundled default. |
+| **Show inline template** | Reveal a text area to paste a template directly. |
+| **Copy default template** | Save the bundled default template to a file so you can edit it. |
+
+See [Export to Markdown](/guide/export-markdown) for the template resolution order and bundled locale templates.
 
 ## Postman
 
@@ -190,13 +206,14 @@ The **Features** tab is the single place to enable or disable extension points. 
 
 | Section | What it controls |
 |---------|------------------|
+| **API Features** | API Scanning (master switch, default on), with nested Automatic API Scanning (default on) and Concurrent API Scanning (default off), plus Editor Integration (gutter icons/line markers, default on, requires API Scanning). |
 | **Framework Support** | Framework recognizers such as Feign, JAX-RS, Actuator, gRPC, and Custom. A framework that is disabled by default appears here and can be explicitly enabled. |
 | **Export Channels** | Output channels such as Markdown, Postman, cURL, HttpClient, Hoppscotch (Beta), and OpenAPI (Beta). Experimental channels are disabled by default. |
 | **Field Format Channels** | Field serializers such as JSON, JSON5, Properties, and YAML. |
 
-Most framework recognizers, export channels, field-format channels, and extension configs can be enabled or disabled from Settings. The General tab provides additional switches for API scanning, automatic/concurrent scanning, and editor gutter navigation.
+API scanning, automatic/concurrent scanning, and editor integration are now controlled from the **Features** tab (in the **API Features** group). The **API Scanning** toggle is the master switch for API discovery — when it is off, automatic scanning, concurrent scanning, and the API gutter icon are all disabled.
 
-The **Enable API scanning** checkbox in the General tab is the master switch for API discovery. When it is off, automatic scanning, concurrent scanning, and the API gutter icon are all disabled. Turn it on before troubleshooting a missing endpoint in the dashboard or editor.
+Features take effect immediately without restarting the IDE. Manual rescan stays available even when Automatic API Scanning is turned off, so you can still trigger a scan on demand. Disabling API Scanning automatically disables Automatic/Concurrent Scanning and Editor Integration (dependency enforcement). Turn API Scanning on before troubleshooting a missing endpoint in the dashboard or editor.
 
 ## cURL
 

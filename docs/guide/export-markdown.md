@@ -1,6 +1,6 @@
 # Export to Markdown
 
-EasyApi can generate Markdown documentation from your API endpoints. Since v3.1.6 the output is driven by a **free-form Markdown template** that you can customize inline, load from a local file, fetch from a remote URL, or pick from the bundled locale-specific templates.
+EasyApi can generate Markdown documentation from your API endpoints. Since v3.1.6 the output is driven by a **free-form Markdown template** that you can customize inline, load from a local file, fetch from a remote URL, or pick from the bundled locale-specific templates. Template settings live in the persistent **Markdown** settings tab (**Settings > Other Settings > EasyApi > Markdown**); the export dialog itself only asks for an output directory and file name.
 
 ## How to Export
 
@@ -44,12 +44,17 @@ Get user by ID
 
 ## Customizing the Template
 
-The Markdown export dialog (right-click > **EasyApi** > **ExportMarkdown**) exposes several fields that control which template is used:
+The Markdown export dialog (right-click > **EasyApi** > **ExportMarkdown**) only asks where to write the file:
 
 | Field | Description |
 |-------|-------------|
 | **Output Directory** | Where the generated `.md` file is written (defaults to the project base path). |
 | **File Name (without extension)** | Output file name (defaults to `api_export`). |
+
+The template itself is configured once in the persistent **Markdown** settings tab (**Settings > Other Settings > EasyApi > Markdown**) and reused across every export. These are application-scope preferences, not per-export overrides:
+
+| Field | Description |
+|-------|-------------|
 | **Template File** | A local `.tpl` / `.md.tpl` file to use as the template. |
 | **Template URL** | An `http(s)` URL to a remote template. Fetched on each export and cached for 10 minutes. Redirects are not followed. |
 | **Language** | Pick a bundled locale-specific template (e.g. `zh-CN`, `ja`, `en`). `en` uses the bundled default. |
@@ -60,21 +65,21 @@ The Markdown export dialog (right-click > **EasyApi** > **ExportMarkdown**) expo
 
 When you trigger an export, EasyApi walks the following precedence chain and uses the **first non-blank tier** that resolves successfully. Blank or missing tiers fall through silently; resolution warnings are surfaced as a notification titled **Markdown Template Resolution**.
 
-1. Inline template from the export dialog (**Show inline template** text area)
-2. Local template file from the dialog (**Template File**)
-3. Remote template URL from the dialog (**Template URL**)
+1. Inline template from the Markdown settings tab (**Show inline template** text area)
+2. Local template file from the Markdown settings tab (**Template File**)
+3. Remote template URL from the Markdown settings tab (**Template URL**)
 4. The `markdown.template` config rule (auto-detected: `http(s)` URL → fetch, single-line path → local file, otherwise inline content)
 5. The convention-based project file `<project>/.easyapi/markdown.tpl` (if it exists)
-6. The bundled locale template selected by `markdown.template.language` (or the **Language** combo)
+6. The bundled locale template selected by `markdown.template.language` (or the **Language** combo in the Markdown settings tab)
 7. The bundled `default.md.tpl` (always the floor — the resolver always returns a usable template)
 
 ### Template File Format
 
-A template is a free-form text file (conventionally with a `.md.tpl` extension) containing double-curly-brace placeholders that EasyApi fills in with the exported API data. To start from a working example, click **Copy default template** in the export dialog to save the bundled default to a file, then edit it.
+A template is a free-form text file (conventionally with a `.md.tpl` extension) containing double-curly-brace placeholders that EasyApi fills in with the exported API data. To start from a working example, click **Copy default template** in the Markdown settings tab to save the bundled default to a file, then edit it.
 
 ### Bundled Locale Templates
 
-EasyApi ships locale-specific templates for the following BCP-47 tags. Select one from the **Language** combo, or set `markdown.template.language=<tag>` in a config rule.
+EasyApi ships locale-specific templates for the following BCP-47 tags. Select one from the **Language** combo in the Markdown settings tab, or set `markdown.template.language=<tag>` in a config rule.
 
 `zh-CN`, `zh-TW`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `ru`, `pt-BR`, `pt`, `it`, `ar`, `hi`, `vi`, `id`, `tr`, `pl`, `uk`, `nl`, `th` (and `en` for the default).
 
