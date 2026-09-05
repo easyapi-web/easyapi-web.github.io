@@ -197,6 +197,24 @@ The filter goes **inside** `[...]` after the rule key. Valid filter prefixes:
 The older `filter?key=value` form and the `~` regex prefix are no longer valid. Use `key[filter]=value` and `#regex:` instead. The bare `class:` prefix (without `$`) is also invalid — use `$class:`.
 :::
 
+### Value Formats
+
+The engine decides how a value is evaluated **by the value's shape**, not by the key — there is no per-key execution mode. The same key can be written in any of the formats below; pick by whether the value is static, already present on the element, or must be computed from project code.
+
+| Format | Meaning | Example |
+|--------|---------|---------|
+| *(literal)* | Value injected as-is (default); multi-line values in triple backticks | `field.ignore=true` |
+| `groovy:` | Run a Groovy script with the `it` context; its **result** becomes the value | `method.additional.header=groovy: it.name()` |
+| `@Fqn` / `@Fqn#attr` | Pull a value from an **annotation** on the element (default attribute `value()`) | `method.doc=@io.swagger.v3.oas.annotations.Operation#description` |
+| `#tag` | Pull a value from a **JavaDoc/KDoc tag** on the element | `method.return=#return` |
+| `${n}` | Substituted with a `#regex:` filter's captured groups | `json.rule.convert[#regex:ApiResult<(.*?)>]=${1}` |
+
+The `groovy:` engine binds `it`, `session`/`S`, `localStorage`, `config`/`C`, `files`/`F`, `httpClient`, `helper`/`H` and `runtime`/`R` (see [Tool Functions](/settings/tools)); the script must `return` the value string, or `return null` to skip.
+
+::: warning Filters vs. values
+Do not confuse the **filter** tokens (`$class:`, `@`, `#tag`, `#regex:`, `!`) inside `[...]`, which decide *whether* a rule applies, with the same `@` / `#` tokens in the **value** position, which *source* the value from the element.
+:::
+
 ### Template Variables
 
 You can define reusable template variables in your config using `${variable_name}`:
@@ -319,6 +337,24 @@ Within the same source, later definitions override earlier ones for `replace` mo
 Custom is a disabled-by-default framework whose extraction is controlled by `custom.*` rules. The main keys are `custom.class.is.api`, `custom.method.is.api`, `custom.http.method`, `custom.path`, and the `custom.param.*` binding/name rules. It also provides `custom.class.parse.before`, `custom.class.parse.after`, `custom.method.parse.before`, `custom.method.parse.after`, and `custom.export.after` lifecycle hooks.
 
 See [Custom Framework](/framework/custom) for a worked example and the migration from the old `mdoc.*` generic-export keys.
+
+## Troubleshooting Rules
+
+### An export comes back empty or misses endpoints
+
+Since v3.2.0, rules that throw while an endpoint is evaluated are collected and surfaced as **one warning notification at the end of the export run**, instead of silently skipping the endpoint. If an export returns fewer APIs than expected, read that notification; the per-occurrence stack traces are in the IDE log (**Help → Show Log in…**).
+
+The usual cause is a Groovy script calling context API that does not exist on that context kind — for example `it.static` as a property instead of the `it.isStatic()` method, or `canonicalText()` on a parameter context (it returns the element path, not the parameter type). See [`it`](/settings/tools/it) for the methods each context exposes.
+
+Well-behaved rules are unaffected: no failure means no notification. Dashboard scans performed outside an export run are logged per occurrence but never ballooned.
+
+### AI proposals are dry-run before they are staged
+
+Proposed Groovy values and filters are executed once against representative PSI contexts before a proposal is shown to you. A compile error or an API miss on **every** context kind blocks the proposal outright; failures on only some context kinds are attached to the proposal as reviewer notes so you can decide.
+
+### Non-ASCII text in rule files
+
+Rule files are read and written as UTF-8. If Chinese or other non-ASCII text appears garbled in the rule editor, re-save the file as UTF-8 — earlier releases could misinterpret the platform default encoding on read and write.
 
 ## AI-assisted workflows
 

@@ -92,7 +92,7 @@ Available when `it` is a `ClassContext` (class rules):
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.isExtend(superClass)` | `Boolean` | Check if extends/implements a class |
+| `it.isExtend(superClass)` | `Boolean` | Check if extends/implements a class — `superClass` must be a **fully qualified name** |
 | `it.isMap()` | `Boolean` | Check if is a Map type |
 | `it.isCollection()` | `Boolean` | Check if is a Collection type |
 | `it.isArray()` | `Boolean` | Check if is an array type |
@@ -126,6 +126,7 @@ Available when `it` is a `ClassContext` (class rules):
 ### Class identity in rule scripts
 
 - Use `qualifiedName()` (not `name()`) when you need the fully-qualified name or a package-prefix comparison. On a class context `name()` returns only the **simple** class name (e.g. `UserController`), so a check like `it.name().startsWith("com.example.")` will never match.
+- `isExtend()` matches **fully qualified names only** — it delegates to `InheritanceHelper.isInheritor`, so a simple name silently never matches. Write `it.isExtend("com.example.Result")`; `it.isExtend("Result")` always returns `false`.
 - `containingClass()` returns the class currently being exported (the member's nominal owner); `defineClass()` returns the class that originally declared the member. They differ for inherited members — use `defineClass()` when you want to attribute a field or method to its real declaring class.
 - Use `?.` null-safe navigation (e.g. `it.containingClass()?.qualifiedName()`) because `containingClass()` and `defineClass()` can return `null`.
 
@@ -241,7 +242,7 @@ Available when `it` is a `TypeContext`:
 
 | Method | Return Type | Description |
 |--------|-------------|-------------|
-| `it.isExtend(superClass)` | `Boolean` | Check if extends a class |
+| `it.isExtend(superClass)` | `Boolean` | Check if extends a class — `superClass` must be a **fully qualified name** |
 | `it.isMap()` | `Boolean` | Check if is a Map type |
 | `it.isCollection()` | `Boolean` | Check if is a Collection type |
 | `it.isArray()` | `Boolean` | Check if is an array type |
@@ -251,6 +252,10 @@ Available when `it` is a `TypeContext`:
 | `it.isInterface()` | `Boolean` | Check if is an interface |
 | `it.isAnnotationType()` | `Boolean` | Check if is an annotation type |
 | `it.isEnum()` | `Boolean` | Check if is an enum |
+
+::: warning isExtend() needs a fully qualified name
+`isExtend()` matches fully qualified names only. `type.isExtend("java.lang.Number")` works; `type.isExtend("Number")` never matches and silently returns `false`, which makes rules such as `method.return.main[groovy:it.returnType().isExtend("Result")]=data` look inert with no error.
+:::
 
 ### Members
 
