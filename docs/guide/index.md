@@ -10,11 +10,12 @@ Most extension points can be enabled or disabled from **Settings** > **Other Set
 
 ## Features
 
-- **Export API Documents** — Generate API documentation from your code and export to Postman, Markdown, cURL, IntelliJ HTTP Client, Hoppscotch, or OpenAPI 3.0.3.
-- **Beta Export Channels** — Enable Hoppscotch and OpenAPI from the Features tab when you need them.
-- **API Dashboard** — Browse all endpoints in a tree view, edit and send requests, view responses, and export — all within the IDE.
-- **Gutter Icon Navigation** — Click the gutter icon next to any API method to jump directly to it in the API Dashboard.
-- **Search Everywhere** — Find API endpoints by path, URL, method prefix, or gRPC URL using IntelliJ's Search Everywhere.
+- **Export API Documents** — Generate API documentation from your code and export to Postman, Markdown, cURL, IntelliJ HTTP Client, Hoppscotch, OpenAPI 3.0.3, or ApiPost.
+- **Beta Export Channels** — Enable Hoppscotch, OpenAPI, and ApiPost from the Features tab when you need them.
+- **API Explorer** — Browse all endpoints in a tree view, edit and send requests, view responses, and export — all within the IDE.
+- **Gutter Icon Navigation** — Click the gutter icon next to any API method to jump directly to it in the API Explorer.
+- **Copy API URL** — Copy the `METHOD /path` address of every endpoint in a selection, from the editor or the project view.
+- **Search Everywhere** — Find API endpoints by address, name, path, URL, method prefix, or gRPC URL under their own **APIs** tab.
 - **Framework Support** — Works with Spring MVC, Spring Boot, Spring WebFlux, Feign, JAX-RS (Quarkus/Jersey), gRPC, and more.
 - **Language Support** — Java, Kotlin, and Scala.
 - **Validation & Serialization** — Full support for javax.validation, Jackson, Gson, and Swagger annotations.
@@ -31,6 +32,6 @@ Most extension points can be enabled or disabled from **Settings** > **Other Set
 
 - [Installation](/guide/installation)
 - [Usage](/guide/use)
-- [API Dashboard & Call](/guide/call)
+- [API Explorer & Call](/guide/call)
 - [Spring Boot Support](/framework/springboot)
 - [Configuration](/settings/)

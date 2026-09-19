@@ -8,7 +8,7 @@ EasyApi can export your API definitions as IntelliJ IDEA HttpClient `.http` file
 2. Right-click in the editor > **EasyApi** > **EXPORT** > **HttpClient**
 3. An `.http` file will be generated with all API requests
 
-You can also export from the API Dashboard by right-clicking an endpoint and selecting **Export** > **HTTP Client**.
+You can also export from the API Explorer by right-clicking an endpoint and selecting **Export** > **HTTP Client**.
 
 ## Export Scope
 

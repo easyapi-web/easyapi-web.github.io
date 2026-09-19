@@ -8,7 +8,7 @@ EasyApi can export your API definitions as cURL commands.
 2. Right-click in the editor > **EasyApi** > **Export** > **cURL**
 3. cURL commands for all APIs will be generated
 
-You can also export from the API Dashboard by right-clicking an endpoint and selecting **Export** > **cURL**, or by using **Copy as cURL** to copy a single command to the clipboard.
+You can also export from the API Explorer by right-clicking an endpoint and selecting **Export** > **cURL**, or by using **Copy as cURL** to copy a single command to the clipboard.
 
 ## Export Scope
 
@@ -60,7 +60,7 @@ The cURL export dialog can override the saved cURL defaults for each export:
 - Use long flags such as `--request`, `--header`, and `--data` instead of short flags
 - Append a response body example as a comment when one is available
 
-The Dashboard **Copy as cURL** action uses the saved formatting options. You can also configure whether it uses the endpoint as edited in the Dashboard or the original source endpoint.
+The API Explorer **Copy as cURL** action uses the saved formatting options. You can also configure whether it uses the endpoint as edited in the API Explorer or the original source endpoint.
 
 ## Pre-request scripts
 

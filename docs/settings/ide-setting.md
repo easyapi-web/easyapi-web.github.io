@@ -96,6 +96,8 @@ Configure the built-in HTTP client:
 
 Manage extension configurations that provide framework-specific rules. Extensions can be enabled or disabled individually. Select an extension in the list to preview its configuration content.
 
+A deselected extension is now remembered across restarts: the saved `extensionConfigs` value records a `-<code>` exclusion (for example `-swagger3`) for every default-enabled extension you unchecked, so an unchecked box no longer falls back to that extension's default.
+
 Available extensions include:
 
 | Extension | Default | Description |
@@ -206,23 +208,23 @@ The **Features** tab is the single place to enable or disable extension points. 
 
 | Section | What it controls |
 |---------|------------------|
-| **API Features** | API Scanning (master switch, default on), with nested Automatic API Scanning (default on) and Concurrent API Scanning (default off), plus Editor Integration (gutter icons/line markers, default on, requires API Scanning). |
+| **API Features** | API Scanning (master switch, default on), with nested Automatic API Scanning (default on) and Concurrent API Scanning (default off), plus Editor Integration (gutter icons/line markers, default on, requires API Scanning). The surfaces **Copy API URL** (default on) and **Search Everywhere** (default on) live here too — neither depends on API Scanning, because both read the retained API index, which an API Explorer Refresh refills even while API Scanning is off. |
 | **Framework Support** | Framework recognizers such as Feign, JAX-RS, Actuator, gRPC, and Custom. A framework that is disabled by default appears here and can be explicitly enabled. |
-| **Export Channels** | Output channels such as Markdown, Postman, cURL, HttpClient, Hoppscotch (Beta), and OpenAPI (Beta). Experimental channels are disabled by default. |
+| **Export Channels** | Output channels such as Markdown, Postman, cURL, HttpClient, Hoppscotch (Beta), OpenAPI (Beta), and ApiPost (Beta). Experimental channels are disabled by default. |
 | **Field Format Channels** | Field serializers such as JSON, JSON5, Properties, and YAML. |
 
 API scanning, automatic/concurrent scanning, and editor integration are now controlled from the **Features** tab (in the **API Features** group). The **API Scanning** toggle is the master switch for API discovery — when it is off, automatic scanning, concurrent scanning, and the API gutter icon are all disabled.
 
-Features take effect immediately without restarting the IDE. Manual rescan stays available even when Automatic API Scanning is turned off, so you can still trigger a scan on demand. Disabling API Scanning automatically disables Automatic/Concurrent Scanning and Editor Integration (dependency enforcement). Turn API Scanning on before troubleshooting a missing endpoint in the dashboard or editor.
+Features take effect immediately without restarting the IDE. Manual rescan stays available even when Automatic API Scanning is turned off, so you can still trigger a scan on demand. Disabling API Scanning automatically disables Automatic/Concurrent Scanning and Editor Integration (dependency enforcement). Turn API Scanning on before troubleshooting a missing endpoint in the API Explorer or editor.
 
 ## cURL
 
-The cURL settings tab controls variable rendering and the defaults used by both batch export and Dashboard **Copy as cURL**:
+The cURL settings tab controls variable rendering and the defaults used by both batch export and API Explorer **Copy as cURL**:
 
 | Setting | Description |
 |---------|-------------|
 | **Render mode** | Keep placeholders, resolve with the active environment, or ask before each export. Environment values take precedence over config-reader values. |
-| **Copy from edited** | Use the endpoint edited in the Dashboard instead of the source endpoint when copying cURL. |
+| **Copy from edited** | Use the endpoint edited in the API Explorer instead of the source endpoint when copying cURL. |
 | **Include comments and section dividers** | Add endpoint headings and separators to a batch script. |
 | **Pretty-print JSON body** | Format JSON request bodies with indentation. |
 | **Multi-line format** | Put one cURL flag on each line. |
@@ -237,6 +239,19 @@ The export dialog exposes the formatting and pre-request-script options as per-e
 OpenAPI export is disabled by default. After enabling it in **Features**, the OpenAPI settings tab lets you choose **JSON**, **YAML**, or **Ask each export**. The default file names are `openapi.json` and `openapi.yaml`.
 
 Document-level metadata is configured with `openapi.info.title`, `openapi.info.version`, `openapi.info.description`, and `openapi.server.url` rules. The legacy `openapi.host` rule is also supported. See [Export to OpenAPI](/guide/export-openapi).
+
+## ApiPost (Beta)
+
+Like the other beta channels, ApiPost is disabled by default. After enabling it in **Features**, its settings tab appears in Settings:
+
+| Setting | Scope | Description |
+|---------|-------|-------------|
+| **Server** | Application | ApiPost open API host, default `https://open.apipost.net`. Only used to assemble open API requests. |
+| **Token** | Application | The ApiPost open API token, sent as the `api-token` header. Without it the export falls back to writing a file. |
+| **Team** | — | The teams the token can reach. Press **Load** (or change the token) to fetch them. |
+| **Project** | Project | The target project. Press **Refresh** to list the projects of the selected team. |
+
+The project id is per repository on purpose — an application-scoped id would leak across repositories and push one repository's endpoints into another repository's project with nothing to notice. See [Export to ApiPost](/guide/export-apipost).
 
 ## Custom framework
 

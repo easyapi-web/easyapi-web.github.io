@@ -10,17 +10,21 @@ You can export APIs from multiple files or an entire module at once:
 2. Right-click > **EasyApi** > **ExportToPostman**/**ExportMarkdown**
 3. All APIs from the selected scope will be exported
 
-## API Dashboard & Call
+## API Explorer & Call
 
-The API Dashboard provides a tree view of all APIs in your project with request editing, response viewing, and export capabilities. It also includes a gutter icon for quick navigation from source code.
+The **API Explorer** provides a tree view of all APIs in your project with request editing, response viewing, and export capabilities. It also includes a gutter icon for quick navigation from source code.
 
-See [API Dashboard & Call](/guide/call) for full documentation.
+See [API Explorer & Call](/guide/call) for full documentation.
 
-## API Search Everywhere
+## Searching Endpoints
 
-Use IntelliJ's **Search Everywhere** (double-press Shift) to find API endpoints by path, URL, method prefix, or gRPC URL — with path variable matching support.
+Use IntelliJ's **Search Everywhere** (double-press Shift) to find API endpoints by address, name, path, URL, method prefix, or gRPC URL — with path variable and fuzzy matching support. Endpoints appear under their own **APIs** tab.
 
-See [API Search Everywhere](/guide/call#api-search-everywhere) for details.
+See [Searching Endpoints](/guide/call#searching-endpoints) for details.
+
+## Copy API URL
+
+Right-click a selection and choose **EasyApi** > **Copy API URL** to copy the address (`METHOD /path`) of every endpoint in the selection.
 
 ## Event Hooks
 
