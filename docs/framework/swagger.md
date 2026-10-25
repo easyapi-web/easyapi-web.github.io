@@ -12,9 +12,11 @@ The `swagger` extension (enabled by default) provides support for Swagger 2.x an
 |------------|--------------|
 | `@Api` | `class.doc` (value, tags), `ignore` (hidden) |
 | `@ApiModel` | `class.doc` (value, description) |
-| `@ApiModelProperty` | `field.name` (name), `field.doc` (value, notes), `field.required` (required), `field.ignore` (hidden) |
-| `@ApiOperation` | `method.doc` (value) |
-| `@ApiParam` | `param.doc` (value), `param.default.value` (defaultValue), `param.required` (required), `param.ignore` (hidden) |
+| `@ApiModelProperty` | `field.name` (name), `field.doc` (value, notes), `field.required` (required), `field.ignore` (hidden), `field.demo` (example) |
+| `@ApiOperation` | `method.doc` (value, notes), `ignore` (hidden), `method.default.http.method` (httpMethod) |
+| `@ApiParam` | `param.doc` (value), `param.default.value` (defaultValue), `param.required` (required), `param.ignore` (hidden), `param.demo` (example) |
+| `@ApiImplicitParam` / `@ApiImplicitParams` | Parameter extraction for parameters with no Java signature, routed by `paramType` |
+| `@ApiResponse` / `@ApiResponses` | Appends `**response <code>**: <message>` to the endpoint description |
 
 ### Swagger 2 Example
 
@@ -51,6 +53,47 @@ public class User {
     private String username;
 }
 ```
+
+### @ApiImplicitParam
+
+`@ApiImplicitParam` (and its `@ApiImplicitParams` container) declares parameters that have no matching Java signature — request headers above all. Each entry is routed by its `paramType` onto the matching parameter list, and `defaultValue` is carried through as the parameter default:
+
+```java
+@ApiOperation(value = "Get user by ID")
+@ApiImplicitParams({
+    @ApiImplicitParam(name = "X-Tenant", value = "Tenant ID", paramType = "header", required = true),
+    @ApiImplicitParam(name = "verbose", value = "Include details", paramType = "query", defaultValue = "false")
+})
+@GetMapping("/{id}")
+public User getUser(@PathVariable Long id) {
+    // ...
+}
+```
+
+| `paramType` | Exported as |
+|-------------|-------------|
+| `query` (default) | Query parameter |
+| `form` | Form parameter |
+| `path` | Path variable |
+| `header` | Request header |
+
+### @ApiResponse
+
+`@ApiResponse` and `@ApiResponses` append each declared code and message to the endpoint description, so every channel renders them:
+
+```java
+@ApiOperation(value = "Update user")
+@ApiResponses({
+    @ApiResponse(code = 200, message = "User updated successfully"),
+    @ApiResponse(code = 404, message = "User not found")
+})
+@PutMapping("/{id}")
+public User updateUser(@PathVariable Long id, @RequestBody UserRequest request) {
+    // ...
+}
+```
+
+Only `code` and `message` are carried — the response type still comes from the method's return type.
 
 ## Swagger 3 / OpenAPI 3 (io.swagger.v3.oas.annotations)
 

@@ -34,6 +34,20 @@ public String hello(@RequestParam String name) {
 | `@mock` | Mock data | `@mock admin` |
 | `@see` | See also | `@see User` |
 
+### Record Components
+
+A Java `record` component carries no per-field comment, so document the components with `@param` tags on the record's own Javadoc. Since v3.2.2 they are exported as the field descriptions, in every channel:
+
+```java
+/**
+ * User record
+ *
+ * @param id User ID
+ * @param name User name
+ */
+public record UserRecord(Long id, String name) {}
+```
+
 ### Multiple Return Types
 
 Use multiple `@return` tags to document different response scenarios:
